@@ -23,7 +23,7 @@
 ^^^
 DXインフルエンサ養成プログラムのステージ2を受講している全員．プログラミングの基礎的な知識や機械学習法の基本的な利用方法を習得している人．
 
-<img scr="image/metalife.png">
+<img src="image/metalife.png">
 
 
 ---
