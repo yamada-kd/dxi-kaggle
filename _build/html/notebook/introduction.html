@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Kaggle Fight Club</title>
+    <title>1. グーグルコラボラトリー &#8212; Kaggle Fight Club</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. 教師あり学習法" href="scikit_learn_01.html" />
+    <link rel="next" title="2. 教師あり学習法" href="scikit_learn_01.html" />
     <link rel="prev" title="はじめに" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -93,18 +93,30 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  イントロダクション
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   1. グーグルコラボラトリー
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   機械学習
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="scikit_learn_01.html">
-   1. 教師あり学習法
+   2. 教師あり学習法
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="scikit_learn_02.html">
-   2. 教師なし学習法
+   3. 教師なし学習法
   </a>
  </li>
 </ul>
@@ -206,7 +218,73 @@ const thebe_selector_output = ".output, .cell_output"
                 <i class="fas fa-list"></i> Contents
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   1.1. グーグルドライブの設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.1.1. フォルダの作成
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaggle">
+   1.2. Kaggle の設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     1.2.1. Kaggle へのサインイン
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kaggle-api-token">
+     1.2.2. Kaggle API Token
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api">
+     1.2.3. API のインストール
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   1.3. Kaggle の実行
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     1.3.1. 例題
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     1.3.2. 作業用フォルダの作成
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     1.3.3. ダウンロード
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     1.3.4. 解析の手順
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     1.3.5. 結果の投稿
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
             </nav>
@@ -217,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>グーグルコラボラトリー</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -226,7 +304,73 @@ const thebe_selector_output = ".output, .cell_output"
                             <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   1.1. グーグルドライブの設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     1.1.1. フォルダの作成
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kaggle">
+   1.2. Kaggle の設定
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     1.2.1. Kaggle へのサインイン
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kaggle-api-token">
+     1.2.2. Kaggle API Token
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api">
+     1.2.3. API のインストール
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   1.3. Kaggle の実行
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     1.3.1. 例題
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     1.3.2. 作業用フォルダの作成
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     1.3.3. ダウンロード
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     1.3.4. 解析の手順
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     1.3.5. 結果の投稿
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -236,8 +380,10 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <p>#グーグルコラボラトリー</p>
-<p>##グーグルドライブの設定</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">1. </span>グーグルコラボラトリー<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">1.1. </span>グーグルドライブの設定<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>###ドライブのマウント</p>
 <p>グーグルドライブをグーグルコラボラトリーと連携する方法を紹介します．最初に，このグーグルコラボラトリーが動いている計算機にどのようなファイルが置かれているかを確認します．以下のように Linux のコマンドを打ちます．</p>
 <div class="cell docutils container">
@@ -283,7 +429,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>すなわち，<code class="docutils literal notranslate"><span class="pre">drive/MyDrive</span></code> がマウントしたグーグルドライブの場所です．</p>
 <p><font color="Crimson">(9｀･ω･)9 ｡oO(この <code class="docutils literal notranslate"><span class="pre">/</span></code> は，その左に書かれている名前のフォルダの中に，その右に書かれている名前のフォルダが存在していることを示しています．つまり，<code class="docutils literal notranslate"><span class="pre">drive/MyDrive</span></code> は <code class="docutils literal notranslate"><span class="pre">drive</span></code> というフォルダの中に存在している <code class="docutils literal notranslate"><span class="pre">MyDrive</span></code> を意味します．)</font></p>
-<p>###フォルダの作成</p>
+<div class="section" id="id3">
+<h3><span class="section-number">1.1.1. </span>フォルダの作成<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Kaggle に参加するためにグーグルドライブ内に「kaggle」という名前のフォルダを作成すると便利なので以下のコマンドで作っておきます．（以下のコマンドでは「kaggle」というフォルダの中にさらに「token」というフォルダを作成しています．）</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -300,14 +447,20 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>##Kaggle の設定</p>
-<p>###Kaggle へのサインイン</p>
+</div>
+</div>
+<div class="section" id="kaggle">
+<h2><span class="section-number">1.2. </span>Kaggle の設定<a class="headerlink" href="#kaggle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h3><span class="section-number">1.2.1. </span>Kaggle へのサインイン<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>以下の URL から Kaggle にアクセスし，サインインします．新たに Kaggle のアカウントを作成する必要はありません．グーグルアカウントでサインインできます．</p>
 <p><a class="reference external" href="https://www.kaggle.com/">https://www.kaggle.com/</a></p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL"><img alt="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" src="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" style="width: 25%;" /></a>
 <p>以下のようなユーザー名を決める画面等が出るので指示に従って進めます．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI"><img alt="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" src="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" style="width: 25%;" /></a>
-<p>###Kaggle API Token</p>
+</div>
+<div class="section" id="kaggle-api-token">
+<h3><span class="section-number">1.2.2. </span>Kaggle API Token<a class="headerlink" href="#kaggle-api-token" title="Permalink to this headline">¶</a></h3>
 <p>グーグルコラボラトリーから Kaggle へは Kaggle API というものを使ってアクセスするのですが，そのために必要な Kaggle API Token というものを Kaggle の公式ページからダウンロードします．そのために，公式ページの「Account」にアクセスし，その後，「Create New API Token」をクリックしてファイルをダウンロードします．Kaggle のトップページに表示されている自身のユーザー名をクリックすると「Account」にアクセスするページに到達できます．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH"><img alt="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" src="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" style="width: 80%;" /></a>
 <p>この操作によって「kaggle.json」という名前のファイルをダウンロードできましたが，今度はこのファイルをグーグルドライブ内の，上の操作で作成した <code class="docutils literal notranslate"><span class="pre">kaggle/token</span></code> にアップロードします．以下のコマンドを打って「kaggle.json」が確認出来たら成功しています．</p>
@@ -338,7 +491,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>###API のインストール</p>
+</div>
+<div class="section" id="api">
+<h3><span class="section-number">1.2.3. </span>API のインストール<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
 <p>Kaggle を利用するための API である Kaggle API をインストールする必要があります．以下のコマンドでインストールできます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -355,8 +510,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>##Kaggle の実行</p>
-<p>###例題</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">1.3. </span>Kaggle の実行<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3><span class="section-number">1.3.1. </span>例題<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>ここでは，以下の URL からアクセスできる問題に取り組みます．「Allstate Claims Severity」と題されています．Allstate は保険会社です．顧客が保険金を請求する際にその保険金を請求するための主張がどれほど深刻なのか，重大なのかを判断するための指標である重大度を予測する問題です．構造化されたデータが提供されており，機械学習の初学者用のデータセットです．トレーニングデータセットのサイズが程よく大きく，過去の参加者の成績が散らばっているためこれを選びました．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity">https://www.kaggle.com/c/allstate-claims-severity</a></p>
 <p><font color="Crimson">この問題に取り組むために Rules というタブをクリックして確認できる，この問題のルールを理解して承諾することを確認する部分をクリックしてください．</font></p>
@@ -365,7 +524,9 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw"><img alt="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" src="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" style="width: 80%;" /></a>
 <p>送られてきたコードを入力すると以降の操作が可能になります．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV"><img alt="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" src="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" style="width: 80%;" /></a>
-<p>###作業用フォルダの作成</p>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">1.3.2. </span>作業用フォルダの作成<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <p>これから Kaggle よりデータセットをダウンロードしますが，データをカレントディレクトリにダウンロードすると，他の問題に取り組みたいときにデータセットをダウンロードした場合に名前が重複してしまったり，また，グーグルコラボラトリーが初期化されてしまったときにファイルを残せなかったりと不便なので，グーグルドライブ内に新たなフォルダを作ります．最初に，以下のようなプロジェクトフォルダを作ります．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -382,7 +543,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>###ダウンロード&lt;</p>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number">1.3.3. </span>ダウンロード<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>データセットのダウンロードの方法は以下のページに書かれている通りです．Kaggle API を使ったダウンロード法が示されています．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/data">https://www.kaggle.com/c/allstate-claims-severity/data</a></p>
 <p>ここではこのコマンドを少し変えて，以下のコマンドでダウンロードします．オプション <code class="docutils literal notranslate"><span class="pre">-p</span></code> を加えることで，ダウンロード先を指定しているのです．</p>
@@ -427,7 +590,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>###解析の手順</p>
+</div>
+<div class="section" id="id9">
+<h3><span class="section-number">1.3.4. </span>解析の手順<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>ここから先の解析についてはこのコンテンツではお教えしません．色々な解析ができると思いますので色々とやってみてください．</p>
 <ul class="simple">
 <li><p>データセットの中身を確認する</p></li>
@@ -442,7 +607,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>また，以下の「Code」というページを読むこともとても有用です．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/code">https://www.kaggle.com/c/allstate-claims-severity/code</a></p>
 <p>まずはこれらを読んで全体を把握するのが良いのだと思います．</p>
-<p>###結果の投稿</p>
+</div>
+<div class="section" id="id10">
+<h3><span class="section-number">1.3.5. </span>結果の投稿<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>テストデータセットに対して行った結果は sample_submission.csv と同じフォーマットに整えます．これを Kaggle に投稿しますが，この操作も API を利用して行うことができます．投稿に必要なコマンドは以下のページに示されています．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/submit">https://www.kaggle.com/c/allstate-claims-severity/submit</a></p>
 <p>ここでは，sample_submission.csv をそのまま投稿してみます．<code class="docutils literal notranslate"><span class="pre">-f</span></code> によってファイルの場所を指定します．以下のように打ちます．<code class="docutils literal notranslate"><span class="pre">-m</span></code> のところには何かしらのメモを書くことができます．カレントディレクトリを変更していない場合は <code class="docutils literal notranslate"><span class="pre">-f</span></code> に指定する値はそのファイルの場所を正確に記述してください．</p>
@@ -462,6 +629,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p>以下のページ，Leaderborad の結果を超えられるように頑張ってください．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/leaderboard">https://www.kaggle.com/c/allstate-claims-severity/leaderboard</a></p>
 <p><font color="Crimson">(9｀･ω･)9 ｡oO(終わりです．頑張ってください！)</font></p>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -498,7 +668,7 @@ const thebe_selector_output = ".output, .cell_output"
     <a class='right-next' id="next-link" href="scikit_learn_01.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>教師あり学習法</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>教師あり学習法</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
