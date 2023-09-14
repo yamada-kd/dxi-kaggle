@@ -52,7 +52,3 @@ if __name__ == "__main__":
 ! head -n 15 sample_submission.csv
 
 ! kaggle competitions submit -c allstate-claims-severity -f sample_submission.csv -m "Message"
-
-! mkdir -p /content/drive/MyDrive/kaggle/project/jigsaw
-
-! kaggle competitions download -c jigsaw-toxic-comment-classification-challenge -p /content/drive/MyDrive/kaggle/project/jigsaw

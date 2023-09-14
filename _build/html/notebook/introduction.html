@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. グーグルコラボラトリー &#8212; Kaggle Fight Club</title>
+    <title>&lt;no title&gt; &#8212; Kaggle Fight Club</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. 教師あり学習法" href="scikit_learn_01.html" />
     <link rel="prev" title="はじめに" href="../index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -92,13 +93,18 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  データ科学を学ぶにあたって
+  機械学習
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   1. グーグルコラボラトリー
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scikit_learn_01.html">
+   1. 教師あり学習法
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scikit_learn_02.html">
+   2. 教師なし学習法
   </a>
  </li>
 </ul>
@@ -196,6 +202,14 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -203,30 +217,28 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>グーグルコラボラトリー</h1>
+                <h1><no title></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">1. </span>グーグルコラボラトリー<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>#1. <font color="Crimson">はじめに</font></p>
-<p>##1-1. <font color="Crimson">このコンテンツで学ぶこと</font></p>
-<p>Google Colaboratory（グーグルコラボラトリー）を用いて Kaggle に取り組む方法を学びます．Kaggle とは世界で最も有名な機械学習のコンテストです．様々な種類の問題が提出されており，それを解いて公式サイトに投稿します．Kaggle の各問題と共に提供されているデータセットを自身の計算機環境にダウンロードして機械学習モデルを構築し，テストデータセットに対する予測結果を投稿する，というのが Kaggle の一連の流れです．グーグルコラボラトリーを利用するとこの過程をより簡単に進めることができます．</p>
-<p>##1-2. <font color="Crimson">開始前に行うこと（重要）</font></p>
-<p><font color="Crimson">上の（このグーグルコラボラトリー自体の一番上の）「ファイル」をクリックし，さらにポップアップで出てくる項目から「ドライブにコピーを保存」をクリックし，自身のグーグルドライブにこのウェブページ全体のソースを保存します（グーグルのアカウントが必要です）．</font>こうすることによって，自分で書いたプログラムを実行することができるようになります．また，メモ等を自由に以下のスペースに追加することができるようになります．</p>
-<p>##1-3. <font color="Crimson">コンパニオン</font></p>
-<p>このコンテンツには，受講者の理解を助けるためのコンパニオンがいます．以下のものは「サミー先生」です．サミー先生は今回のこの教材の制作者ではないのですが分かり難いところを詳しく教えてくれます．</p>
-<p><font color="Crimson">(9｀･ω･)9 ｡oO(ちゃお！)</font></p>
-<p>#2. <font color="Crimson">Kaggle への参加方法</font></p>
-<p>##2-1. <font color="Crimson">グーグルドライブの設定</font></p>
-<p>###2-1-1. <font color="Crimson">ドライブのマウント</font></p>
+  <p>#グーグルコラボラトリー</p>
+<p>##グーグルドライブの設定</p>
+<p>###ドライブのマウント</p>
 <p>グーグルドライブをグーグルコラボラトリーと連携する方法を紹介します．最初に，このグーグルコラボラトリーが動いている計算機にどのようなファイルが置かれているかを確認します．以下のように Linux のコマンドを打ちます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -271,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>すなわち，<code class="docutils literal notranslate"><span class="pre">drive/MyDrive</span></code> がマウントしたグーグルドライブの場所です．</p>
 <p><font color="Crimson">(9｀･ω･)9 ｡oO(この <code class="docutils literal notranslate"><span class="pre">/</span></code> は，その左に書かれている名前のフォルダの中に，その右に書かれている名前のフォルダが存在していることを示しています．つまり，<code class="docutils literal notranslate"><span class="pre">drive/MyDrive</span></code> は <code class="docutils literal notranslate"><span class="pre">drive</span></code> というフォルダの中に存在している <code class="docutils literal notranslate"><span class="pre">MyDrive</span></code> を意味します．)</font></p>
-<p>###2-1-2. <font color="Crimson">フォルダの作成</font></p>
+<p>###フォルダの作成</p>
 <p>Kaggle に参加するためにグーグルドライブ内に「kaggle」という名前のフォルダを作成すると便利なので以下のコマンドで作っておきます．（以下のコマンドでは「kaggle」というフォルダの中にさらに「token」というフォルダを作成しています．）</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -288,14 +300,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>##2-2. <font color="Crimson">Kaggle の設定</font></p>
-<p>###2-2-1. <font color="Crimson">Kaggle へのサインイン</font></p>
+<p>##Kaggle の設定</p>
+<p>###Kaggle へのサインイン</p>
 <p>以下の URL から Kaggle にアクセスし，サインインします．新たに Kaggle のアカウントを作成する必要はありません．グーグルアカウントでサインインできます．</p>
 <p><a class="reference external" href="https://www.kaggle.com/">https://www.kaggle.com/</a></p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL"><img alt="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" src="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" style="width: 25%;" /></a>
 <p>以下のようなユーザー名を決める画面等が出るので指示に従って進めます．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI"><img alt="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" src="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" style="width: 25%;" /></a>
-<p>###2-2-2. <font color="Crimson">Kaggle API Token</font></p>
+<p>###Kaggle API Token</p>
 <p>グーグルコラボラトリーから Kaggle へは Kaggle API というものを使ってアクセスするのですが，そのために必要な Kaggle API Token というものを Kaggle の公式ページからダウンロードします．そのために，公式ページの「Account」にアクセスし，その後，「Create New API Token」をクリックしてファイルをダウンロードします．Kaggle のトップページに表示されている自身のユーザー名をクリックすると「Account」にアクセスするページに到達できます．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH"><img alt="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" src="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" style="width: 80%;" /></a>
 <p>この操作によって「kaggle.json」という名前のファイルをダウンロードできましたが，今度はこのファイルをグーグルドライブ内の，上の操作で作成した <code class="docutils literal notranslate"><span class="pre">kaggle/token</span></code> にアップロードします．以下のコマンドを打って「kaggle.json」が確認出来たら成功しています．</p>
@@ -326,7 +338,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>###2-2-3. <font color="Crimson">API のインストール</font></p>
+<p>###API のインストール</p>
 <p>Kaggle を利用するための API である Kaggle API をインストールする必要があります．以下のコマンドでインストールできます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -343,8 +355,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>##2-3. <font color="Crimson">Kaggle の実行</font></p>
-<p>###2-3-1. <font color="Crimson">問題</font></p>
+<p>##Kaggle の実行</p>
+<p>###例題</p>
 <p>ここでは，以下の URL からアクセスできる問題に取り組みます．「Allstate Claims Severity」と題されています．Allstate は保険会社です．顧客が保険金を請求する際にその保険金を請求するための主張がどれほど深刻なのか，重大なのかを判断するための指標である重大度を予測する問題です．構造化されたデータが提供されており，機械学習の初学者用のデータセットです．トレーニングデータセットのサイズが程よく大きく，過去の参加者の成績が散らばっているためこれを選びました．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity">https://www.kaggle.com/c/allstate-claims-severity</a></p>
 <p><font color="Crimson">この問題に取り組むために Rules というタブをクリックして確認できる，この問題のルールを理解して承諾することを確認する部分をクリックしてください．</font></p>
@@ -353,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw"><img alt="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" src="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" style="width: 80%;" /></a>
 <p>送られてきたコードを入力すると以降の操作が可能になります．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV"><img alt="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" src="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" style="width: 80%;" /></a>
-<p>###2-3-2. <font color="Crimson">作業用フォルダの作成</font></p>
+<p>###作業用フォルダの作成</p>
 <p>これから Kaggle よりデータセットをダウンロードしますが，データをカレントディレクトリにダウンロードすると，他の問題に取り組みたいときにデータセットをダウンロードした場合に名前が重複してしまったり，また，グーグルコラボラトリーが初期化されてしまったときにファイルを残せなかったりと不便なので，グーグルドライブ内に新たなフォルダを作ります．最初に，以下のようなプロジェクトフォルダを作ります．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -370,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>###2-3-3. <font color="Crimson">ダウンロード</font></p>
+<p>###ダウンロード&lt;</p>
 <p>データセットのダウンロードの方法は以下のページに書かれている通りです．Kaggle API を使ったダウンロード法が示されています．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/data">https://www.kaggle.com/c/allstate-claims-severity/data</a></p>
 <p>ここではこのコマンドを少し変えて，以下のコマンドでダウンロードします．オプション <code class="docutils literal notranslate"><span class="pre">-p</span></code> を加えることで，ダウンロード先を指定しているのです．</p>
@@ -415,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>###2-3-4. <font color="Crimson">解析の手順</font></p>
+<p>###解析の手順</p>
 <p>ここから先の解析についてはこのコンテンツではお教えしません．色々な解析ができると思いますので色々とやってみてください．</p>
 <ul class="simple">
 <li><p>データセットの中身を確認する</p></li>
@@ -430,7 +442,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>また，以下の「Code」というページを読むこともとても有用です．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/code">https://www.kaggle.com/c/allstate-claims-severity/code</a></p>
 <p>まずはこれらを読んで全体を把握するのが良いのだと思います．</p>
-<p>###2-3-5. <font color="Crimson">結果の投稿</font></p>
+<p>###結果の投稿</p>
 <p>テストデータセットに対して行った結果は sample_submission.csv と同じフォーマットに整えます．これを Kaggle に投稿しますが，この操作も API を利用して行うことができます．投稿に必要なコマンドは以下のページに示されています．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/submit">https://www.kaggle.com/c/allstate-claims-severity/submit</a></p>
 <p>ここでは，sample_submission.csv をそのまま投稿してみます．<code class="docutils literal notranslate"><span class="pre">-f</span></code> によってファイルの場所を指定します．以下のように打ちます．<code class="docutils literal notranslate"><span class="pre">-m</span></code> のところには何かしらのメモを書くことができます．カレントディレクトリを変更していない場合は <code class="docutils literal notranslate"><span class="pre">-f</span></code> に指定する値はそのファイルの場所を正確に記述してください．</p>
@@ -449,27 +461,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/submissions">https://www.kaggle.com/c/allstate-claims-severity/submissions</a></p>
 <p>以下のページ，Leaderborad の結果を超えられるように頑張ってください．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/leaderboard">https://www.kaggle.com/c/allstate-claims-severity/leaderboard</a></p>
-<p>###2-3-6. <font color="Crimson">もうひとつの問題</font></p>
-<p>実習の後半にもうひとつの問題に取り組みます．その情報を載せます．以下のページにある問題に取り組みます．オンラインコメントが有害なものであるかどうかを予測します．詳細はページ内のコンテンツを読んでください．</p>
-<p><a class="reference external" href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge">https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge</a></p>
-<p>上と同じように新たなフォルダ <code class="docutils literal notranslate"><span class="pre">jigsaw</span></code> を作成します．</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! mkdir -p /content/drive/MyDrive/kaggle/project/jigsaw
-</pre></div>
-</div>
-</div>
-</div>
-<p>作成したフォルダにデータセットをダウンロードします（ルールの理解と承諾をクリックすることを忘れるとエラーが出るので気をつけてください．）．</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! kaggle competitions download -c jigsaw-toxic-comment-classification-challenge -p /content/drive/MyDrive/kaggle/project/jigsaw
-</pre></div>
-</div>
-</div>
-</div>
 <p><font color="Crimson">(9｀･ω･)9 ｡oO(終わりです．頑張ってください！)</font></p>
-</div>
 
     <script type="text/x-thebe-config">
     {
@@ -502,6 +494,13 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">はじめに</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="scikit_learn_01.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>教師あり学習法</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             

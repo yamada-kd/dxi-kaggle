@@ -3,6 +3,10 @@ root: index
 defaults:
   numbered: true
 parts:
-- caption: データ科学を学ぶにあたって
+- caption: イントロダクション
   chapters:
   - file: notebook/introduction
+- caption: 機械学習
+  chapters:
+  - file: notebook/scikit_learn_01
+  - file: notebook/scikit_learn_02
