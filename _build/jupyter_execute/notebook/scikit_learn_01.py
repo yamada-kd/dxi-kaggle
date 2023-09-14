@@ -7,6 +7,12 @@
 
 # このコンテンツで紹介する scikit-learn とは様々な機械学習アルゴリズムをとても簡単な記述で実現することができる Python のライブラリです．最初に scikit-learn の基本的な操作方法を紹介した後にいくつかの教師あり学習法を紹介します．
 
+# In[ ]:
+
+
+get_ipython().system(' ls')
+
+
 # ### インポート
 
 # scikit-learn は以下のようにインポートします．以下のコードではインポートした scikit-learn のバージョンを表示させています．
@@ -16,7 +22,7 @@
 
 #!/usr/bin/env python3
 import sklearn
- 
+
 def main():
     print(sklearn.__version__)
 
@@ -86,7 +92,7 @@ if __name__ == "__main__":
 import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split # このような関数がある
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 0) # このように書くと分割できる．ランダムに並べ替えてくれる．
@@ -109,7 +115,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 0)
@@ -147,7 +153,7 @@ import pydotplus
 from IPython.display import Image, display_png
 from graphviz import Digraph
 from six import StringIO
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 0)
@@ -185,7 +191,7 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import confusion_matrix
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 2) # 全部正解してしまうから，乱数の種を変えてみた．
@@ -216,7 +222,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 2) # 全部正解してしまうから，乱数の種を変えてみた．
@@ -244,7 +250,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.svm import SVC # 決定木ではなくて SVC をインポートする．
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 2)
@@ -272,7 +278,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPClassifier # 変更する．
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 2)
@@ -296,7 +302,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression # 変更する．
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 2)
@@ -366,7 +372,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 import pickle
- 
+
 def main():
     fin = open("./predictor.sav", "rb") # rは読み込みを意味します．
     predictor = pickle.load(fin) # 予測器の読み込み．
@@ -405,7 +411,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split, GridSearchCV # インポートする
 from sklearn.svm import SVC
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 2)
@@ -434,7 +440,7 @@ import sklearn
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVC
- 
+
 def main():
     diris = load_iris()
     learnx, testx, learnt, testt = train_test_split(diris.data, diris.target, test_size = 0.2, random_state = 2)
