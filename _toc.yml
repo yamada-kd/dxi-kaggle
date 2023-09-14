@@ -10,3 +10,6 @@ parts:
   chapters:
   - file: notebook/scikit_learn_01
   - file: notebook/scikit_learn_02
+- caption: 問題とヒント
+  chapters:
+  - file: notebook/problem_01
