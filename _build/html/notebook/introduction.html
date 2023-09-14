@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; 実践データ科学</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="はじめに" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">実践データ科学</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/introduction.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/yamada-kd/binds-training/tree/main/notebook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/yamada-kd/binds-training/blob/main/notebook/introduction.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><font color="Crimson" size=6em>グーグルコラボラトリーを利用した Kaggle の利用方法</font></p>
+<p>教材作成者：東北大学大学院 情報科学研究科</p>
+<p>#1. <font color="Crimson">はじめに</font></p>
+<p>##1-1. <font color="Crimson">このコンテンツで学ぶこと</font></p>
+<p>Google Colaboratory（グーグルコラボラトリー）を用いて Kaggle に取り組む方法を学びます．Kaggle とは世界で最も有名な機械学習のコンテストです．様々な種類の問題が提出されており，それを解いて公式サイトに投稿します．Kaggle の各問題と共に提供されているデータセットを自身の計算機環境にダウンロードして機械学習モデルを構築し，テストデータセットに対する予測結果を投稿する，というのが Kaggle の一連の流れです．グーグルコラボラトリーを利用するとこの過程をより簡単に進めることができます．</p>
+<p>##1-2. <font color="Crimson">開始前に行うこと（重要）</font></p>
+<p><font color="Crimson">上の（このグーグルコラボラトリー自体の一番上の）「ファイル」をクリックし，さらにポップアップで出てくる項目から「ドライブにコピーを保存」をクリックし，自身のグーグルドライブにこのウェブページ全体のソースを保存します（グーグルのアカウントが必要です）．</font>こうすることによって，自分で書いたプログラムを実行することができるようになります．また，メモ等を自由に以下のスペースに追加することができるようになります．</p>
+<p>##1-3. <font color="Crimson">コンパニオン</font></p>
+<p>このコンテンツには，受講者の理解を助けるためのコンパニオンがいます．以下のものは「サミー先生」です．サミー先生は今回のこの教材の制作者ではないのですが分かり難いところを詳しく教えてくれます．</p>
+<p><font color="Crimson">(9｀･ω･)9 ｡oO(ちゃお！)</font></p>
+<p>#2. <font color="Crimson">Kaggle への参加方法</font></p>
+<p>##2-1. <font color="Crimson">グーグルドライブの設定</font></p>
+<p>###2-1-1. <font color="Crimson">ドライブのマウント</font></p>
+<p>グーグルドライブをグーグルコラボラトリーと連携する方法を紹介します．最初に，このグーグルコラボラトリーが動いている計算機にどのようなファイルが置かれているかを確認します．以下のように Linux のコマンドを打ちます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! ls
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color="Crimson">(9｀･ω･)9 ｡oO(先頭に <code class="docutils literal notranslate"><span class="pre">!</span></code> をつけてコマンドを打つと，それは Python でなくてこの計算機のシェルのコマンドとして認識されます．)</font></p>
+<p>上のコマンドを実行した結果 <code class="docutils literal notranslate"><span class="pre">sample_data</span></code> とだけ表示されました．これは Google が最初からこの計算機に置いてくれている機械学習のサンプルデータが入ったフォルダです．使うことはありません．次に，以下のようなプログラムを実行することで，自身のグーグルドライブをこのグーグルコラボラトリーが動いている計算機にマウント（この計算機から自身のグーグルドライブにアクセスできるようにする行為）します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>このプログラムを実行すると以下のようなメッセージが出てきます．「Google ドライブに接続」を選択します．
+<a class="reference internal" href="https://drive.google.com/uc?id=1XdZsYif1uxU8EkXrz0wWEkNTBDN7F1Li"><img alt="https://drive.google.com/uc?id=1XdZsYif1uxU8EkXrz0wWEkNTBDN7F1Li" src="https://drive.google.com/uc?id=1XdZsYif1uxU8EkXrz0wWEkNTBDN7F1Li" style="width: 70%;" /></a></p>
+<p>その後もアクセスを許可するための選択肢を選ぶとマウントが完了します．マウントが完了したら以下のコマンドを打って，グーグルドライブにアクセスが可能になったかを確認します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! ls
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">drive</span></code> というフォルダが追加されています．以下のように打つと，<code class="docutils literal notranslate"><span class="pre">MyDrive</span></code> というフォルダを確認できます．これが自身のグーグルドライブのフォルダです．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! ls drive
+</pre></div>
+</div>
+</div>
+</div>
+<p>すなわち，<code class="docutils literal notranslate"><span class="pre">drive/MyDrive</span></code> がマウントしたグーグルドライブの場所です．</p>
+<p><font color="Crimson">(9｀･ω･)9 ｡oO(この <code class="docutils literal notranslate"><span class="pre">/</span></code> は，その左に書かれている名前のフォルダの中に，その右に書かれている名前のフォルダが存在していることを示しています．つまり，<code class="docutils literal notranslate"><span class="pre">drive/MyDrive</span></code> は <code class="docutils literal notranslate"><span class="pre">drive</span></code> というフォルダの中に存在している <code class="docutils literal notranslate"><span class="pre">MyDrive</span></code> を意味します．)</font></p>
+<p>###2-1-2. <font color="Crimson">フォルダの作成</font></p>
+<p>Kaggle に参加するためにグーグルドライブ内に「kaggle」という名前のフォルダを作成すると便利なので以下のコマンドで作っておきます．（以下のコマンドでは「kaggle」というフォルダの中にさらに「token」というフォルダを作成しています．）</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! mkdir -p drive/MyDrive/kaggle/token
+</pre></div>
+</div>
+</div>
+</div>
+<p>グーグルのメニューからグーグルドライブにアクセスすると「kaggle」という名前のフォルダが生成されているはずです．また，上で確認した方法と同様に以下のコマンドを打ってもそのフォルダの存在を確認できます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! ls drive/MyDrive
+</pre></div>
+</div>
+</div>
+</div>
+<p>##2-2. <font color="Crimson">Kaggle の設定</font></p>
+<p>###2-2-1. <font color="Crimson">Kaggle へのサインイン</font></p>
+<p>以下の URL から Kaggle にアクセスし，サインインします．新たに Kaggle のアカウントを作成する必要はありません．グーグルアカウントでサインインできます．</p>
+<p><a class="reference external" href="https://www.kaggle.com/">https://www.kaggle.com/</a></p>
+<a class="reference internal image-reference" href="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL"><img alt="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" src="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" style="width: 25%;" /></a>
+<p>以下のようなユーザー名を決める画面等が出るので指示に従って進めます．</p>
+<a class="reference internal image-reference" href="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI"><img alt="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" src="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" style="width: 25%;" /></a>
+<p>###2-2-2. <font color="Crimson">Kaggle API Token</font></p>
+<p>グーグルコラボラトリーから Kaggle へは Kaggle API というものを使ってアクセスするのですが，そのために必要な Kaggle API Token というものを Kaggle の公式ページからダウンロードします．そのために，公式ページの「Account」にアクセスし，その後，「Create New API Token」をクリックしてファイルをダウンロードします．Kaggle のトップページに表示されている自身のユーザー名をクリックすると「Account」にアクセスするページに到達できます．</p>
+<a class="reference internal image-reference" href="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH"><img alt="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" src="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" style="width: 80%;" /></a>
+<p>この操作によって「kaggle.json」という名前のファイルをダウンロードできましたが，今度はこのファイルをグーグルドライブ内の，上の操作で作成した <code class="docutils literal notranslate"><span class="pre">kaggle/token</span></code> にアップロードします．以下のコマンドを打って「kaggle.json」が確認出来たら成功しています．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! ls drive/MyDrive/kaggle/token
+</pre></div>
+</div>
+</div>
+</div>
+<p>この Kaggle API Token をこのグーグルコラボラトリーで利用するために以下のプログラムを実行します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/kaggle/token/kaggle.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+    <span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_USERNAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>###2-2-3. <font color="Crimson">API のインストール</font></p>
+<p>Kaggle を利用するための API である Kaggle API をインストールする必要があります．以下のコマンドでインストールできます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! pip3 install kaggle
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kaggle API を使えばコマンドラインから様々なことができるようになります．例えば，以下のようなコマンドを打つことで Kaggle で開催しているコンテストのリストを確認することができます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! kaggle competitions list
+</pre></div>
+</div>
+</div>
+</div>
+<p>##2-3. <font color="Crimson">Kaggle の実行</font></p>
+<p>###2-3-1. <font color="Crimson">問題</font></p>
+<p>ここでは，以下の URL からアクセスできる問題に取り組みます．「Allstate Claims Severity」と題されています．Allstate は保険会社です．顧客が保険金を請求する際にその保険金を請求するための主張がどれほど深刻なのか，重大なのかを判断するための指標である重大度を予測する問題です．構造化されたデータが提供されており，機械学習の初学者用のデータセットです．トレーニングデータセットのサイズが程よく大きく，過去の参加者の成績が散らばっているためこれを選びました．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity">https://www.kaggle.com/c/allstate-claims-severity</a></p>
+<p><font color="Crimson">この問題に取り組むために Rules というタブをクリックして確認できる，この問題のルールを理解して承諾することを確認する部分をクリックしてください．</font></p>
+<a class="reference internal image-reference" href="https://drive.google.com/uc?id=1qumITMhtTxLIXE8pKKI1TZE26_l5DJTH"><img alt="https://drive.google.com/uc?id=1qumITMhtTxLIXE8pKKI1TZE26_l5DJTH" src="https://drive.google.com/uc?id=1qumITMhtTxLIXE8pKKI1TZE26_l5DJTH" style="width: 80%;" /></a>
+<p>Kaggle を初めて利用する場合，以下のような電話番号の確認画面が出ます．</p>
+<a class="reference internal image-reference" href="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw"><img alt="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" src="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" style="width: 80%;" /></a>
+<p>送られてきたコードを入力すると以降の操作が可能になります．</p>
+<a class="reference internal image-reference" href="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV"><img alt="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" src="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" style="width: 80%;" /></a>
+<p>###2-3-2. <font color="Crimson">作業用フォルダの作成</font></p>
+<p>これから Kaggle よりデータセットをダウンロードしますが，データをカレントディレクトリにダウンロードすると，他の問題に取り組みたいときにデータセットをダウンロードした場合に名前が重複してしまったり，また，グーグルコラボラトリーが初期化されてしまったときにファイルを残せなかったりと不便なので，グーグルドライブ内に新たなフォルダを作ります．最初に，以下のようなプロジェクトフォルダを作ります．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! mkdir -p /content/drive/MyDrive/kaggle/project
+</pre></div>
+</div>
+</div>
+</div>
+<p>作成した <code class="docutils literal notranslate"><span class="pre">project</span></code> フォルダ内に <code class="docutils literal notranslate"><span class="pre">allstate</span></code> というフォルダを作成します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! mkdir -p /content/drive/MyDrive/kaggle/project/allstate
+</pre></div>
+</div>
+</div>
+</div>
+<p>###2-3-3. <font color="Crimson">ダウンロード</font></p>
+<p>データセットのダウンロードの方法は以下のページに書かれている通りです．Kaggle API を使ったダウンロード法が示されています．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/data">https://www.kaggle.com/c/allstate-claims-severity/data</a></p>
+<p>ここではこのコマンドを少し変えて，以下のコマンドでダウンロードします．オプション <code class="docutils literal notranslate"><span class="pre">-p</span></code> を加えることで，ダウンロード先を指定しているのです．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! kaggle competitions download -c allstate-claims-severity -p /content/drive/MyDrive/kaggle/project/allstate
+</pre></div>
+</div>
+</div>
+</div>
+<p>データがダウンロードできたことは以下のコマンドで確認できます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! ls /content/drive/MyDrive/kaggle/project/allstate
+</pre></div>
+</div>
+</div>
+</div>
+<p>以下のように <code class="docutils literal notranslate"><span class="pre">!</span></code> ではなくて <code class="docutils literal notranslate"><span class="pre">%</span></code> を加えて使った Linux のコマンドは永続的に実行されます．このようにすることで現在のディレクトリを <code class="docutils literal notranslate"><span class="pre">/content/drive/MyDrive/kaggle/project/allstate</span></code> に変更できます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">kaggle</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">allstate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color="Crimson">(9｀･ω･)9 ｡oO(このようにカレントディレクトリをプロジェクトのフォルダに設定しておくのが便利だと思います．)</font></p>
+<p>このフォルダ内には，sample_submission.csv.zip，test.csv.zip，train.csv.zip というファイルが入っています．train.csv.zip は学習データセット，test.csv.zip はテストデータセットです．圧縮されているファイルは以下のようなコマンドを打つことで解凍することができます（この sample_submission.csv.zip 以外はしなくて良いです）．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! unzip sample_submission.csv.zip
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color="Crimson">(9｀･ω･)9 ｡oO(大きなファイルサイズのデータは解凍してはいけません．そのまま Python で読み込んで処理します．)</font></p>
+<p>中身は以下のような感じで見ることができます．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! head -n 15 sample_submission.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>###2-3-4. <font color="Crimson">解析の手順</font></p>
+<p>ここから先の解析についてはこのコンテンツではお教えしません．色々な解析ができると思いますので色々とやってみてください．</p>
+<ul class="simple">
+<li><p>データセットの中身を確認する</p></li>
+<li><p>データを可視化する</p></li>
+<li><p>データを整形する</p></li>
+<li><p>機械学習する</p></li>
+</ul>
+<p>データはグーグルトライブ内にダウンロードしたのでウェブブラウザからグーグルドライブにアクセスすると中身を GUI で確認することもできます．</p>
+<p><font color="Crimson">(9｀･ω･)9 ｡oO(不明なことや解析のコツは講師に聞いてみてください．)</font></p>
+<p>Kaggle に取り組む際のコツがあります．以下の「Discussion」というページには参加者らが自分たちの疑問や知識をディスカッションした結果が残されています．これを読むと問題に対する理解が深まります．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/discussion">https://www.kaggle.com/c/allstate-claims-severity/discussion</a></p>
+<p>また，以下の「Code」というページを読むこともとても有用です．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/code">https://www.kaggle.com/c/allstate-claims-severity/code</a></p>
+<p>まずはこれらを読んで全体を把握するのが良いのだと思います．</p>
+<p>###2-3-5. <font color="Crimson">結果の投稿</font></p>
+<p>テストデータセットに対して行った結果は sample_submission.csv と同じフォーマットに整えます．これを Kaggle に投稿しますが，この操作も API を利用して行うことができます．投稿に必要なコマンドは以下のページに示されています．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/submit">https://www.kaggle.com/c/allstate-claims-severity/submit</a></p>
+<p>ここでは，sample_submission.csv をそのまま投稿してみます．<code class="docutils literal notranslate"><span class="pre">-f</span></code> によってファイルの場所を指定します．以下のように打ちます．<code class="docutils literal notranslate"><span class="pre">-m</span></code> のところには何かしらのメモを書くことができます．カレントディレクトリを変更していない場合は <code class="docutils literal notranslate"><span class="pre">-f</span></code> に指定する値はそのファイルの場所を正確に記述してください．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! kaggle competitions submit -c allstate-claims-severity -f sample_submission.csv -m &quot;Message&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>成功すると以下のようなメッセージが表示されるはずです．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Successfully</span> <span class="n">submitted</span> <span class="n">to</span> <span class="n">Allstate</span> <span class="n">Claims</span> <span class="n">Severity</span>
+</pre></div>
+</div>
+<p>以下のページ，My Submissions というページですが，ここにアクセスすると投稿した結果の評価値を得ることができます．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/submissions">https://www.kaggle.com/c/allstate-claims-severity/submissions</a></p>
+<p>以下のページ，Leaderborad の結果を超えられるように頑張ってください．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/leaderboard">https://www.kaggle.com/c/allstate-claims-severity/leaderboard</a></p>
+<p>###2-3-6. <font color="Crimson">もうひとつの問題</font></p>
+<p>実習の後半にもうひとつの問題に取り組みます．その情報を載せます．以下のページにある問題に取り組みます．オンラインコメントが有害なものであるかどうかを予測します．詳細はページ内のコンテンツを読んでください．</p>
+<p><a class="reference external" href="https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge">https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge</a></p>
+<p>上と同じように新たなフォルダ <code class="docutils literal notranslate"><span class="pre">jigsaw</span></code> を作成します．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! mkdir -p /content/drive/MyDrive/kaggle/project/jigsaw
+</pre></div>
+</div>
+</div>
+</div>
+<p>作成したフォルダにデータセットをダウンロードします（ルールの理解と承諾をクリックすることを忘れるとエラーが出るので気をつけてください．）．</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! kaggle competitions download -c jigsaw-toxic-comment-classification-challenge -p /content/drive/MyDrive/kaggle/project/jigsaw
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color="Crimson">(9｀･ω･)9 ｡oO(終わりです．頑張ってください！)</font></p>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">はじめに</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img style="0;margin-bottom:0.2em;" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a> © Copyright 2022 Graduate School of Information Sciences, Tohoku University．
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

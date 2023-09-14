@@ -1,0 +1,8 @@
+format: jb-book
+root: index
+defaults:
+  numbered: true
+parts:
+- caption: データ科学を学ぶにあたって
+  chapters:
+  - file: notebook/introduction

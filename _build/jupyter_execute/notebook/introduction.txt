@@ -1,0 +1,58 @@
+! ls
+
+#!/usr/bin/env python3
+from google.colab import drive
+
+def main():
+    drive.mount("/content/drive", force_remount=True)
+
+if __name__ == "__main__":
+    main()
+
+! ls
+
+! ls drive
+
+! mkdir -p drive/MyDrive/kaggle/token
+
+! ls drive/MyDrive
+
+! ls drive/MyDrive/kaggle/token
+
+#!/usr/bin/env python3
+import os
+import json
+
+def main():
+    fin = open("/content/drive/MyDrive/kaggle/token/kaggle.json", "r")
+    json_data = json.load(fin)
+    fin.close()
+    os.environ["KAGGLE_USERNAME"] = json_data["username"]
+    os.environ["KAGGLE_KEY"] = json_data["key"]
+
+if __name__ == "__main__":
+    main()
+
+! pip3 install kaggle
+
+! kaggle competitions list
+
+! mkdir -p /content/drive/MyDrive/kaggle/project
+
+! mkdir -p /content/drive/MyDrive/kaggle/project/allstate
+
+! kaggle competitions download -c allstate-claims-severity -p /content/drive/MyDrive/kaggle/project/allstate
+
+! ls /content/drive/MyDrive/kaggle/project/allstate
+
+% cd /content/drive/MyDrive/kaggle/project/allstate
+
+! unzip sample_submission.csv.zip
+
+! head -n 15 sample_submission.csv
+
+! kaggle competitions submit -c allstate-claims-severity -f sample_submission.csv -m "Message"
+
+! mkdir -p /content/drive/MyDrive/kaggle/project/jigsaw
+
+! kaggle competitions download -c jigsaw-toxic-comment-classification-challenge -p /content/drive/MyDrive/kaggle/project/jigsaw
