@@ -3,7 +3,7 @@ root: index
 defaults:
   numbered: true
 parts:
-- caption: イントロダクション
+- caption: はじめに
   chapters:
   - file: notebook/introduction
 - caption: 機械学習
