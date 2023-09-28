@@ -600,7 +600,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>以下のように <code class="docutils literal notranslate"><span class="pre">!</span></code> ではなくて <code class="docutils literal notranslate"><span class="pre">%</span></code> を加えて使った Linux のコマンドは永続的に実行されます．このようにすることで現在のディレクトリを <code class="docutils literal notranslate"><span class="pre">/content/drive/MyDrive/kaggle/project/allstate</span></code> に変更できます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">kaggle</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">allstate</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">kaggle</span><span class="o">/</span><span class="n">project</span><span class="o">/</span><span class="n">allstate</span>
 </pre></div>
 </div>
 </div>
@@ -609,17 +609,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Hint</p>
 <p>このようにカレントディレクトリをプロジェクトのフォルダに設定しておくのが便利だと思います．</p>
 </div>
-<p>このフォルダ内には，sample_submission.csv.zip，test.csv.zip，train.csv.zip というファイルが入っています．train.csv.zip は学習データセット，test.csv.zip はテストデータセットです．圧縮されているファイルは以下のようなコマンドを打つことで解凍することができます（この sample_submission.csv.zip 以外はしなくて良いです）．</p>
+<p>以下のようにして，ダウンロードしたファイル allstate-claims-severity.zip を解凍します．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! unzip sample_submission.csv.zip
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! unzip allstate-claims-severity.zip
 </pre></div>
 </div>
 </div>
 </div>
+<p>回答の結果，sample_submission.csv，test.csv，train.csv というファイルが得られたと思います．train.csv は学習データセット，test.csv はテストデータセットです．</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>大きなファイルサイズのデータは解凍してはいけません．そのまま Python で読み込んで処理します．</p>
+<p>圧縮されているファイルを解凍する必要はありません．大きなファイルサイズのデータは解凍してはいけません．そのまま Python で読み込んで処理します．</p>
 </div>
 <p>中身は以下のような感じで見ることができます．</p>
 <div class="cell docutils container">
@@ -640,10 +641,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>機械学習する</p></li>
 </ul>
 <p>データはグーグルトライブ内にダウンロードしたのでウェブブラウザからグーグルドライブにアクセスすると中身を GUI で確認することもできます．</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>不明なことや解析のコツは講師に聞いてみてください．</p>
-</div>
 <p>Kaggle に取り組む際のコツがあります．以下の「Discussion」というページには参加者らが自分たちの疑問や知識をディスカッションした結果が残されています．これを読むと問題に対する理解が深まります．</p>
 <p><a class="reference external" href="https://www.kaggle.com/c/allstate-claims-severity/discussion">https://www.kaggle.com/c/allstate-claims-severity/discussion</a></p>
 <p>また，以下の「Code」というページを読むこともとても有用です．</p>
