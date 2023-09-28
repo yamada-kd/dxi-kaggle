@@ -45,9 +45,9 @@ if __name__ == "__main__":
 
 ! ls /content/drive/MyDrive/kaggle/project/allstate
 
-% cd /content/drive/MyDrive/kaggle/project/allstate
+%cd /content/drive/MyDrive/kaggle/project/allstate
 
-! unzip sample_submission.csv.zip
+! unzip allstate-claims-severity.zip
 
 ! head -n 15 sample_submission.csv
 
