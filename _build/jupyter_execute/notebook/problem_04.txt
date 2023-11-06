@@ -1,0 +1,243 @@
+!nvidia-smi
+
+from google.colab import drive
+import os
+import json
+
+drive.mount("/content/drive", force_remount=True)
+fin = open("/content/drive/MyDrive/kaggle.json", "r")
+json_data = json.load(fin)
+fin.close()
+os.environ["KAGGLE_USERNAME"] = json_data["username"]
+os.environ["KAGGLE_KEY"] = json_data["key"]
+
+%%bash
+kaggle competitions download -c cassava-leaf-disease-classification
+if [ $? -ne 0 ]; then
+    echo "データのダウンロードに問題があったようです。"
+    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+else
+    mkdir -p /content/kaggle
+    unzip -q -o /content/cassava-leaf-disease-classification.zip -d /content/kaggle
+fi
+wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
+unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
+
+!pip install pytorch-lightning timm
+
+import os
+import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+import torch
+import pytorch_lightning as pl
+from tqdm.auto import tqdm
+import torchmetrics
+from glob import glob
+import json
+from PIL import Image
+import multiprocessing as mp
+import torchvision
+import timm
+
+font_path = '/usr/share/fonts/NotoSansCJKjp/NotoSansMonoCJKjp-Regular.otf'
+matplotlib.font_manager.fontManager.addfont(font_path)
+prop = matplotlib.font_manager.FontProperties(fname=font_path)
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = prop.get_name()
+os.chdir('/content/kaggle')
+
+with open('label_num_to_disease_map.json', 'r') as fh:
+    diseases = json.loads(fh.read())
+diseases
+
+data = pd.read_csv('/content/kaggle/train.csv')
+data
+
+for label, disease in diseases.items():
+    plt.figure()
+    filename = data[data['label']==int(label)].sample(1)['image_id'].values[0]
+    with Image.open(f'train_images/{filename}') as image:
+        plt.imshow(image)
+        plt.title(disease)
+
+data_bar = data.copy()
+data_bar.loc[data_bar['label']==0, 'label'] = 'Cassava\n Bacterial\nBlight'
+data_bar.loc[data_bar['label']==1, 'label'] = 'Cassava\nBrown\nStreak\nDisease'
+data_bar.loc[data_bar['label']==2, 'label'] = 'Cassava\nGreen\nMottle'
+data_bar.loc[data_bar['label']==3, 'label'] = 'Cassava\nMosaic\nDisease'
+data_bar.loc[data_bar['label']==4, 'label'] = 'Healthy'
+sns.countplot(data_bar, x='label')
+plt.xlabel(None)
+plt.ylabel(None);
+
+class CustomDataset(torch.utils.data.Dataset):
+    def __init__(self, filenames, labels=None):
+        if labels is not None:
+            self.labels = torch.nn.functional.one_hot(torch.tensor(labels), num_classes=5).float()
+        else:
+            self.labels = None
+        self.filenames = filenames
+
+    def __len__(self):
+        return len(self.filenames)
+
+    def __getitem__(self, idx):
+        filename = self.filenames[idx]
+        with Image.open(f'train_images/{filename}') as pil_image:
+            image = torchvision.transforms.functional.pil_to_tensor(pil_image)
+        image = torchvision.transforms.functional.resize(image, (256, 256), antialias=True)
+        image = image.float() / 255
+        if self.labels is None:
+            return image
+        else:
+            return image, self.labels[idx]
+
+ds = CustomDataset(data['image_id'].values, data['label'].values)
+
+class CustomModel(pl.LightningModule):
+    def __init__(self, lr=1e-5):
+        super().__init__()
+        self.lr = lr
+        self.model = timm.create_model('efficientnet_b0', pretrained=True, num_classes=5)
+        self.loss_fn = torch.nn.CrossEntropyLoss()
+        self.train_accuracy = torchmetrics.classification.MulticlassAccuracy(num_classes=5)
+        self.val_accuracy = torchmetrics.classification.MulticlassAccuracy(num_classes=5)
+
+    def forward(self, images):
+        return self.model(images)
+
+    def training_step(self, batch, batch_idx):
+        image, labels = batch
+        preds = self.forward(image)
+        loss = self.loss_fn(preds, labels)
+        self.log('train_loss', loss, on_step=True, on_epoch=True)
+        self.train_accuracy(preds.softmax(1), labels.argmax(1))
+        self.log('train_accuracy', self.train_accuracy, on_step=False, on_epoch=True)
+        return loss
+
+    def validation_step(self, batch, batch_idx):
+        image, labels = batch
+        preds = self.forward(image)
+        loss = self.loss_fn(preds, labels)
+        self.log('val_loss', loss, on_step=False, on_epoch=True)
+        self.val_accuracy(preds.softmax(1), labels.argmax(1))
+        self.log('val_accuracy', self.val_accuracy, on_step=False, on_epoch=True)
+
+    def configure_optimizers(self):
+        optimizer = torch.optim.AdamW(self.parameters(), lr=self.lr)
+        return optimizer
+
+%load_ext tensorboard
+%tensorboard --logdir lightning_logs/
+
+train_ds, val_ds = torch.utils.data.random_split(ds, [0.8, 0.2])
+train_dl = torch.utils.data.DataLoader(train_ds, batch_size=32, shuffle=True, num_workers=mp.cpu_count())
+val_dl = torch.utils.data.DataLoader(val_ds, batch_size=32, shuffle=False, num_workers=mp.cpu_count())
+
+model = CustomModel()
+tb_logger = pl.loggers.TensorBoardLogger('lightning_logs', name='', version='custom_model')
+if os.path.exists(f'lightning_logs/{tb_logger.version}/checkpoints'):
+    for checkpoint in os.listdir(f'lightning_logs/{tb_logger.version}/checkpoints/'):
+        os.remove(f'lightning_logs/{tb_logger.version}/checkpoints/{checkpoint}')
+checkpoint_callback = pl.callbacks.ModelCheckpoint(monitor='val_accuracy', mode='max')
+trainer = pl.Trainer(
+    max_epochs=5, accelerator='gpu', precision='16-mixed',
+    logger=tb_logger,
+    callbacks=[checkpoint_callback],
+    enable_progress_bar=True
+)
+
+trainer.fit(model, train_dl, val_dl)
+
+%%bash
+dataset_name="cassava-project-dataset-$KAGGLE_USERNAME"
+dataset_dir="/content/kaggle/$dataset_name"
+dataset_meta_path="$dataset_dir/dataset-metadata.json"
+mkdir -p "$dataset_dir"
+cp lightning_logs/custom_model/checkpoints/*.ckpt "$dataset_dir/checkpoint.ckpt"
+kaggle datasets init -p "$dataset_dir"
+sed -i "s/INSERT_TITLE_HERE/$dataset_name/g" "$dataset_meta_path"
+sed -i "s/INSERT_SLUG_HERE/$dataset_name/g" "$dataset_meta_path"
+dataset_exists=$(kaggle datasets list -m -s "$dataset_name" | grep "$dataset_name")
+dataset_exists=$?
+if [ $dataset_exists -eq "0" ]
+then
+    echo "Updating dataset"
+    kaggle datasets version -p "$dataset_dir" -m "Version message"
+else
+    echo "Creating dataset"
+    kaggle datasets create -p "$dataset_dir"
+fi
+
+%%bash
+dataset_name="cassava-project-dataset-$KAGGLE_USERNAME"
+cat << EOF
+import os
+import pandas as pd
+import numpy as np
+import torch
+import pytorch_lightning as pl
+from PIL import Image
+import multiprocessing as mp
+import torchvision
+import timm
+
+test_filenames = os.listdir('/kaggle/input/cassava-leaf-disease-classification/test_images')
+
+class CustomDataset(torch.utils.data.Dataset):
+    def __init__(self, filenames, labels=None):
+        if labels is not None:
+            self.labels = torch.nn.functional.one_hot(torch.tensor(labels), num_classes=5).float()
+        else:
+            self.labels = None
+        self.filenames = filenames
+
+    def __len__(self):
+        return len(self.filenames)
+
+    def __getitem__(self, idx):
+        filename = self.filenames[idx]
+        with Image.open(f'/kaggle/input/cassava-leaf-disease-classification/test_images/{filename}') as pil_image:
+            image = torchvision.transforms.functional.pil_to_tensor(pil_image)
+        image = torchvision.transforms.functional.resize(image, (256, 256), antialias=True)
+        image = image.float() / 255
+        if self.labels is None:
+            return image
+        else:
+            return image, self.labels[idx]
+
+ds = CustomDataset(test_filenames)
+
+class CustomModel(pl.LightningModule):
+    def __init__(self):
+        super().__init__()
+        self.model = timm.create_model('efficientnet_b0', pretrained=False, num_classes=5)
+
+    def forward(self, images):
+        return self.model(images)
+
+    def predict_step(self, batch, batch_idx):
+        preds = self.forward(batch).softmax(1).argmax(1).detach().cpu()
+        return preds
+
+
+dl = torch.utils.data.DataLoader(ds, batch_size=32, shuffle=False, num_workers=mp.cpu_count())
+
+model = CustomModel.load_from_checkpoint('/kaggle/input/$dataset_name/checkpoint.ckpt')
+trainer = pl.Trainer(
+    accelerator='gpu', precision='16-mixed',
+    logger=None, callbacks=None
+)
+
+preds = trainer.predict(model, dl)
+submission = pd.DataFrame.from_dict({
+    'image_id': test_filenames,
+    'label': torch.cat(preds).numpy()
+})
+submission.to_csv('submission.csv', index=False)
+EOF
+
+

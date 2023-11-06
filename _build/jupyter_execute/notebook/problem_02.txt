@@ -1,0 +1,181 @@
+from google.colab import drive
+import os
+import json
+
+drive.mount("/content/drive", force_remount=True)
+fin = open("/content/drive/MyDrive/kaggle.json", "r")
+json_data = json.load(fin)
+fin.close()
+os.environ["KAGGLE_USERNAME"] = json_data["username"]
+os.environ["KAGGLE_KEY"] = json_data["key"]
+
+%%bash
+kaggle competitions download -c mercari-price-suggestion-challenge
+if [ $? -ne 0 ]; then
+    echo "データのダウンロードに問題があったようです。"
+    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+else
+    mkdir -p /content/kaggle
+    unzip -o /content/mercari-price-suggestion-challenge.zip -d /content/kaggle
+    unzip -p /content/kaggle/test_stg2.tsv.zip > /content/kaggle/test.tsv
+    unzip -p /content/kaggle/sample_submission_stg2.csv.zip > /content/kaggle/sample_submission.csv
+    7z e -so /content/kaggle/train.tsv.7z > /content/kaggle/train.tsv
+    rm /content/kaggle/*.zip /content/kaggle/*.7z
+fi
+wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
+unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
+
+
+import os
+import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.model_selection import cross_val_score
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_log_error, make_scorer
+import lightgbm as lgb
+from tqdm.auto import tqdm
+
+font_path = '/usr/share/fonts/NotoSansCJKjp/NotoSansMonoCJKjp-Regular.otf'
+matplotlib.font_manager.fontManager.addfont(font_path)
+prop = matplotlib.font_manager.FontProperties(fname=font_path)
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = prop.get_name()
+os.chdir('/content/kaggle')
+
+data = pd.read_csv('/content/kaggle/train.tsv', index_col='train_id', sep='\t')
+data
+
+sns.barplot(data, x='item_condition_id', y='price');
+
+print(f"オリジナルカテゴリ：{len(data['category_name'].unique())}")
+data[['level1_category_name', 'level2_category_name', 'level3_category_name']] = data['category_name'].str.split('/', n=2, expand=True)
+print(f"階層の一番目のレベル：{len(data['level1_category_name'].unique())}")
+print(f"階層の二番目のレベル：{len(data['level2_category_name'].unique())}")
+print(f"階層の三番目のレベル：{len(data['level3_category_name'].unique())}")
+
+sns.countplot(data, x='level1_category_name')
+plt.xticks(rotation=65);
+
+sns.countplot(data[data['level1_category_name']=='Women'], x='level2_category_name')
+plt.xticks(rotation=65);
+
+print(f'brand_nameのデータの{data["brand_name"].isna().sum() * 100 / data.shape[0]:.2f}%はNaNである。')
+
+top_brands = data.groupby('brand_name')['price'].agg(['count', np.median]).sort_values(by='median', ascending=False)
+top_brands = top_brands[top_brands['count']>=100].reset_index()
+sns.barplot(top_brands.iloc[:30], x='median', y='brand_name');
+
+data.head()
+
+train_data = data.copy().sample(frac=0.25).reset_index(drop=True)
+brand_name_ohe = OneHotEncoder(sparse_output=False, dtype=np.int8, handle_unknown='ignore')
+top_brands = data.groupby('brand_name')['price'].agg(['count', 'median'])
+top_brands = top_brands[top_brands['count']>=100].sort_values(by='median', ascending=False)
+top_brands = top_brands.reset_index()[['brand_name']]
+brand_name_ohe.fit(top_brands)
+category_name_ohe = OneHotEncoder(sparse_output=False, dtype=np.int8, handle_unknown='ignore')
+category_name_ohe.fit(train_data[['level1_category_name', 'level3_category_name']])
+train_data = pd.concat(
+    [
+        train_data,
+        pd.DataFrame(data=brand_name_ohe.transform(train_data[['brand_name']]), columns=brand_name_ohe.get_feature_names_out()),
+        pd.DataFrame(data=category_name_ohe.transform(train_data[['level1_category_name', 'level3_category_name']]), columns=category_name_ohe.get_feature_names_out())
+    ],
+    axis=1
+)
+train_data['price_in_name'] = train_data['name'].str.contains('[rm]', regex=False).fillna(False).astype(np.int8)
+train_data['price_in_item_description'] = train_data['item_description'].str.contains('[rm]', regex=False).fillna(False).astype(np.int8)
+train_data['name_len'] = train_data['name'].str.len()
+train_data['item_description_len'] = train_data['item_description'].str.len()
+train_data = train_data.drop(columns=['name', 'brand_name', 'category_name', 'item_description', 'level1_category_name', 'level2_category_name', 'level3_category_name', 'brand_name'])
+train_data = train_data.fillna(0)
+train_data
+
+def custom_rmsle_scorer(preds, eval_data):
+    preds[preds < 0] = 0
+    return ('rmsle', mean_squared_log_error(eval_data.get_label(), preds, squared=False), False)
+
+params = {
+    'objective': 'regression',
+    'num_iterations': 1000,
+    'early_stopping_rounds': 10,
+    'force_col_wise': True
+}
+lgb_train_data = lgb.Dataset(
+    data=train_data.drop(columns=['price']).values,
+    label=train_data['price'].values
+)
+cvbooster = lgb.cv(
+    params=params,
+    train_set=lgb_train_data,
+    metrics='rmsle',
+    feval=custom_rmsle_scorer,
+    stratified=False,
+    return_cvbooster=True
+)
+
+print(f"平均rmsle：{np.min(cvbooster['valid rmsle-mean']):.3f}")
+
+chunksize = 100_000
+test_ids = []
+preds = []
+for test_data in tqdm(pd.read_csv('/content/kaggle/test.tsv', index_col='test_id', sep='\t', chunksize=chunksize), total=int(np.ceil(3460725/chunksize))):
+    test_ids.append(test_data.index.values)
+    test_data = test_data.reset_index(drop=True)
+    test_data[['level1_category_name', 'level2_category_name', 'level3_category_name']] = test_data['category_name'].str.split('/', n=2, expand=True)
+    test_data = pd.concat(
+        [
+            test_data,
+            pd.DataFrame(data=brand_name_ohe.transform(test_data[['brand_name']]), columns=brand_name_ohe.get_feature_names_out()),
+            pd.DataFrame(data=category_name_ohe.transform(test_data[['level1_category_name', 'level3_category_name']]), columns=category_name_ohe.get_feature_names_out())
+        ],
+        axis=1
+    )
+    test_data['price_in_name'] = test_data['name'].str.contains('[rm]', regex=False).fillna(False).astype(np.int8)
+    test_data['price_in_item_description'] = test_data['item_description'].str.contains('[rm]', regex=False).fillna(False).astype(np.int8)
+    test_data['name_len'] = test_data['name'].str.len()
+    test_data['item_description_len'] = test_data['item_description'].str.len()
+    test_data = test_data.drop(columns=['name', 'brand_name', 'category_name', 'item_description', 'level1_category_name', 'level2_category_name', 'level3_category_name', 'brand_name'])
+    test_data = test_data.fillna(0)
+    cvpreds = cvbooster['cvbooster'].predict(test_data)
+    preds.append(np.mean(cvpreds, axis=0))
+
+submission = pd.DataFrame(
+    data=np.array([
+        np.concatenate(test_ids),
+        np.concatenate(preds),
+    ]).T,
+    columns=['test_id', 'price']
+).astype({'test_id': np.int32})
+submission.to_csv('submission.csv', index=False)
+
+%%bash
+dataset_name="mercari-project-dataset-$KAGGLE_USERNAME"
+dataset_dir="/content/kaggle/$dataset_name"
+dataset_meta_path="$dataset_dir/dataset-metadata.json"
+mkdir -p "$dataset_dir"
+cp submission.csv "$dataset_dir"
+kaggle datasets init -p "$dataset_dir"
+sed -i "s/INSERT_TITLE_HERE/$dataset_name/g" "$dataset_meta_path"
+sed -i "s/INSERT_SLUG_HERE/$dataset_name/g" "$dataset_meta_path"
+dataset_exists=$(kaggle datasets list -m -s "$dataset_name" | grep "$dataset_name")
+dataset_exists=$?
+if [ $dataset_exists -eq "0" ]
+then
+    echo "データセットの更新"
+    kaggle datasets version -p "$dataset_dir" -m "バージョンメッセージ"
+else
+    echo "データセットの作成"
+    kaggle datasets create -p "$dataset_dir"
+fi
+
+%%bash
+dataset_name="mercari-project-dataset-$KAGGLE_USERNAME"
+echo "import shutil"
+echo "shutil.copy('/kaggle/input/$dataset_name/submission.csv', 'submission.csv')"
+
+

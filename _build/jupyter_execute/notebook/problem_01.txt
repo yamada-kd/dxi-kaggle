@@ -1,0 +1,142 @@
+from google.colab import drive
+import os
+import json
+
+drive.mount("/content/drive", force_remount=True)
+fin = open("/content/drive/MyDrive/kaggle.json", "r")
+json_data = json.load(fin)
+fin.close()
+os.environ["KAGGLE_USERNAME"] = json_data["username"]
+os.environ["KAGGLE_KEY"] = json_data["key"]
+
+%%bash
+kaggle competitions download -c m5-forecasting-accuracy --force
+if [ $? -ne 0 ]; then
+    echo "データのダウンロードに問題があったようです。"
+    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+else
+    mkdir -p /content/kaggle
+    unzip -o /content/m5-forecasting-accuracy.zip -d /content/kaggle
+fi
+wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
+unzip -u /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
+
+import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+from statsmodels.tsa.seasonal import STL
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.forecasting.stl import STLForecast
+
+font_path = '/usr/share/fonts/NotoSansCJKjp/NotoSansMonoCJKjp-Regular.otf'
+matplotlib.font_manager.fontManager.addfont(font_path)
+prop = matplotlib.font_manager.FontProperties(fname=font_path)
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = prop.get_name()
+os.chdir('/content/kaggle')
+
+sales = pd.read_csv('sales_train_evaluation.csv')
+sales.sample(10)
+
+total_sales = sales.copy()
+day_cols = [col for col in sales.columns if col.startswith('d_')]
+total_sales['total'] = total_sales[day_cols].sum(axis=1)
+total_sales = total_sales.groupby('cat_id', as_index=False).agg({'total': 'sum'})
+ax = sns.barplot(total_sales, x='cat_id', y='total');
+
+sales_long = sales.groupby('cat_id', as_index=False).agg({col: 'sum' for col in day_cols})
+sales_long = sales_long.melt(id_vars=['cat_id'], var_name='day', value_name='sales')
+sales_long['day'] = sales_long['day'].str.replace('d_', '').astype(int)
+ax = sns.lineplot(sales_long, x='day', y='sales', hue='cat_id')
+ax.grid()
+ax.legend();
+
+sales_long = sales.groupby('cat_id', as_index=False).agg({col: 'sum' for col in day_cols})
+sales_long = sales_long.melt(id_vars=['cat_id'], var_name='day', value_name='sales')
+sales_long['day'] = sales_long['day'].str.replace('d_', '').astype(int)
+sales_long = sales_long.pivot(index='day', columns='cat_id', values='sales')
+sales_long = sales_long.sort_index()
+sales_long = sales_long.set_index(pd.to_datetime(pd.read_csv('calendar.csv')['date'].values[:1941]))
+sales_long = sales_long[sales_long.index.year==2012]
+stl = STL(sales_long['FOODS'], period=30)
+res = stl.fit()
+ax = res.plot()
+fig = ax.get_figure()
+fig.set_size_inches(14, 7)
+ax.tight_layout()
+
+calendar = pd.read_csv('calendar.csv')
+calendar
+
+sns.catplot(data=calendar, x='year', kind='count', color='tab:blue');
+
+event_idx = calendar['event_name_1'].notna() | calendar['event_name_2'].notna()
+n_events = event_idx.sum()
+plt.bar(['イベントない日', 'イベントある日'], [calendar.shape[0] - n_events, n_events])
+
+sell_prices = pd.read_csv('sell_prices.csv')
+sell_prices.head()
+
+wm_yr_wk_to_date = calendar[['wm_yr_wk', 'date']].groupby('wm_yr_wk').min()
+sell_prices_dt = sell_prices.groupby(['wm_yr_wk', 'item_id'], as_index=False)['sell_price'].agg('mean')
+sell_prices_dt = sell_prices_dt.merge(wm_yr_wk_to_date, how='inner', on='wm_yr_wk')
+sell_prices_dt['date'] = pd.to_datetime(sell_prices_dt['date'])
+
+ax = sns.lineplot(sell_prices_dt[sell_prices_dt['item_id']=='FOODS_1_001'], x='date', y='sell_price', errorbar=None, label='FOODS_1_001')
+ax = sns.lineplot(sell_prices_dt[sell_prices_dt['item_id']=='HOUSEHOLD_1_001'], x='date', y='sell_price', errorbar=None, label='HOUSEHOLD_1_001')
+ax = sns.lineplot(sell_prices_dt[sell_prices_dt['item_id']=='HOBBIES_1_001'], x='date', y='sell_price', errorbar=None, label='HOBBIES_1_001')
+ax.legend()
+ax.figure.autofmt_xdate()
+
+sales_modeling = sales.groupby('cat_id', as_index=False).agg({col: 'sum' for col in sales.columns if col.startswith('d_')})
+sales_modeling = sales_modeling.melt(id_vars=['cat_id'], var_name='day', value_name='sales')
+sales_modeling['day'] = sales_modeling['day'].str.replace('d_', '').astype(int)
+sales_modeling = sales_modeling.pivot(index='day', columns='cat_id', values='sales')
+sales_modeling = sales_modeling.sort_index()
+sales_modeling = sales_modeling.set_index(pd.to_datetime(pd.read_csv('calendar.csv')['date'].values[:1941]))
+sales_modeling.index.freq = 'D'
+
+forecast = {}
+for cat_id in sales['cat_id'].unique():
+    stlf = STLForecast(sales_modeling[cat_id], ARIMA, model_kwargs=dict(order=(1, 1, 0), trend="t"), period=30)
+    stlf_res = stlf.fit()
+    forecast[cat_id] = stlf_res.forecast(28)
+
+fig, ax = plt.subplots()
+for i, cat_id in enumerate(sales_modeling.columns):
+  cmap = matplotlib.color_sequences['tab10']
+  ax.plot(sales_modeling[cat_id].iloc[-100:].index, sales_modeling[cat_id].iloc[-100:].values, color=cmap[i], label=cat_id)
+  ax.plot(forecast[cat_id].iloc[-100:].index, forecast[cat_id].iloc[-100:].values, color=cmap[i], linestyle='dashed', label=f'{cat_id}予測')
+  ax.figure.autofmt_xdate()
+  ax.legend(ncols=3)
+
+def extract_cat_id(string):
+    return string.split('_')[0]
+
+def extract_split(string):
+    return string.split('_')[-1]
+
+submission = pd.read_csv('sample_submission.csv')
+submission['cat_id'] = submission['id'].apply(extract_cat_id)
+submission['split'] = submission['id'].apply(extract_split)
+
+# fill validation with correct data
+validation_idx = submission['id'].str.endswith('validation')
+forecast_cols = [f'F{i}' for i in range(1, 29)]
+d_1914_1941_cols = [f'd_{i}' for i in range(1914, 1942)]
+submission.loc[validation_idx, forecast_cols] = sales.loc[submission.loc[validation_idx].index, d_1914_1941_cols].values
+
+# fill evaluation with forecasted data
+evaluation_idx = submission['id'].str.endswith('evaluation')
+for cat_id, forecasted_sales in forecast.items():
+    cat_idx = submission['cat_id'] == cat_id
+    num_stores = sum(evaluation_idx & cat_idx)
+    submission.loc[(evaluation_idx & cat_idx), forecast_cols] = (forecasted_sales / num_stores).values
+submission.drop(columns=['cat_id', 'split']).to_csv('submission.csv', index=False)
+submission
+
+!kaggle competitions submit -c m5-forecasting-accuracy -f submission.csv -m "これはアップロードに添付されたメッセージである。"
+
+

@@ -13,3 +13,6 @@ parts:
 - caption: 問題とヒント
   chapters:
   - file: notebook/problem_01
+  - file: notebook/problem_02
+  - file: notebook/problem_03
+  - file: notebook/problem_04

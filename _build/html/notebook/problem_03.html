@@ -1,0 +1,1061 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>14. Toxic Comment Classification Challenge &#8212; Kaggle Fight Club</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="19. Cassava Leaf Disease Classification" href="problem_04.html" />
+    <link rel="prev" title="9. Mercari Price Suggestion Challenge" href="problem_02.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Kaggle Fight Club</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  はじめに
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   1. グーグルコラボラトリー
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  機械学習
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="scikit_learn_01.html">
+   2. 教師あり学習法
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scikit_learn_02.html">
+   3. 教師なし学習法
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  問題とヒント
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="problem_01.html">
+   4.
+   <font color="#3E1485">
+    <strong>
+     M5 Forecasting - Accuracy Competition
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="problem_02.html">
+   9.
+   <font color="#3E1485">
+    <strong>
+     Mercari Price Suggestion Challenge
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   14.
+   <font color="#3E1485">
+    <strong>
+     Toxic Comment Classification Challenge
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="problem_04.html">
+   19.
+   <font color="#3E1485">
+    <strong>
+     Cassava Leaf Disease Classification
+    </strong>
+   </font>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebook/problem_03.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/yamada-kd/dxi-kaggle/tree/main/notebook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/yamada-kd/dxi-kaggle/blob/main/notebook/problem_03.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   14.
+   <font color="#3E1485">
+    <strong>
+     Toxic Comment Classification Challenge
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-font">
+     14.1.
+     <font color="#9271C3">
+      背景
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     14.2.
+     <font color="#9271C3">
+      タスク
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     14.3.
+     <font color="#9271C3">
+      データ
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     14.4.
+     <font color="#9271C3">
+      お役立ちリンク集
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-3e1485-font">
+   15.
+   <font color="#3E1485">
+    <strong>
+     セットアップ
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-gpu-font">
+     15.1.
+     <font color="#9271C3">
+      GPUランタイムを有効にする
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     15.2.
+     <font color="#9271C3">
+      データセットをダウンロードする
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     15.3.
+     <font color="#9271C3">
+      環境
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   16.
+   <font color="#3E1485">
+    <strong>
+     視覚化
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-train-csv-font">
+     16.1.
+     <font color="#9271C3">
+      train.csv
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   17.
+   <font color="#3E1485">
+    <strong>
+     モデリング
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     17.1.
+     <font color="#9271C3">
+      前処理
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     17.2.
+     <font color="#9271C3">
+      トレーニング
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     17.3.
+     <font color="#9271C3">
+      予測
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
+     17.4.
+     <font color="#9271C3">
+      Kaggleへのアップロード
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   18.
+   <font color="#3E1485">
+    <strong>
+     提案
+    </strong>
+   </font>
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><font color='#3E1485'>Toxic Comment Classification Challenge</font></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   14.
+   <font color="#3E1485">
+    <strong>
+     Toxic Comment Classification Challenge
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-font">
+     14.1.
+     <font color="#9271C3">
+      背景
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     14.2.
+     <font color="#9271C3">
+      タスク
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     14.3.
+     <font color="#9271C3">
+      データ
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     14.4.
+     <font color="#9271C3">
+      お役立ちリンク集
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-3e1485-font">
+   15.
+   <font color="#3E1485">
+    <strong>
+     セットアップ
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-gpu-font">
+     15.1.
+     <font color="#9271C3">
+      GPUランタイムを有効にする
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     15.2.
+     <font color="#9271C3">
+      データセットをダウンロードする
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     15.3.
+     <font color="#9271C3">
+      環境
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   16.
+   <font color="#3E1485">
+    <strong>
+     視覚化
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-train-csv-font">
+     16.1.
+     <font color="#9271C3">
+      train.csv
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   17.
+   <font color="#3E1485">
+    <strong>
+     モデリング
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     17.1.
+     <font color="#9271C3">
+      前処理
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     17.2.
+     <font color="#9271C3">
+      トレーニング
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     17.3.
+     <font color="#9271C3">
+      予測
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
+     17.4.
+     <font color="#9271C3">
+      Kaggleへのアップロード
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   18.
+   <font color="#3E1485">
+    <strong>
+     提案
+    </strong>
+   </font>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="font-color-3e1485-toxic-comment-classification-challenge-font">
+<h1><span class="section-number">14. </span><font color='#3E1485'><strong>Toxic Comment Classification Challenge</strong></font><a class="headerlink" href="#font-color-3e1485-toxic-comment-classification-challenge-font" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="font-color-9271c3-font">
+<h2><span class="section-number">14.1. </span><font color='#9271C3'>背景</font><a class="headerlink" href="#font-color-9271c3-font" title="Permalink to this headline">¶</a></h2>
+<p>多くのオンラインウェブサイト、アプリケーション、サービスでは、ディスカッション、コメント、その他の目的でユーザーがテキストを入力することができます。ほとんどの場合、私たちはユーザーが適切に行動し、テキスト機能を乱用しないことを期待しています。しかし、時には意図的であろうとなかろうと、ユーザーが会話に貢献しないものを入力し、他の人の体験を悪化させる結果になりかねません。</p>
+<p>この種のチャット・サービスを運営する多くの事業体にとって、会話を監視するための自動化ツールは需要が高い。有害な言葉を識別するためのそのようなツールは、すべてのユーザーにとってより良い、より一貫性のあるエクスペリエンスにつながるだろう。</p>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number">14.2. </span><font color='#9271C3'>タスク</font><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Wikipediaから収集されたコメントが提供される。様々なタイプの有害コメントを区別できるモデルを訓練せよ。</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">14.3. </span><font color='#9271C3'>データ</font><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">train.csv</span></code> - コメントとそのラベルを含むファイル。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test.csv</span></code> - テストデータを含むファイル。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_submission.csv</span></code> - サンプル提出ファイルを含むファイルであり、提出ファイルで期待されるカラムを示すために使用される。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_labels.csv</span></code> - コンペティション終了後に公開されたテストデータのラベル。</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">14.4. </span><font color='#9271C3'>お役立ちリンク集</font><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge">コンペHP</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/data">データ解説</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52557">1位解答</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52612">2位解答</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52762">3位解答</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="font-color-3e1485-font">
+<h1><span class="section-number">15. </span><font color='#3E1485'><strong>セットアップ</strong></font><a class="headerlink" href="#font-color-3e1485-font" title="Permalink to this headline">¶</a></h1>
+<p>以下のセルは必要なデータをダウンロードし、ノートブックで使用する環境を設定します。</p>
+<div class="section" id="font-color-9271c3-gpu-font">
+<h2><span class="section-number">15.1. </span><font color='#9271C3'>GPUランタイムを有効にする</font><a class="headerlink" href="#font-color-9271c3-gpu-font" title="Permalink to this headline">¶</a></h2>
+<p>このノートブックはGPUを搭載したシステムで実行するように設計されています。ランタイムのタイプをGPUを含むものに切り替えていることを確認してください（例：A100、V100）。</p>
+<p>GPUランタイムを使用しているかどうかを確認するには、次のセルを実行してください。フォーマットされたテキストが複数行出力されるはずです。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!nvidia-smi
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">15.2. </span><font color='#9271C3'>データセットをダウンロードする</font><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Kaggleはコンペティションと簡単にやり取りできるAPIを提供しています。私たちはこのAPIを使って自動的にデータをダウンロードし、予測をアップロードします。</p>
+<p>このAPIを使用する最初のステップは、自分のユーザーとして認証することです。APIトークンはユーザー名とKaggleが生成したキーを含むファイルです。トークンはアカウントページからダウンロードすることができ、通常 <code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code> と呼ばれます。APIトークンは、あなたのユーザーとしてAPIにアクセスするために必要なものなので、個人のGoogle Driveフォルダに安全に保管してください。</p>
+<p>このノートブックはGoogle Driveフォルダ内の<code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code>というKaggle APIトークンを検索します。トークンをGoogle Driveに置いたことを確認し、プロンプトが表示されたらこのノートブックがトークンにアクセスすることを許可してください。</p>
+<p>認証後、参加したすべてのコンペティションにアクセスできます。データのダウンロードにエラーが発生した場合は、Kaggle API トークンが有効であること、コンペティションのルールに同意していることを確認してください。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/kaggle.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+<span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_USERNAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%bash
+kaggle competitions download -c jigsaw-toxic-comment-classification-challenge
+if [ $? -ne 0 ]; then
+    echo &quot;データのダウンロードに問題があったようです。&quot;
+    echo &quot;競技規則に同意し、APIキーが有効であることを確認してください。&quot;
+else
+    mkdir -p /content/kaggle
+    unzip -o /content/jigsaw-toxic-comment-classification-challenge.zip -d /content/kaggle
+    unzip -o &quot;/content/kaggle/*.zip&quot; -d /content/kaggle
+    rm /content/kaggle/*.zip
+fi
+wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
+unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">15.3. </span><font color='#9271C3'>環境</font><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>デフォルトではインストールされていないライブラリを使用するので、ここでインストールします。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install transformers pytorch-lightning
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">transformers</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">pytorch_lightning</span> <span class="k">as</span> <span class="nn">pl</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">torchmetrics</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+
+<span class="n">font_path</span> <span class="o">=</span> <span class="s1">&#39;/usr/share/fonts/NotoSansCJKjp/NotoSansMonoCJKjp-Regular.otf&#39;</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">addfont</span><span class="p">(</span><span class="n">font_path</span><span class="p">)</span>
+<span class="n">prop</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">font_path</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/kaggle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id6">
+<h1><span class="section-number">16. </span><font color='#3E1485'><strong>視覚化</strong></font><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<p>この大会のデータはコメントとそのラベルで構成されている。可視化できるものはあまりありませんが、ラベルの分布といくつかの有害なコメントを見ることができます。</p>
+<div class="section" id="font-color-9271c3-train-csv-font">
+<h2><span class="section-number">16.1. </span><font color='#9271C3'>train.csv</font><a class="headerlink" href="#font-color-9271c3-train-csv-font" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/kaggle/train.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>まず、ラベルの分布を見てみよう。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_bin</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data_bin</span><span class="p">[</span><span class="s1">&#39;non-toxic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">data_bin</span><span class="p">[[</span><span class="s1">&#39;toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;severe_toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;obscene&#39;</span><span class="p">,</span> <span class="s1">&#39;threat&#39;</span><span class="p">,</span> <span class="s1">&#39;insult&#39;</span><span class="p">,</span> <span class="s1">&#39;identity_hate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_bin</span><span class="p">[</span><span class="s1">&#39;toxic&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_bin</span><span class="p">[[</span><span class="s1">&#39;toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;severe_toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;obscene&#39;</span><span class="p">,</span> <span class="s1">&#39;threat&#39;</span><span class="p">,</span> <span class="s1">&#39;insult&#39;</span><span class="p">,</span> <span class="s1">&#39;identity_hate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_bin</span> <span class="o">=</span> <span class="n">data_bin</span><span class="p">[[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;non-toxic&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data_bin</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;Non-toxic&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>この図から、有害と分類されるコメントは全体の10％程度であることがわかる。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_melt</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data_melt</span> <span class="o">=</span> <span class="n">data_melt</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;comment_text&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data_melt</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="kc">None</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>有害なコメントの種類は同じ頻度ではない。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_sum</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">data_sum</span><span class="p">[</span><span class="s1">&#39;num_labels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_sum</span><span class="p">[[</span><span class="s1">&#39;toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;severe_toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;obscene&#39;</span><span class="p">,</span> <span class="s1">&#39;threat&#39;</span><span class="p">,</span> <span class="s1">&#39;insult&#39;</span><span class="p">,</span> <span class="s1">&#39;identity_hate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data_sum</span> <span class="o">=</span> <span class="n">data_sum</span><span class="p">[</span><span class="n">data_sum</span><span class="p">[</span><span class="s1">&#39;num_labels&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data_sum</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;num_labels&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;num_labels&#39;</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="kc">None</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>毒性クラスが通常より多く表示される理由のひとつは、毒性クラスが最も一般的な分類であり、コメントによっては複数の毒性タイプが含まれているからかもしれない。</p>
+<p>有害なコメントを見てみよう。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obscene</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">67329</span><span class="p">]</span>
+<span class="n">obscene</span><span class="p">[</span><span class="s1">&#39;comment_text&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>このコメントはわいせつに分類されます。わいせつなコメントには通常、閲覧者によっては不適切と思われる言葉が含まれています。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">insult</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">106700</span><span class="p">]</span>
+<span class="n">insult</span><span class="p">[</span><span class="s1">&#39;comment_text&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>このコメントは侮辱に分類される。侮辱は通常、1人または複数の人に向けられ、軽蔑や軽蔑を伝えます。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id7">
+<h1><span class="section-number">17. </span><font color='#3E1485'><strong>モデリング</strong></font><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<p>このノートブックでは、2018年に導入された人気の言語モデルであるBERTを使用します。また、HuggingFaceの<code class="docutils literal notranslate"><span class="pre">transformers</span></code> ライブラリも利用します。これは、事前に学習されたBERTモデルと、テキストデータを前処理するための様々なユーティリティを提供します。最後に、PyTorchとPyTorch Lightningを使用します。PyTorchとPyTorch Lightningは、モデルの作成と学習を可能にするディープラーニングによく使用されるライブラリです。</p>
+<div class="section" id="id8">
+<h2><span class="section-number">17.1. </span><font color='#9271C3'>前処理</font><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>BERT のようなモデルを使用するには、まず入力をトークン化する必要があります。これは単にテキストを BERT が理解できる数値に変換することを意味します。<code class="docutils literal notranslate"><span class="pre">transformers</span></code>は自動的に正しいトークナイザーを読み込む<code class="docutils literal notranslate"><span class="pre">AutoTokenizer</span></code>クラスを提供する。</p>
+<p>次に、学習中に使用できる構造化された方法でデータを整理する必要があります。そのために、PyTorchの <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> を使います。この <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> はモデルとデータの間のインターフェイスとして機能します。</p>
+<p>このコンペティションのデータセットは小さいので、すべてのトレーニングデータセットを前処理してメモリに保存することができます。そうすることで、データをその場でトークン化するのではなく、事前にトークン化されたデータをメモリからロードするため、トレーニングが大幅にスピードアップする。</p>
+<p>トレーニングの後半では、データサンプルをバッチ処理する。簡単のため、トークナイザーが返す最初の128個のトークンのみを使用します。それ以上のトークンを持つテキストは切り捨てられ、それ以下のトークンを持つテキストはパディングされます。パラメータ <code class="docutils literal notranslate"><span class="pre">max_length</span></code> を変更すると、トークン化された入力により多くの情報が含まれるようになりますが、その分メモリのコストが増加します。</p>
+<p>前処理には数分かかるかもしれない。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;bert-base-uncased&#39;</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoTokenizer</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">CustomDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokenizer</span><span class="p">,</span> <span class="n">comments</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tokenized</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;データのトークン化&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">comment</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">comments</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tokenized</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span>
+                    <span class="n">tokenizer</span><span class="p">(</span>
+                        <span class="n">comment</span><span class="p">,</span>
+                        <span class="n">return_tensors</span><span class="o">=</span><span class="s1">&#39;pt&#39;</span><span class="p">,</span>
+                        <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;max_length&#39;</span><span class="p">,</span>
+                        <span class="n">truncation</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                        <span class="n">max_length</span><span class="o">=</span><span class="mi">128</span>
+                    <span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+            <span class="p">})</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tokenized</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenized</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenized</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+<span class="n">ds</span> <span class="o">=</span> <span class="n">CustomDataset</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;comment_text&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;severe_toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;obscene&#39;</span><span class="p">,</span> <span class="s1">&#39;threat&#39;</span><span class="p">,</span> <span class="s1">&#39;insult&#39;</span><span class="p">,</span> <span class="s1">&#39;identity_hate&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">17.2. </span><font color='#9271C3'>トレーニング</font><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<p>今回使用するBERTモデルは、別のタスクのためにすでに訓練されています。単にモデルを初期化し、データセットのクラスの値を出力するように変更します。その後、モデルを微調整し、タスクのためにモデルを再トレーニングします。</p>
+<p>標準的なPyTorchでは、モデルやタスクに関係なく同じテンプレートコードを書きます。これは非常に面倒であり、また細かい部分を忘れやすいためエラーが起こりやすい。PyTorch Lightningを使えば、学習コードの最も関連性の高い部分を1つのクラスにまとめ、細かい部分はライブラリに任せることができます。さらに、PyTorch Lightningはロギング、チェックポイント、その他のタスクのための多くの便利なユーティリティを提供します。</p>
+<p>以下のセルでは、以下のメソッドを含む PyTorch Lightning <code class="docutils literal notranslate"><span class="pre">LightningModule</span></code> を定義します：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> - 学習中に使用する変数を初期化します。これにはモデルとトレーニングの進捗を監視するためのメトリクスが含まれます。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">forward</span></code> - 与えられた入力をどのようにモデルに渡すかを定義する。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(training|validation|predict)_step</span></code> - 各ステップで実行するアクションを定義します。最も単純なケースでは <code class="docutils literal notranslate"><span class="pre">forward</span></code> を呼び出して損失を計算するが、追加の後処理やロギングを含めることもできる。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure_optimizers</span></code> - トレーニング中に使用するオプティマイザを返す。</p></li>
+</ul>
+<p>学習を高速化し、オーバーフィッティングを回避するために、既に学習済みのモデルのパラメータは学習しない。学習されるのは、分類タスク用に作成されたパラメータのみである。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomModel</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">LightningModule</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freeze_pretrained</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">=</span> <span class="n">lr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">transformers</span><span class="o">.</span><span class="n">AutoModelForSequenceClassification</span><span class="o">.</span><span class="n">from_pretrained</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">num_labels</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">freeze_pretrained</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
+                <span class="k">if</span> <span class="s1">&#39;classifier&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                    <span class="n">parameter</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">BCEWithLogitsLoss</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_AUROC</span> <span class="o">=</span> <span class="n">torchmetrics</span><span class="o">.</span><span class="n">classification</span><span class="o">.</span><span class="n">MultilabelAUROC</span><span class="p">(</span><span class="n">num_labels</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_AUROC</span> <span class="o">=</span> <span class="n">torchmetrics</span><span class="o">.</span><span class="n">classification</span><span class="o">.</span><span class="n">MultilabelAUROC</span><span class="p">(</span><span class="n">num_labels</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokenized_input</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="o">**</span><span class="n">tokenized_input</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">training_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+        <span class="n">tokenized_input</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">tokenized_input</span><span class="p">)</span><span class="o">.</span><span class="n">logits</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;train_loss&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">on_step</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_epoch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_AUROC</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(),</span> <span class="n">labels</span><span class="o">.</span><span class="n">long</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;train_AUROC&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_AUROC</span><span class="p">,</span> <span class="n">on_step</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_epoch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">loss</span>
+
+    <span class="k">def</span> <span class="nf">validation_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+        <span class="n">tokenized_input</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">tokenized_input</span><span class="p">)</span><span class="o">.</span><span class="n">logits</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_fn</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">on_step</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_epoch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_AUROC</span><span class="p">(</span><span class="n">preds</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(),</span> <span class="n">labels</span><span class="o">.</span><span class="n">long</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;val_AUROC&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">val_AUROC</span><span class="p">,</span> <span class="n">on_step</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_epoch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">predict_step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">):</span>
+        <span class="n">tokenized_input</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">tokenized_input</span><span class="p">)</span><span class="o">.</span><span class="n">logits</span>
+        <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">preds</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">configure_optimizers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">optimizer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>モデルが学習しているかどうかを確認するには、トレーニング中のパフォーマンスをモニターする必要がある。具体的には、時間の経過とともに損失が減少していること、追跡しているメトリクスに改善が見られることを確認したい。</p>
+<p>ここでは、TensorBoardを使用してトレーニングを監視します。TensorBoardは、時間の経過とともにモデルのパフォーマンスを可視化する便利なツールです。</p>
+<p>TensorBoardサーバーを起動するには、以下のセルを実行します。数秒後、インターフェースが表示されます。トレーニングやロギング値を開始していないため、最初は何も出力されません。トレーニングが開始されると、セルの出力は定期的に更新されます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">tensorboard</span>
+<span class="o">%</span><span class="n">tensorboard</span> <span class="o">--</span><span class="n">logdir</span> <span class="n">lightning_logs</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>トレーニングの準備はほぼ整いました。次のセルでは、まずデータを学習セットと検証セットに分割し、データをバッチ処理するPyTorchの <code class="docutils literal notranslate"><span class="pre">DataLoaders</span></code> を準備します。次に、モデルとロガーを初期化し、モデルの最適な反復を保存するコールバックを作成します。最後に、学習を開始します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds</span><span class="p">,</span> <span class="n">val_ds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">random_split</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
+<span class="n">train_dl</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">val_dl</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">val_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">CustomModel</span><span class="p">()</span>
+<span class="n">tb_logger</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">loggers</span><span class="o">.</span><span class="n">TensorBoardLogger</span><span class="p">(</span><span class="s1">&#39;lightning_logs&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;custom_model&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;lightning_logs/</span><span class="si">{</span><span class="n">tb_logger</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s1">/checkpoints&#39;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">checkpoint</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;lightning_logs/</span><span class="si">{</span><span class="n">tb_logger</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s1">/checkpoints/&#39;</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;lightning_logs/</span><span class="si">{</span><span class="n">tb_logger</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s1">/checkpoints/</span><span class="si">{</span><span class="n">checkpoint</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">checkpoint_callback</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">ModelCheckpoint</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_AUROC&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">)</span>
+<span class="n">profiler</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">profilers</span><span class="o">.</span><span class="n">AdvancedProfiler</span><span class="p">(</span><span class="n">dirpath</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;profile&#39;</span><span class="p">)</span>
+<span class="n">trainer</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">Trainer</span><span class="p">(</span>
+    <span class="n">max_epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">accelerator</span><span class="o">=</span><span class="s1">&#39;gpu&#39;</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="s1">&#39;16-mixed&#39;</span><span class="p">,</span>
+    <span class="n">logger</span><span class="o">=</span><span class="n">tb_logger</span><span class="p">,</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">checkpoint_callback</span><span class="p">],</span>
+    <span class="n">enable_progress_bar</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">trainer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">train_dl</span><span class="p">,</span> <span class="n">val_dl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h2><span class="section-number">17.3. </span><font color='#9271C3'>予測</font><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>モデルの学習が終了したら、テストデータの予測を生成することができます。以前のようにデータをトークン化する必要があります。さらに、さまざまなトレーニング・パラメータによっては、モデルが最適な状態にないこともあります。しかし、チェックポイント・コールバックで最適なバージョンを保存したので、簡単にモデルを最適な状態にリロードすることができます。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">)</span>
+<span class="n">test_ds</span> <span class="o">=</span> <span class="n">CustomDataset</span><span class="p">(</span><span class="n">tokenizer</span><span class="p">,</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;comment_text&#39;</span><span class="p">])</span>
+<span class="n">test_dl</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">(</span><span class="n">test_ds</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ckpt_path</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;lightning_logs/</span><span class="si">{</span><span class="n">tb_logger</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s1">/checkpoints/*&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">CustomModel</span><span class="o">.</span><span class="n">load_from_checkpoint</span><span class="p">(</span><span class="n">ckpt_path</span><span class="p">)</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_dl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sample_submission.csv&#39;</span><span class="p">)</span>
+<span class="n">submission</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="n">submission</span><span class="p">[[</span><span class="s1">&#39;toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;severe_toxic&#39;</span><span class="p">,</span> <span class="s1">&#39;obscene&#39;</span><span class="p">,</span> <span class="s1">&#39;threat&#39;</span><span class="p">,</span> <span class="s1">&#39;insult&#39;</span><span class="p">,</span> <span class="s1">&#39;identity_hate&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">submission</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;submission.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">submission</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-9271c3-kaggle-font">
+<h2><span class="section-number">17.4. </span><font color='#9271C3'>Kaggleへのアップロード</font><a class="headerlink" href="#font-color-9271c3-kaggle-font" title="Permalink to this headline">¶</a></h2>
+<p>予測はKaggleのAPIを通して直接提出されるため、ファイルを手動でダウンロードし、Kaggleのウェブサイトに再アップロードする必要はありません。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m &quot;これはアップロードに添付されたメッセージである。&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/submissions">提出ページ</a>でスコアを確認する。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id11">
+<h1><span class="section-number">18. </span><font color='#3E1485'><strong>提案</strong></font><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h1>
+<p><strong>他のモデル</strong> - BERT以外にも多くの言語モデルがあります。新しいモデルの方が性能は良いですが、パラメータが多いのでオーバーフィッティングになりやすいかもしれません。</p>
+<p><strong>学習率</strong> - 我々の学習率は非常に小さい。これはオーバーフィッティングを避けるのに役立ち、スコアが悪くなる可能性がありますが、訓練時間が長くなります。学習結果を観察し、学習率を上げてみてください。</p>
+<p><strong>エポック</strong> - 我々のモデルは3エポックしか学習しません。TensorBoardでトレーニングの進捗を確認すると、検証損失とメトリクスが着実に向上しているように見えますが、これはもっとトレーニングすべき指標です。エポック数を増やしてみましょう。</p>
+<p><strong>すべてのパラメータを訓練する</strong> - 現在、分類器の重みのみを更新しており、事前訓練された重みは更新していません。すべての重みを更新することで、より高いスコアが得られますが、オーバーフィットしやすくなります。さらに、すべてのパラメータをトレーニングすると、トレーニング時間とメモリ要件が増加します。</p>
+<p><strong>トレーニングの自動停止</strong> - 多くのエポック数を学習すると、モデルの改善はどこかで止まってしまいます。PyTorch Lightningには、学習を早期に終了させる早期停止コールバックがあります。<a class="reference external" href="https://lightning.ai/docs/pytorch/stable/common/early_stopping.html">ドキュメンテーション</a>を確認して、学習プロセスに追加できるか確認してください。</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="problem_02.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">9. </span><font color='#3E1485'><strong>Mercari Price Suggestion Challenge</strong></font></p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_04.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">19. </span><font color='#3E1485'><strong>Cassava Leaf Disease Classification</strong></font></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      <div class="extra_footer">
+        <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img style="0;margin-bottom:0.2em;" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a> © Copyright 2022 Graduate School of Information Sciences, Tohoku University．
+
+      </div>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

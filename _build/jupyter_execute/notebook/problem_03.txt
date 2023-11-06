@@ -1,0 +1,195 @@
+!nvidia-smi
+
+from google.colab import drive
+import os
+import json
+
+drive.mount("/content/drive", force_remount=True)
+fin = open("/content/drive/MyDrive/kaggle.json", "r")
+json_data = json.load(fin)
+fin.close()
+os.environ["KAGGLE_USERNAME"] = json_data["username"]
+os.environ["KAGGLE_KEY"] = json_data["key"]
+
+%%bash
+kaggle competitions download -c jigsaw-toxic-comment-classification-challenge
+if [ $? -ne 0 ]; then
+    echo "データのダウンロードに問題があったようです。"
+    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+else
+    mkdir -p /content/kaggle
+    unzip -o /content/jigsaw-toxic-comment-classification-challenge.zip -d /content/kaggle
+    unzip -o "/content/kaggle/*.zip" -d /content/kaggle
+    rm /content/kaggle/*.zip
+fi
+wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
+unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
+
+!pip install transformers pytorch-lightning
+
+import os
+import pandas as pd
+import numpy as np
+import matplotlib
+import matplotlib.pyplot as plt
+import seaborn as sns
+import transformers
+import torch
+import pytorch_lightning as pl
+from tqdm.auto import tqdm
+import torchmetrics
+from glob import glob
+
+font_path = '/usr/share/fonts/NotoSansCJKjp/NotoSansMonoCJKjp-Regular.otf'
+matplotlib.font_manager.fontManager.addfont(font_path)
+prop = matplotlib.font_manager.FontProperties(fname=font_path)
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = prop.get_name()
+os.chdir('/content/kaggle')
+
+data = pd.read_csv('/content/kaggle/train.csv')
+data
+
+data_bin = data.copy()
+data_bin['non-toxic'] = 1 - data_bin[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']].max(axis=1)
+data_bin['toxic'] = data_bin[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']].max(axis=1)
+data_bin = data_bin[['id', 'toxic', 'non-toxic']].melt(id_vars='id')
+sns.barplot(data_bin, x='variable', y='value', errorbar=None)
+plt.xlabel(None)
+plt.ylabel(None)
+plt.xticks([0, 1], ['Toxic', 'Non-toxic']);
+
+data_melt = data.copy()
+data_melt = data_melt.drop(columns=['comment_text']).melt(id_vars='id')
+sns.barplot(data_melt, x='variable', y='value', estimator='sum', errorbar=None)
+plt.xlabel(None)
+plt.ylabel(None);
+
+data_sum = data.copy()
+data_sum['num_labels'] = data_sum[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']].sum(axis=1)
+data_sum = data_sum[data_sum['num_labels']>0]
+sns.barplot(data_sum, x='num_labels', y='num_labels', estimator='count', errorbar=None)
+plt.ylabel(None);
+
+obscene = data.loc[67329]
+obscene['comment_text']
+
+insult = data.loc[106700]
+insult['comment_text']
+
+model_name = 'bert-base-uncased'
+tokenizer = transformers.AutoTokenizer.from_pretrained(model_name)
+
+class CustomDataset(torch.utils.data.Dataset):
+    def __init__(self, tokenizer, comments, labels=None):
+        self.tokenized = []
+        if labels is not None:
+            self.labels = torch.tensor(labels, dtype=torch.float32)
+        else:
+            self.labels = None
+        print('データのトークン化')
+        for comment in tqdm(comments):
+            self.tokenized.append({
+                key: value[0] for key, value in
+                    tokenizer(
+                        comment,
+                        return_tensors='pt',
+                        padding='max_length',
+                        truncation=True,
+                        max_length=128
+                    ).items()
+            })
+
+    def __len__(self):
+        return len(self.tokenized)
+
+    def __getitem__(self, idx):
+        if self.labels is None:
+            return self.tokenized[idx]
+        else:
+            return self.tokenized[idx], self.labels[idx]
+
+ds = CustomDataset(tokenizer, data['comment_text'], data[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']].values)
+
+class CustomModel(pl.LightningModule):
+    def __init__(self, freeze_pretrained=True, lr=1e-5):
+        super().__init__()
+        self.lr = lr
+        self.model = transformers.AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=6)
+        if freeze_pretrained:
+            for name, parameter in self.model.named_parameters():
+                if 'classifier' not in name:
+                    parameter.requires_grad = False
+        self.loss_fn = torch.nn.BCEWithLogitsLoss()
+        self.train_AUROC = torchmetrics.classification.MultilabelAUROC(num_labels=6)
+        self.val_AUROC = torchmetrics.classification.MultilabelAUROC(num_labels=6)
+
+    def forward(self, tokenized_input):
+        return self.model(**tokenized_input)
+
+    def training_step(self, batch, batch_idx):
+        tokenized_input, labels = batch
+        preds = self.forward(tokenized_input).logits
+        loss = self.loss_fn(preds, labels)
+        self.log('train_loss', loss, on_step=True, on_epoch=True)
+        self.train_AUROC(preds.sigmoid(), labels.long())
+        self.log('train_AUROC', self.train_AUROC, on_step=False, on_epoch=True)
+        return loss
+
+    def validation_step(self, batch, batch_idx):
+        tokenized_input, labels = batch
+        preds = self.forward(tokenized_input).logits
+        loss = self.loss_fn(preds, labels)
+        self.log('val_loss', loss, on_step=False, on_epoch=True)
+        self.val_AUROC(preds.sigmoid(), labels.long())
+        self.log('val_AUROC', self.val_AUROC, on_step=False, on_epoch=True)
+
+    def predict_step(self, batch, batch_idx):
+        tokenized_input = batch
+        preds = self.forward(tokenized_input).logits
+        preds = preds.sigmoid()
+        return preds.detach().cpu()
+
+    def configure_optimizers(self):
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.lr)
+        return optimizer
+
+%load_ext tensorboard
+%tensorboard --logdir lightning_logs/
+
+train_ds, val_ds = torch.utils.data.random_split(ds, [0.8, 0.2])
+train_dl = torch.utils.data.DataLoader(train_ds, batch_size=32, shuffle=True)
+val_dl = torch.utils.data.DataLoader(val_ds, batch_size=32, shuffle=False)
+
+model = CustomModel()
+tb_logger = pl.loggers.TensorBoardLogger('lightning_logs', name='', version='custom_model')
+if os.path.exists(f'lightning_logs/{tb_logger.version}/checkpoints'):
+    for checkpoint in os.listdir(f'lightning_logs/{tb_logger.version}/checkpoints/'):
+        os.remove(f'lightning_logs/{tb_logger.version}/checkpoints/{checkpoint}')
+checkpoint_callback = pl.callbacks.ModelCheckpoint(monitor='val_AUROC', mode='max')
+profiler = pl.profilers.AdvancedProfiler(dirpath='.', filename='profile')
+trainer = pl.Trainer(
+    max_epochs=3, accelerator='gpu', precision='16-mixed',
+    logger=tb_logger,
+    callbacks=[checkpoint_callback],
+    enable_progress_bar=True
+)
+
+trainer.fit(model, train_dl, val_dl)
+
+test_data = pd.read_csv('test.csv')
+test_ds = CustomDataset(tokenizer, test_data['comment_text'])
+test_dl = torch.utils.data.DataLoader(test_ds, batch_size=32, shuffle=False)
+ckpt_path = glob(f'lightning_logs/{tb_logger.version}/checkpoints/*')[0]
+model = CustomModel.load_from_checkpoint(ckpt_path)
+preds = trainer.predict(model, test_dl)
+
+submission = pd.read_csv('sample_submission.csv')
+submission['id'] = test_data['id']
+submission[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']] = torch.vstack(preds).numpy()
+submission.to_csv('submission.csv', index=False)
+submission
+
+!kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m "これはアップロードに添付されたメッセージである。"
+
+

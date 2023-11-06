@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. 問題１ &#8212; Kaggle Fight Club</title>
+    <title>4. M5 Forecasting - Accuracy Competition &#8212; Kaggle Fight Club</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Mercari Price Suggestion Challenge" href="problem_02.html" />
     <link rel="prev" title="3. 教師なし学習法" href="scikit_learn_02.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -127,7 +128,42 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. 問題１
+   4.
+   <font color="#3E1485">
+    <strong>
+     M5 Forecasting - Accuracy Competition
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="problem_02.html">
+   9.
+   <font color="#3E1485">
+    <strong>
+     Mercari Price Suggestion Challenge
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="problem_03.html">
+   14.
+   <font color="#3E1485">
+    <strong>
+     Toxic Comment Classification Challenge
+    </strong>
+   </font>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="problem_04.html">
+   19.
+   <font color="#3E1485">
+    <strong>
+     Cassava Leaf Disease Classification
+    </strong>
+   </font>
   </a>
  </li>
 </ul>
@@ -230,14 +266,148 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   4.1. この問題について
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   4.
+   <font color="#3E1485">
+    <strong>
+     M5 Forecasting - Accuracy Competition
+    </strong>
+   </font>
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-font">
+     4.1.
+     <font color="#9271C3">
+      背景
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.2.
+     <font color="#9271C3">
+      タスク
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     4.3.
+     <font color="#9271C3">
+      データ
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.4.
+     <font color="#9271C3">
+      お役立ちリンク集
+     </font>
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   4.2. ヒント
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-3e1485-font">
+   5.
+   <font color="#3E1485">
+    <strong>
+     セットアップ
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     5.1.
+     <font color="#9271C3">
+      データセットをダウンロードする
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     5.2.
+     <font color="#9271C3">
+      計算環境
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   6.
+   <font color="#3E1485">
+    <strong>
+     視覚化
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-sales-train-evaluation-csv-font">
+     6.1.
+     <font color="#9271C3">
+      sales_train_evaluation.csv
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-calendar-csv-font">
+     6.2.
+     <font color="#9271C3">
+      calendar.csv
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-sell-prices-csv-font">
+     6.3.
+     <font color="#9271C3">
+      sell_prices.csv
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   7.
+   <font color="#3E1485">
+    <strong>
+     モデリング
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     7.1.
+     <font color="#9271C3">
+      分解と予測
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
+     7.2.
+     <font color="#9271C3">
+      Kaggleへのアップロード
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   8.
+   <font color="#3E1485">
+    提案
+   </font>
   </a>
  </li>
 </ul>
@@ -250,7 +420,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>問題１</h1>
+                <h1><font color='#3E1485'>M5 Forecasting - Accuracy Competition</font></h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -260,14 +430,148 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   4.1. この問題について
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   4.
+   <font color="#3E1485">
+    <strong>
+     M5 Forecasting - Accuracy Competition
+    </strong>
+   </font>
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-font">
+     4.1.
+     <font color="#9271C3">
+      背景
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     4.2.
+     <font color="#9271C3">
+      タスク
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     4.3.
+     <font color="#9271C3">
+      データ
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     4.4.
+     <font color="#9271C3">
+      お役立ちリンク集
+     </font>
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   4.2. ヒント
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#font-color-3e1485-font">
+   5.
+   <font color="#3E1485">
+    <strong>
+     セットアップ
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     5.1.
+     <font color="#9271C3">
+      データセットをダウンロードする
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     5.2.
+     <font color="#9271C3">
+      計算環境
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   6.
+   <font color="#3E1485">
+    <strong>
+     視覚化
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-sales-train-evaluation-csv-font">
+     6.1.
+     <font color="#9271C3">
+      sales_train_evaluation.csv
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-calendar-csv-font">
+     6.2.
+     <font color="#9271C3">
+      calendar.csv
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-sell-prices-csv-font">
+     6.3.
+     <font color="#9271C3">
+      sell_prices.csv
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   7.
+   <font color="#3E1485">
+    <strong>
+     モデリング
+    </strong>
+   </font>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     7.1.
+     <font color="#9271C3">
+      分解と予測
+     </font>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
+     7.2.
+     <font color="#9271C3">
+      Kaggleへのアップロード
+     </font>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   8.
+   <font color="#3E1485">
+    提案
+   </font>
   </a>
  </li>
 </ul>
@@ -279,16 +583,328 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">4. </span>問題１<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="font-color-3e1485-m5-forecasting-accuracy-competition-font">
+<h1><span class="section-number">4. </span><font color='#3E1485'><strong>M5 Forecasting - Accuracy Competition</strong></font><a class="headerlink" href="#font-color-3e1485-m5-forecasting-accuracy-competition-font" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="font-color-9271c3-font">
+<h2><span class="section-number">4.1. </span><font color='#9271C3'>背景</font><a class="headerlink" href="#font-color-9271c3-font" title="Permalink to this headline">¶</a></h2>
+<p>ウォルマートは米国最大級のスーパーマーケットである。同社が直面する主な課題の1つは、どの商品を、いつ、どのくらいの量仕入れるかを決定することである。間違った商品を仕入れると、潜在的な売上を逃し、在庫コストの増加につながる。</p>
+<p>青果物のような特定の商品の需要は、収穫期やその商品の供給量と連動している場合がある。そのような商品の場合、供給が徐々に変化するにつれて、需要もスムーズに変化することが期待できる。しかし、他の商品では同じ傾向は見られず、休日や文化的行事によって需要が急激に変化することもある。商品需要の傾向を把握し予測することは、スーパーマーケットが適切な量の商品を仕入れ、損失を最小限に抑えながら利益を最大化するのに役立つ。</p>
+</div>
+<div class="section" id="id1">
+<h2><span class="section-number">4.2. </span><font color='#9271C3'>タスク</font><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>ウォルマートのスーパーマーケットにおける様々な品目の過去の売上データが与えられたとき、個々の店舗における来月の売上を予測しなさい。</p>
+</div>
 <div class="section" id="id2">
-<h2><span class="section-number">4.1. </span>この問題について<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>ほげ</p>
+<h2><span class="section-number">4.3. </span><font color='#9271C3'>データ</font><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">calendar.csv</span></code> - 商品が販売される日付に関する情報を含む。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_submission.csv</span></code> - 投稿用の正しいフォーマット。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sell_prices.csv</span></code> - 各店舗で販売された商品の価格と日付に関する情報が含まれている。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sales_train_evaluation.csv</span></code> - [d_1 - d_1941]` 日間における、各商品と各店舗の過去の日次販売個数データを格納。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sales_train_validation.csv</span></code> - [d_1 - d_1913]`日の各商品と店舗の過去の日次販売台数データを含む。**このファイルは使用しないでください。</p></li>
+</ul>
+<p>* 当初のコンペティションは2つのステージで構成されていた。第1ステージでは、1日目から1913日目までのデータが発表され、1914日目から1941日目までの予測に基づいて得点が決定された。第 2 段階では、1914 年～1941 年の日数のデータが発表され、1942 年～1969 年の日数の予測に基づ いて得点が決定された。ここでは簡単のため、<code class="docutils literal notranslate"><span class="pre">sales_train_evaluation.csv</span></code>のみを使用して、このコンペティションのセカンドステージをシミュレートする。</p>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">4.2. </span>ヒント<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>ほげ</p>
+<h2><span class="section-number">4.4. </span><font color='#9271C3'>お役立ちリンク集</font><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.kaggle.com/c/m5-forecasting-accuracy">コンペHP</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/m5-forecasting-accuracy/code?competitionId=18599&amp;sortBy=voteCount&amp;searchQuery=%E6%97%A5%E6%9C%AC%E8%AA%9E">Kaggleコードリソース（日本語）</a></p>
+<p><a class="reference external" href="https://mofc.unic.ac.cy/m5-competition/">主催者からの情報（英語）</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/163684">1位解答</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/164599">2位解答</a></p>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/m5-forecasting-accuracy/discussion/164374">3位解答</a></p>
 </div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="font-color-3e1485-font">
+<h1><span class="section-number">5. </span><font color='#3E1485'><strong>セットアップ</strong></font><a class="headerlink" href="#font-color-3e1485-font" title="Permalink to this headline">¶</a></h1>
+<p>以下のセルは必要なデータをダウンロードし、ノートブックで使用する環境を設定します。</p>
+<div class="section" id="id4">
+<h2><span class="section-number">5.1. </span><font color='#9271C3'>データセットをダウンロードする</font><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Kaggleはコンペティションと簡単にやり取りできるAPIを提供しています。私たちはこのAPIを使って自動的にデータをダウンロードし、予測をアップロードします。</p>
+<p>このAPIを使用する最初のステップは、自分のユーザーとして認証することです。APIトークンはユーザー名とKaggleが生成したキーを含むファイルです。トークンはアカウントページからダウンロードすることができ、通常 <code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code> と呼ばれます。APIトークンは、あなたのユーザーとしてAPIにアクセスするために必要なものなので、個人のGoogle Driveフォルダに安全に保管してください。</p>
+<p>このノートブックはGoogle Driveフォルダ内の<code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code>というKaggle APIトークンを検索します。トークンをGoogle Driveに置いたことを確認し、プロンプトが表示されたらこのノートブックがトークンにアクセスすることを許可してください。</p>
+<p>認証後、参加したすべてのコンペティションにアクセスできます。データのダウンロードにエラーが発生した場合は、Kaggle API トークンが有効であること、コンペティションのルールに同意していることを確認してください。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/kaggle.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
+<span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_USERNAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_KEY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%bash
+kaggle competitions download -c m5-forecasting-accuracy --force
+if [ $? -ne 0 ]; then
+    echo &quot;データのダウンロードに問題があったようです。&quot;
+    echo &quot;競技規則に同意し、APIキーが有効であることを確認してください。&quot;
+else
+    mkdir -p /content/kaggle
+    unzip -o /content/m5-forecasting-accuracy.zip -d /content/kaggle
+fi
+wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
+unzip -u /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">5.2. </span><font color='#9271C3'>計算環境</font><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.seasonal</span> <span class="kn">import</span> <span class="n">STL</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.arima.model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.forecasting.stl</span> <span class="kn">import</span> <span class="n">STLForecast</span>
+
+<span class="n">font_path</span> <span class="o">=</span> <span class="s1">&#39;/usr/share/fonts/NotoSansCJKjp/NotoSansMonoCJKjp-Regular.otf&#39;</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">fontManager</span><span class="o">.</span><span class="n">addfont</span><span class="p">(</span><span class="n">font_path</span><span class="p">)</span>
+<span class="n">prop</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">font_path</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/kaggle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id6">
+<h1><span class="section-number">6. </span><font color='#3E1485'><strong>視覚化</strong></font><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h1>
+<p>いくつかの異なるファイルがあるので、視覚化は各ファイルにどのような種類のデータがあるのかを知るのに特に役立つでしょう。</p>
+<div class="section" id="font-color-9271c3-sales-train-evaluation-csv-font">
+<h2><span class="section-number">6.1. </span><font color='#9271C3'>sales_train_evaluation.csv</font><a class="headerlink" href="#font-color-9271c3-sales-train-evaluation-csv-font" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sales_train_evaluation.csv&#39;</span><span class="p">)</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>このファイルには <code class="docutils literal notranslate"><span class="pre">item_id</span></code> で指定されたアイテムの販売履歴が含まれる。アイテムには関連する部門とカテゴリが <code class="docutils literal notranslate"><span class="pre">dept_id</span></code> と <code class="docutils literal notranslate"><span class="pre">cat_id</span></code> に格納されている。さらに、場所に関する情報が <code class="docutils literal notranslate"><span class="pre">state_id</span></code> に、特定の店舗に関する情報が <code class="docutils literal notranslate"><span class="pre">store_id</span></code> に格納されている。残りの <code class="docutils literal notranslate"><span class="pre">d_x</span></code> というパターンにマッチする列は、<code class="docutils literal notranslate"><span class="pre">x</span></code> 日の売上数を示している。データは 2011-01-29 から始まるので、<code class="docutils literal notranslate"><span class="pre">d_1</span></code> には2011-01-29の売上が格納される。</p>
+<p>トレーニングデータは3つのカテゴリーに大別される：</p>
+<ul class="simple">
+<li><p>食べ物</p></li>
+<li><p>趣味</p></li>
+<li><p>家庭用品</p></li>
+</ul>
+<p>以下のプロットは、ほとんどの売上が食品であることを示している。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">total_sales</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">day_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sales</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;d_&#39;</span><span class="p">)]</span>
+<span class="n">total_sales</span><span class="p">[</span><span class="s1">&#39;total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">total_sales</span><span class="p">[</span><span class="n">day_cols</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">total_sales</span> <span class="o">=</span> <span class="n">total_sales</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">total_sales</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>これは時系列データであり、我々の予測は予測であるため、データが時間とともにどのように変化するかを意識する必要がある。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">day_cols</span><span class="p">})</span>
+<span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales_long</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat_id&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;sales&#39;</span><span class="p">)</span>
+<span class="n">sales_long</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales_long</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;d_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">sales_long</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sales&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;cat_id&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>この図を見ると、すべての売上高はおおむね増加しているが、売上高が停滞、あるいは減少している時期もある。</p>
+<p>時系列を分析するための一般的な手法のひとつに、トレンドと季節的要素でデータをモデル化する分解がある。このデータでは、トレンドは明らかに上向きだが、売上高の変動も見られる。これらの変動は、周期的、あるいは季節的な何らかの行動によるものかもしれない。</p>
+<p>分解を行うには、<code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> パッケージを使用します。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">day_cols</span><span class="p">})</span>
+<span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales_long</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat_id&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;sales&#39;</span><span class="p">)</span>
+<span class="n">sales_long</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales_long</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;d_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales_long</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;sales&#39;</span><span class="p">)</span>
+<span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales_long</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales_long</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;calendar.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">1941</span><span class="p">]))</span>
+<span class="n">sales_long</span> <span class="o">=</span> <span class="n">sales_long</span><span class="p">[</span><span class="n">sales_long</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span><span class="o">==</span><span class="mi">2012</span><span class="p">]</span>
+<span class="n">stl</span> <span class="o">=</span> <span class="n">STL</span><span class="p">(</span><span class="n">sales_long</span><span class="p">[</span><span class="s1">&#39;FOODS&#39;</span><span class="p">],</span> <span class="n">period</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">stl</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>上の図は、季節期間を30日に設定した2012年の<code class="docutils literal notranslate"><span class="pre">FOODS</span></code>の分解である。トレンドと季節を分けることで、それぞれが元のデータにどのように寄与しているかを明確に見ることができる。1つの観察点は、シーズンの初め、つまりこの場合は月の初めに、売上が一般的に高くなることである。</p>
+</div>
+<div class="section" id="font-color-9271c3-calendar-csv-font">
+<h2><span class="section-number">6.2. </span><font color='#9271C3'>calendar.csv</font><a class="headerlink" href="#font-color-9271c3-calendar-csv-font" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">calendar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;calendar.csv&#39;</span><span class="p">)</span>
+<span class="n">calendar</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>このファイルにはデータセットの各日に関する情報が含まれており、 <code class="docutils literal notranslate"><span class="pre">d_1</span></code> のような日を <code class="docutils literal notranslate"><span class="pre">2011-01-29</span></code> のような実際の日付に変換するのに使うことができる。データセットの開始日と終了日は1年単位で揃っていないことに注意しよう。これを下図に示す。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">calendar</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>このファイルには、特別なイベントに関する情報も含まれている。特別なイベントは比較的頻繁に発生しないが、売上に影響を与える可能性がある。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">event_idx</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">&#39;event_name_1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">|</span> <span class="n">calendar</span><span class="p">[</span><span class="s1">&#39;event_name_2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="n">n_events</span> <span class="o">=</span> <span class="n">event_idx</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">([</span><span class="s1">&#39;イベントない日&#39;</span><span class="p">,</span> <span class="s1">&#39;イベントある日&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">calendar</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">n_events</span><span class="p">,</span> <span class="n">n_events</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-9271c3-sell-prices-csv-font">
+<h2><span class="section-number">6.3. </span><font color='#9271C3'>sell_prices.csv</font><a class="headerlink" href="#font-color-9271c3-sell-prices-csv-font" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sell_prices</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sell_prices.csv&#39;</span><span class="p">)</span>
+<span class="n">sell_prices</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>このデータは、各店舗の様々な商品の価格を時系列で示したものである。価格は場所によって異なる場合があります。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wm_yr_wk_to_date</span> <span class="o">=</span> <span class="n">calendar</span><span class="p">[[</span><span class="s1">&#39;wm_yr_wk&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;wm_yr_wk&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">sell_prices_dt</span> <span class="o">=</span> <span class="n">sell_prices</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;wm_yr_wk&#39;</span><span class="p">,</span> <span class="s1">&#39;item_id&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;sell_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">sell_prices_dt</span> <span class="o">=</span> <span class="n">sell_prices_dt</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">wm_yr_wk_to_date</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;wm_yr_wk&#39;</span><span class="p">)</span>
+<span class="n">sell_prices_dt</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sell_prices_dt</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">sell_prices_dt</span><span class="p">[</span><span class="n">sell_prices_dt</span><span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;FOODS_1_001&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sell_price&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FOODS_1_001&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">sell_prices_dt</span><span class="p">[</span><span class="n">sell_prices_dt</span><span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;HOUSEHOLD_1_001&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sell_price&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;HOUSEHOLD_1_001&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">sell_prices_dt</span><span class="p">[</span><span class="n">sell_prices_dt</span><span class="p">[</span><span class="s1">&#39;item_id&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;HOBBIES_1_001&#39;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sell_price&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;HOBBIES_1_001&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>この図では3つの商品の価格を示している。一時的な売れ行きを示すと思われる、小規模で短期的な価格下落が見られる。また、長期的な価格の変化も見られるが、これは市場の需要や生産コストに対するメーカーの対応と考えられる。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id7">
+<h1><span class="section-number">7. </span><font color='#3E1485'><strong>モデリング</strong></font><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id8">
+<h2><span class="section-number">7.1. </span><font color='#9271C3'>分解と予測</font><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>将来の売上を予測するために、上で紹介した時系列分解テクニックと、時系列予測によく使われるモデルであるARIMAモデルを組み合わせます。</p>
+<p>単純なベースラインモデルとして、カテゴリーごとに全国的な売上高を予測する。このモデルは特定の商品の動向を無視し、立地も考慮しないため、あまり良いスコアは得られないかもしれません。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sales_modeling</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="n">col</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sales</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;d_&#39;</span><span class="p">)})</span>
+<span class="n">sales_modeling</span> <span class="o">=</span> <span class="n">sales_modeling</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat_id&#39;</span><span class="p">],</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;sales&#39;</span><span class="p">)</span>
+<span class="n">sales_modeling</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales_modeling</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;d_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">sales_modeling</span> <span class="o">=</span> <span class="n">sales_modeling</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;sales&#39;</span><span class="p">)</span>
+<span class="n">sales_modeling</span> <span class="o">=</span> <span class="n">sales_modeling</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">sales_modeling</span> <span class="o">=</span> <span class="n">sales_modeling</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;calendar.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">1941</span><span class="p">]))</span>
+<span class="n">sales_modeling</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;D&#39;</span>
+
+<span class="n">forecast</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">cat_id</span> <span class="ow">in</span> <span class="n">sales</span><span class="p">[</span><span class="s1">&#39;cat_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">stlf</span> <span class="o">=</span> <span class="n">STLForecast</span><span class="p">(</span><span class="n">sales_modeling</span><span class="p">[</span><span class="n">cat_id</span><span class="p">],</span> <span class="n">ARIMA</span><span class="p">,</span> <span class="n">model_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">trend</span><span class="o">=</span><span class="s2">&quot;t&quot;</span><span class="p">),</span> <span class="n">period</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+    <span class="n">stlf_res</span> <span class="o">=</span> <span class="n">stlf</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+    <span class="n">forecast</span><span class="p">[</span><span class="n">cat_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">stlf_res</span><span class="o">.</span><span class="n">forecast</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cat_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sales_modeling</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+  <span class="n">cmap</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">color_sequences</span><span class="p">[</span><span class="s1">&#39;tab10&#39;</span><span class="p">]</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sales_modeling</span><span class="p">[</span><span class="n">cat_id</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">sales_modeling</span><span class="p">[</span><span class="n">cat_id</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">cat_id</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">[</span><span class="n">cat_id</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">forecast</span><span class="p">[</span><span class="n">cat_id</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cat_id</span><span class="si">}</span><span class="s1">予測&#39;</span><span class="p">)</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">autofmt_xdate</span><span class="p">()</span>
+  <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>最後に、提出ファイルを作成し、そこに予測値を記入します。総売上高を予測するので、各店舗の平均売上高を得るために店舗数で割らなければなりません。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_cat_id</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">extract_split</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">submission</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sample_submission.csv&#39;</span><span class="p">)</span>
+<span class="n">submission</span><span class="p">[</span><span class="s1">&#39;cat_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">submission</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">extract_cat_id</span><span class="p">)</span>
+<span class="n">submission</span><span class="p">[</span><span class="s1">&#39;split&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">submission</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">extract_split</span><span class="p">)</span>
+
+<span class="c1"># fill validation with correct data</span>
+<span class="n">validation_idx</span> <span class="o">=</span> <span class="n">submission</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;validation&#39;</span><span class="p">)</span>
+<span class="n">forecast_cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;F</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">29</span><span class="p">)]</span>
+<span class="n">d_1914_1941_cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;d_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1914</span><span class="p">,</span> <span class="mi">1942</span><span class="p">)]</span>
+<span class="n">submission</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">validation_idx</span><span class="p">,</span> <span class="n">forecast_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">submission</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">validation_idx</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">d_1914_1941_cols</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># fill evaluation with forecasted data</span>
+<span class="n">evaluation_idx</span> <span class="o">=</span> <span class="n">submission</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;evaluation&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cat_id</span><span class="p">,</span> <span class="n">forecasted_sales</span> <span class="ow">in</span> <span class="n">forecast</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">cat_idx</span> <span class="o">=</span> <span class="n">submission</span><span class="p">[</span><span class="s1">&#39;cat_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">cat_id</span>
+    <span class="n">num_stores</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">evaluation_idx</span> <span class="o">&amp;</span> <span class="n">cat_idx</span><span class="p">)</span>
+    <span class="n">submission</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">evaluation_idx</span> <span class="o">&amp;</span> <span class="n">cat_idx</span><span class="p">),</span> <span class="n">forecast_cols</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">forecasted_sales</span> <span class="o">/</span> <span class="n">num_stores</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">submission</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat_id&#39;</span><span class="p">,</span> <span class="s1">&#39;split&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;submission.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">submission</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-9271c3-kaggle-font">
+<h2><span class="section-number">7.2. </span><font color='#9271C3'>Kaggleへのアップロード</font><a class="headerlink" href="#font-color-9271c3-kaggle-font" title="Permalink to this headline">¶</a></h2>
+<p>予測はKaggleのAPIを通して直接提出されるため、ファイルを手動でダウンロードし、Kaggleのウェブサイトに再アップロードする必要はありません。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!kaggle competitions submit -c m5-forecasting-accuracy -f submission.csv -m &quot;これはアップロードに添付されたメッセージである。&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/m5-forecasting-accuracy/submissions">提出ページ</a>でスコアを確認する。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id9">
+<h1><span class="section-number">8. </span><font color='#3E1485'>提案</font><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
+<p><strong>異なる季節性期間</strong>：時系列分解の実験では、一般的に月の初めに売上が高くなることが示されました。時系列分解に週単位を使用することで、他の傾向を示す可能性がある。</p>
+<p><strong>店舗を個別にモデル化する</strong>：このノートブックでは現在、各店舗の売上が同じであると仮定しています。ある店舗は他の店舗よりも一般的に売上が高い可能性が高い。</p>
+<p><strong>より複雑なモデル</strong>：ここで使われているモデルは比較的単純です。LSTMやコンペティションの勝者が使ったモデルなど、他のタイプのモデルを使ってみてください。</p>
+<p><strong>追加データ</strong>：現在のモデルは販売データしか使っていません。しかし、価格や休日などのデータもあり、予測を改善できるかもしれません。</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -322,6 +938,13 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title"><span class="section-number">3. </span>教師なし学習法</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_02.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span><font color='#3E1485'><strong>Mercari Price Suggestion Challenge</strong></font></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
