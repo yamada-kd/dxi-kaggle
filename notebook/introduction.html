@@ -500,15 +500,15 @@ const thebe_selector_output = ".output, .cell_output"
 <h3><span class="section-number">1.2.1. </span>Kaggle へのサインイン<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>以下の URL から Kaggle にアクセスし，サインインします．新たに Kaggle のアカウントを作成する必要はありません．グーグルアカウントでサインインできます．</p>
 <p><a class="reference external" href="https://www.kaggle.com/">https://www.kaggle.com/</a></p>
-<a class="reference internal image-reference" href="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL"><img alt="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" src="https://drive.google.com/uc?id=1FxE0cVkpmTbuUbosXk58DIu_V-v4TkDL" style="width: 25%;" /></a>
 <a class="reference internal image-reference" href="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-1.png?raw=1"><img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-1.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-1.png?raw=1" style="width: 25%;" /></a>
 <p>以下のようなユーザー名を決める画面等が出るので指示に従って進めます．</p>
-<a class="reference internal image-reference" href="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI"><img alt="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" src="https://drive.google.com/uc?id=1dyuDoU0NROIxWxotxPAuea7_qCIXtAsI" style="width: 25%;" /></a>
+<a class="reference internal image-reference" href="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-2.png?raw=1"><img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-2.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-2.png?raw=1" style="width: 25%;" /></a>
 </div>
 <div class="section" id="kaggle-api-token">
 <h3><span class="section-number">1.2.2. </span>Kaggle API Token<a class="headerlink" href="#kaggle-api-token" title="Permalink to this headline">¶</a></h3>
 <p>グーグルコラボラトリーから Kaggle へは Kaggle API というものを使ってアクセスするのですが，そのために必要な Kaggle API Token というものを Kaggle の公式ページからダウンロードします．そのために，公式ページの「Account」にアクセスし，その後，「Create New API Token」をクリックしてファイルをダウンロードします．Kaggle のトップページに表示されている自身のユーザー名をクリックすると「Account」にアクセスするページに到達できます．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH"><img alt="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" src="https://drive.google.com/uc?id=12sHnegPrq40qjGXnpkVBmM2rAChe3CrH" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-3.png?raw=1"><img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-3.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-3.png?raw=1" style="width: 80%;" /></a>
 <p>この操作によって「kaggle.json」という名前のファイルをダウンロードできましたが，今度はこのファイルをグーグルドライブ内の，上の操作で作成した <code class="docutils literal notranslate"><span class="pre">kaggle/token</span></code> にアップロードします．以下のコマンドを打って「kaggle.json」が確認出来たら成功しています．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -569,10 +569,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p>この問題に取り組むために Rules というタブをクリックして確認できる，この問題のルールを理解して承諾することを確認する部分をクリックしてください．</p>
 </div>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1qumITMhtTxLIXE8pKKI1TZE26_l5DJTH"><img alt="https://drive.google.com/uc?id=1qumITMhtTxLIXE8pKKI1TZE26_l5DJTH" src="https://drive.google.com/uc?id=1qumITMhtTxLIXE8pKKI1TZE26_l5DJTH" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-4.png?raw=1"><img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-4.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-4.png?raw=1" style="width: 80%;" /></a>
 <p>Kaggle を初めて利用する場合，以下のような電話番号の確認画面が出ます．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw"><img alt="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" src="https://drive.google.com/uc?id=1mt5tz517Jvo2_15SVfqbIPqkmH7I_huw" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-5.png?raw=1"><img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-5.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-5.png?raw=1" style="width: 80%;" /></a>
 <p>送られてきたコードを入力すると以降の操作が可能になります．</p>
 <a class="reference internal image-reference" href="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV"><img alt="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" src="https://drive.google.com/uc?id=1tywsQL1AV_Fsvl9_2urBNrBq3k7Pa8wV" style="width: 80%;" /></a>
+<a class="reference internal image-reference" href="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-6.png?raw=1"><img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-6.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-6.png?raw=1" style="width: 80%;" /></a>
 </div>
 <div class="section" id="id8">
 <h3><span class="section-number">1.3.2. </span>作業用フォルダの作成<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
