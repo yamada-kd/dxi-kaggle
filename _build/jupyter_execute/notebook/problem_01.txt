@@ -137,6 +137,6 @@ for cat_id, forecasted_sales in forecast.items():
 submission.drop(columns=['cat_id', 'split']).to_csv('submission.csv', index=False)
 submission
 
-!kaggle competitions submit -c m5-forecasting-accuracy -f submission.csv -m "これはアップロードに添付されたメッセージである．"
+! kaggle competitions submit -c m5-forecasting-accuracy -f submission.csv -m "upload"
 
 
