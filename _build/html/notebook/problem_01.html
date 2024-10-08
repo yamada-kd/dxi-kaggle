@@ -316,6 +316,28 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#id13">
    2.5. 性能向上のための提案
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     2.5.1. 異なる季節性期間
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     2.5.2. 店舗を個別にモデル化する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     2.5.3. より複雑なモデル
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     2.5.4. 追加データ
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -424,6 +446,28 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal nav-link" href="#id13">
    2.5. 性能向上のための提案
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     2.5.1. 異なる季節性期間
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     2.5.2. 店舗を個別にモデル化する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     2.5.3. より複雑なモデル
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     2.5.4. 追加データ
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -754,10 +798,22 @@ unzip -u /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 <div class="section" id="id13">
 <h2><span class="section-number">2.5. </span>性能向上のための提案<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
-<p><strong>異なる季節性期間</strong>：時系列分解で，一般的に月の初めに売上が高くなることが示されました．時系列分解に週単位を使用することで，他の傾向を示す可能性があります．</p>
-<p><strong>店舗を個別にモデル化する</strong>：このノートブックでは現在，各店舗の売上が同じであると仮定しています．店舗間の売り上げは普通異なる場合が多いです．</p>
-<p><strong>より複雑なモデル</strong>：ここで使われているモデルは比較的単純です．LSTMやコンペティションの勝者が使ったモデル等，他のタイプのモデルを使ってみてください．</p>
-<p><strong>追加データ</strong>：現在のモデルは販売データしか使っていません．しかし，価格や休日などのデータもあり，予測を改善できるかもしれません．</p>
+<div class="section" id="id14">
+<h3><span class="section-number">2.5.1. </span>異なる季節性期間<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>時系列分解で，一般的に月の初めに売上が高くなることが示されました．時系列分解に週単位を使用することで，他の傾向を示す可能性があります．</p>
+</div>
+<div class="section" id="id15">
+<h3><span class="section-number">2.5.2. </span>店舗を個別にモデル化する<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<p>このノートブックでは現在，各店舗の売上が同じであると仮定しています．店舗間の売り上げは普通異なる場合が多いです．</p>
+</div>
+<div class="section" id="id16">
+<h3><span class="section-number">2.5.3. </span>より複雑なモデル<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<p>ここで使われているモデルは比較的単純です．LSTMやコンペティションの勝者が使ったモデル等，他のタイプのモデルを使ってみてください．</p>
+</div>
+<div class="section" id="id17">
+<h3><span class="section-number">2.5.4. </span>追加データ<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
+<p>現在のモデルは販売データしか使っていません．しかし，価格や休日などのデータもあり，予測を改善できるかもしれません．</p>
+</div>
 </div>
 </div>
 
