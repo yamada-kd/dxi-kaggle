@@ -12,8 +12,8 @@ os.environ["KAGGLE_KEY"] = json_data["key"]
 %%bash
 kaggle competitions download -c m5-forecasting-accuracy --force
 if [ $? -ne 0 ]; then
-    echo "データのダウンロードに問題があったようです。"
-    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+    echo "データのダウンロードに問題があったようです．"
+    echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
     mkdir -p /content/kaggle
     unzip -o /content/m5-forecasting-accuracy.zip -d /content/kaggle
@@ -137,6 +137,6 @@ for cat_id, forecasted_sales in forecast.items():
 submission.drop(columns=['cat_id', 'split']).to_csv('submission.csv', index=False)
 submission
 
-!kaggle competitions submit -c m5-forecasting-accuracy -f submission.csv -m "これはアップロードに添付されたメッセージである。"
+!kaggle competitions submit -c m5-forecasting-accuracy -f submission.csv -m "これはアップロードに添付されたメッセージである．"
 
 
