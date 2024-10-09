@@ -12,8 +12,8 @@ os.environ["KAGGLE_KEY"] = json_data["key"]
 %%bash
 kaggle competitions download -c mercari-price-suggestion-challenge
 if [ $? -ne 0 ]; then
-    echo "データのダウンロードに問題があったようです。"
-    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+    echo "データのダウンロードに問題があったようです．"
+    echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
     mkdir -p /content/kaggle
     unzip -o /content/mercari-price-suggestion-challenge.zip -d /content/kaggle
@@ -63,7 +63,7 @@ plt.xticks(rotation=65);
 sns.countplot(data[data['level1_category_name']=='Women'], x='level2_category_name')
 plt.xticks(rotation=65);
 
-print(f'brand_nameのデータの{data["brand_name"].isna().sum() * 100 / data.shape[0]:.2f}%はNaNである。')
+print(f'brand_nameのデータの{data["brand_name"].isna().sum() * 100 / data.shape[0]:.2f}%はNaNである．')
 
 top_brands = data.groupby('brand_name')['price'].agg(['count', np.median]).sort_values(by='median', ascending=False)
 top_brands = top_brands[top_brands['count']>=100].reset_index()
