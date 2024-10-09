@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>4. 問題3 &#8212; Kaggle Fight Club</title>
+    <title>4. 問題3：有害コメント検出 &#8212; Kaggle Fight Club</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -121,7 +121,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   4. 問題3
+   4. 問題3：有害コメント検出
   </a>
  </li>
  <li class="toctree-l1">
@@ -230,157 +230,96 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-toxic-comment-classification-challenge-font">
-   4.1.
-   <font color="#3E1485">
-    <strong>
-     Toxic Comment Classification Challenge
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id2">
+   4.1. 取り組む問題
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-font">
-     4.1.1.
-     <font color="#9271C3">
-      背景
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     4.1.2.
-     <font color="#9271C3">
-      タスク
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     4.1.3.
-     <font color="#9271C3">
-      データ
-     </font>
+     4.1.1. 背景
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     4.1.4.
-     <font color="#9271C3">
-      お役立ちリンク集
-     </font>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-font">
-   4.2.
-   <font color="#3E1485">
-    <strong>
-     セットアップ
-    </strong>
-   </font>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-gpu-font">
-     4.2.1.
-     <font color="#9271C3">
-      GPUランタイムを有効にする
-     </font>
+     4.1.2. タスク
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id5">
-     4.2.2.
-     <font color="#9271C3">
-      データセットをダウンロードする
-     </font>
+     4.1.3. データ
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
-     4.2.3.
-     <font color="#9271C3">
-      環境
-     </font>
+     4.1.4. リンク集
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
-   4.3.
-   <font color="#3E1485">
-    <strong>
-     視覚化
-    </strong>
-   </font>
+   4.2. セットアップ
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-train-csv-font">
-     4.3.1.
-     <font color="#9271C3">
-      train.csv
-     </font>
+    <a class="reference internal nav-link" href="#gpu">
+     4.2.1. GPUランタイムを有効にする
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   4.4.
-   <font color="#3E1485">
-    <strong>
-     モデリング
-    </strong>
-   </font>
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     4.2.2. データセット
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id9">
-     4.4.1.
-     <font color="#9271C3">
-      前処理
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     4.4.2.
-     <font color="#9271C3">
-      トレーニング
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     4.4.3.
-     <font color="#9271C3">
-      予測
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
-     4.4.4.
-     <font color="#9271C3">
-      Kaggleへのアップロード
-     </font>
+     4.2.3. 環境
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id12">
-   4.5.
-   <font color="#3E1485">
-    <strong>
-     提案
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id10">
+   4.3. 視覚化
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-csv">
+     4.3.1. train.csv
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   4.4. モデリング
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     4.4.1. 前処理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     4.4.2. 学習
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     4.4.3. 予測
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kaggle">
+     4.4.4. Kaggleへのアップロード
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   4.5. 性能向上のための提案
   </a>
  </li>
 </ul>
@@ -393,7 +332,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>問題3</h1>
+                <h1>問題3：有害コメント検出</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -404,157 +343,96 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-toxic-comment-classification-challenge-font">
-   4.1.
-   <font color="#3E1485">
-    <strong>
-     Toxic Comment Classification Challenge
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id2">
+   4.1. 取り組む問題
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-font">
-     4.1.1.
-     <font color="#9271C3">
-      背景
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     4.1.2.
-     <font color="#9271C3">
-      タスク
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     4.1.3.
-     <font color="#9271C3">
-      データ
-     </font>
+     4.1.1. 背景
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     4.1.4.
-     <font color="#9271C3">
-      お役立ちリンク集
-     </font>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-font">
-   4.2.
-   <font color="#3E1485">
-    <strong>
-     セットアップ
-    </strong>
-   </font>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-gpu-font">
-     4.2.1.
-     <font color="#9271C3">
-      GPUランタイムを有効にする
-     </font>
+     4.1.2. タスク
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id5">
-     4.2.2.
-     <font color="#9271C3">
-      データセットをダウンロードする
-     </font>
+     4.1.3. データ
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
-     4.2.3.
-     <font color="#9271C3">
-      環境
-     </font>
+     4.1.4. リンク集
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
-   4.3.
-   <font color="#3E1485">
-    <strong>
-     視覚化
-    </strong>
-   </font>
+   4.2. セットアップ
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-train-csv-font">
-     4.3.1.
-     <font color="#9271C3">
-      train.csv
-     </font>
+    <a class="reference internal nav-link" href="#gpu">
+     4.2.1. GPUランタイムを有効にする
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   4.4.
-   <font color="#3E1485">
-    <strong>
-     モデリング
-    </strong>
-   </font>
-  </a>
-  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     4.2.2. データセット
+    </a>
+   </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id9">
-     4.4.1.
-     <font color="#9271C3">
-      前処理
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     4.4.2.
-     <font color="#9271C3">
-      トレーニング
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id11">
-     4.4.3.
-     <font color="#9271C3">
-      予測
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
-     4.4.4.
-     <font color="#9271C3">
-      Kaggleへのアップロード
-     </font>
+     4.2.3. 環境
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id12">
-   4.5.
-   <font color="#3E1485">
-    <strong>
-     提案
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id10">
+   4.3. 視覚化
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-csv">
+     4.3.1. train.csv
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   4.4. モデリング
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     4.4.1. 前処理
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     4.4.2. 学習
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     4.4.3. 予測
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kaggle">
+     4.4.4. Kaggleへのアップロード
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id15">
+   4.5. 性能向上のための提案
   </a>
  </li>
 </ul>
@@ -567,20 +445,21 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">4. </span>問題3<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="font-color-3e1485-toxic-comment-classification-challenge-font">
-<h2><span class="section-number">4.1. </span><font color='#3E1485'><strong>Toxic Comment Classification Challenge</strong></font><a class="headerlink" href="#font-color-3e1485-toxic-comment-classification-challenge-font" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="font-color-9271c3-font">
-<h3><span class="section-number">4.1.1. </span><font color='#9271C3'>背景</font><a class="headerlink" href="#font-color-9271c3-font" title="Permalink to this headline">¶</a></h3>
+<h1><span class="section-number">4. </span>問題3：有害コメント検出<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">4.1. </span>取り組む問題<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge">Toxic Comment Classification Challenge</a></p>
+<div class="section" id="id3">
+<h3><span class="section-number">4.1.1. </span>背景<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>多くのオンラインウェブサイト、アプリケーション、サービスでは、ディスカッション、コメント、その他の目的でユーザーがテキストを入力することができます。ほとんどの場合、私たちはユーザーが適切に行動し、テキスト機能を乱用しないことを期待しています。しかし、時には意図的であろうとなかろうと、ユーザーが会話に貢献しないものを入力し、他の人の体験を悪化させる結果になりかねません。</p>
 <p>この種のチャット・サービスを運営する多くの事業体にとって、会話を監視するための自動化ツールは需要が高い。有害な言葉を識別するためのそのようなツールは、すべてのユーザーにとってより良い、より一貫性のあるエクスペリエンスにつながるだろう。</p>
 </div>
-<div class="section" id="id2">
-<h3><span class="section-number">4.1.2. </span><font color='#9271C3'>タスク</font><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">4.1.2. </span>タスク<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>Wikipediaから収集されたコメントが提供される。様々なタイプの有害コメントを区別できるモデルを訓練せよ。</p>
 </div>
-<div class="section" id="id3">
-<h3><span class="section-number">4.1.3. </span><font color='#9271C3'>データ</font><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3><span class="section-number">4.1.3. </span>データ<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">train.csv</span></code> - コメントとそのラベルを含むファイル。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">test.csv</span></code> - テストデータを含むファイル。</p></li>
@@ -588,20 +467,21 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">test_labels.csv</span></code> - コンペティション終了後に公開されたテストデータのラベル。</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3><span class="section-number">4.1.4. </span><font color='#9271C3'>お役立ちリンク集</font><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge">コンペHP</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/data">データ解説</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52557">1位解答</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52612">2位解答</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52762">3位解答</a></p>
+<div class="section" id="id6">
+<h3><span class="section-number">4.1.4. </span>リンク集<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/data">データ解説</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52557">1位の解答</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52612">2位の解答</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/discussion/52762">3位の解答</a></p></li>
+</ul>
 </div>
 </div>
-<div class="section" id="font-color-3e1485-font">
-<h2><span class="section-number">4.2. </span><font color='#3E1485'><strong>セットアップ</strong></font><a class="headerlink" href="#font-color-3e1485-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2><span class="section-number">4.2. </span>セットアップ<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p>以下のセルは必要なデータをダウンロードし、ノートブックで使用する環境を設定します。</p>
-<div class="section" id="font-color-9271c3-gpu-font">
-<h3><span class="section-number">4.2.1. </span><font color='#9271C3'>GPUランタイムを有効にする</font><a class="headerlink" href="#font-color-9271c3-gpu-font" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="gpu">
+<h3><span class="section-number">4.2.1. </span>GPUランタイムを有効にする<a class="headerlink" href="#gpu" title="Permalink to this headline">¶</a></h3>
 <p>このノートブックはGPUを搭載したシステムで実行するように設計されています。ランタイムのタイプをGPUを含むものに切り替えていることを確認してください（例：A100、V100）。</p>
 <p>GPUランタイムを使用しているかどうかを確認するには、次のセルを実行してください。フォーマットされたテキストが複数行出力されるはずです。</p>
 <div class="cell docutils container">
@@ -612,8 +492,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3><span class="section-number">4.2.2. </span><font color='#9271C3'>データセットをダウンロードする</font><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3><span class="section-number">4.2.2. </span>データセット<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>Kaggleはコンペティションと簡単にやり取りできるAPIを提供しています。私たちはこのAPIを使って自動的にデータをダウンロードし、予測をアップロードします。</p>
 <p>このAPIを使用する最初のステップは、自分のユーザーとして認証することです。APIトークンはユーザー名とKaggleが生成したキーを含むファイルです。トークンはアカウントページからダウンロードすることができ、通常 <code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code> と呼ばれます。APIトークンは、あなたのユーザーとしてAPIにアクセスするために必要なものなので、個人のGoogle Driveフォルダに安全に保管してください。</p>
 <p>このノートブックはGoogle Driveフォルダ内の<code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code>というKaggle APIトークンを検索します。トークンをGoogle Driveに置いたことを確認し、プロンプトが表示されたらこのノートブックがトークンにアクセスすることを許可してください。</p>
@@ -654,8 +534,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3><span class="section-number">4.2.3. </span><font color='#9271C3'>環境</font><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3><span class="section-number">4.2.3. </span>環境<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>デフォルトではインストールされていないライブラリを使用するので、ここでインストールします。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -691,11 +571,11 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2><span class="section-number">4.3. </span><font color='#3E1485'><strong>視覚化</strong></font><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h2><span class="section-number">4.3. </span>視覚化<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
 <p>この大会のデータはコメントとそのラベルで構成されている。可視化できるものはあまりありませんが、ラベルの分布といくつかの有害なコメントを見ることができます。</p>
-<div class="section" id="font-color-9271c3-train-csv-font">
-<h3><span class="section-number">4.3.1. </span><font color='#9271C3'>train.csv</font><a class="headerlink" href="#font-color-9271c3-train-csv-font" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="train-csv">
+<h3><span class="section-number">4.3.1. </span>train.csv<a class="headerlink" href="#train-csv" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/kaggle/train.csv&#39;</span><span class="p">)</span>
@@ -765,11 +645,11 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <p>このコメントは侮辱に分類される。侮辱は通常、1人または複数の人に向けられ、軽蔑や軽蔑を伝えます。</p>
 </div>
 </div>
-<div class="section" id="id8">
-<h2><span class="section-number">4.4. </span><font color='#3E1485'><strong>モデリング</strong></font><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h2><span class="section-number">4.4. </span>モデリング<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <p>このノートブックでは、2018年に導入された人気の言語モデルであるBERTを使用します。また、HuggingFaceの<code class="docutils literal notranslate"><span class="pre">transformers</span></code> ライブラリも利用します。これは、事前に学習されたBERTモデルと、テキストデータを前処理するための様々なユーティリティを提供します。最後に、PyTorchとPyTorch Lightningを使用します。PyTorchとPyTorch Lightningは、モデルの作成と学習を可能にするディープラーニングによく使用されるライブラリです。</p>
-<div class="section" id="id9">
-<h3><span class="section-number">4.4.1. </span><font color='#9271C3'>前処理</font><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3><span class="section-number">4.4.1. </span>前処理<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>BERT のようなモデルを使用するには、まず入力をトークン化する必要があります。これは単にテキストを BERT が理解できる数値に変換することを意味します。<code class="docutils literal notranslate"><span class="pre">transformers</span></code>は自動的に正しいトークナイザーを読み込む<code class="docutils literal notranslate"><span class="pre">AutoTokenizer</span></code>クラスを提供する。</p>
 <p>次に、学習中に使用できる構造化された方法でデータを整理する必要があります。そのために、PyTorchの <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> を使います。この <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> はモデルとデータの間のインターフェイスとして機能します。</p>
 <p>このコンペティションのデータセットは小さいので、すべてのトレーニングデータセットを前処理してメモリに保存することができます。そうすることで、データをその場でトークン化するのではなく、事前にトークン化されたデータをメモリからロードするため、トレーニングが大幅にスピードアップする。</p>
@@ -815,8 +695,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3><span class="section-number">4.4.2. </span><font color='#9271C3'>トレーニング</font><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3><span class="section-number">4.4.2. </span>学習<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>今回使用するBERTモデルは、別のタスクのためにすでに訓練されています。単にモデルを初期化し、データセットのクラスの値を出力するように変更します。その後、モデルを微調整し、タスクのためにモデルを再トレーニングします。</p>
 <p>標準的なPyTorchでは、モデルやタスクに関係なく同じテンプレートコードを書きます。これは非常に面倒であり、また細かい部分を忘れやすいためエラーが起こりやすい。PyTorch Lightningを使えば、学習コードの最も関連性の高い部分を1つのクラスにまとめ、細かい部分はライブラリに任せることができます。さらに、PyTorch Lightningはロギング、チェックポイント、その他のタスクのための多くの便利なユーティリティを提供します。</p>
 <p>以下のセルでは、以下のメソッドを含む PyTorch Lightning <code class="docutils literal notranslate"><span class="pre">LightningModule</span></code> を定義します：</p>
@@ -913,8 +793,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="id11">
-<h3><span class="section-number">4.4.3. </span><font color='#9271C3'>予測</font><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id14">
+<h3><span class="section-number">4.4.3. </span>予測<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>モデルの学習が終了したら、テストデータの予測を生成することができます。以前のようにデータをトークン化する必要があります。さらに、さまざまなトレーニング・パラメータによっては、モデルが最適な状態にないこともあります。しかし、チェックポイント・コールバックで最適なバージョンを保存したので、簡単にモデルを最適な状態にリロードすることができます。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -940,8 +820,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="font-color-9271c3-kaggle-font">
-<h3><span class="section-number">4.4.4. </span><font color='#9271C3'>Kaggleへのアップロード</font><a class="headerlink" href="#font-color-9271c3-kaggle-font" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kaggle">
+<h3><span class="section-number">4.4.4. </span>Kaggleへのアップロード<a class="headerlink" href="#kaggle" title="Permalink to this headline">¶</a></h3>
 <p>予測はKaggleのAPIを通して直接提出されるため、ファイルを手動でダウンロードし、Kaggleのウェブサイトに再アップロードする必要はありません。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -953,8 +833,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <p><a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/submissions">提出ページ</a>でスコアを確認する。</p>
 </div>
 </div>
-<div class="section" id="id12">
-<h2><span class="section-number">4.5. </span><font color='#3E1485'><strong>提案</strong></font><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id15">
+<h2><span class="section-number">4.5. </span>性能向上のための提案<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
 <p><strong>他のモデル</strong> - BERT以外にも多くの言語モデルがあります。新しいモデルの方が性能は良いですが、パラメータが多いのでオーバーフィッティングになりやすいかもしれません。</p>
 <p><strong>学習率</strong> - 我々の学習率は非常に小さい。これはオーバーフィッティングを避けるのに役立ち、スコアが悪くなる可能性がありますが、訓練時間が長くなります。学習結果を観察し、学習率を上げてみてください。</p>
 <p><strong>エポック</strong> - 我々のモデルは3エポックしか学習しません。TensorBoardでトレーニングの進捗を確認すると、検証損失とメトリクスが着実に向上しているように見えますが、これはもっとトレーニングすべき指標です。エポック数を増やしてみましょう。</p>
