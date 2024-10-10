@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. 問題4 &#8212; Kaggle Fight Club</title>
+    <title>5. 問題4：疾病画像分類 &#8212; Kaggle Fight Club</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   5. 問題4
+   5. 問題4：疾病画像分類
   </a>
  </li>
 </ul>
@@ -229,160 +229,104 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-cassava-leaf-disease-classification-font">
-   5.1.
-   <font color="#3E1485">
-    <strong>
-     Cassava Leaf Disease Classification
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id2">
+   5.1. 取り組む問題
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-font">
-     5.1.1.
-     <font color="#9271C3">
-      背景
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     5.1.2.
-     <font color="#9271C3">
-      課題
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     5.1.3.
-     <font color="#9271C3">
-      データ
-     </font>
+     5.1.1. 背景
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     5.1.4.
-     <font color="#9271C3">
-      お役立ちリンク集
-     </font>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-font">
-   5.2.
-   <font color="#3E1485">
-    <strong>
-     セットアップ
-    </strong>
-   </font>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-gpu-font">
-     5.2.1.
-     <font color="#9271C3">
-      GPUランタイムを有効にする
-     </font>
+     5.1.2. 課題
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id5">
-     5.2.2.
-     <font color="#9271C3">
-      データセットをダウンロードする
-     </font>
+     5.1.3. データ
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
-     5.2.3.
-     <font color="#9271C3">
-      環境
-     </font>
+     5.1.4. リンク集
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
-   5.3.
-   <font color="#3E1485">
-    <strong>
-     視覚化
-    </strong>
-   </font>
+   5.2. セットアップ
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-label-num-to-disease-map-json-font">
-     5.3.1.
-     <font color="#9271C3">
-      label_num_to_disease_map.json
-     </font>
+    <a class="reference internal nav-link" href="#gpu">
+     5.2.1. GPUランタイム
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-train-csv-font">
-     5.3.2.
-     <font color="#9271C3">
-      train.csv
-     </font>
+    <a class="reference internal nav-link" href="#id8">
+     5.2.2. データセット
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     5.2.3. 環境
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   5.4.
-   <font color="#3E1485">
-    <strong>
-     モデリング
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id10">
+   5.3. 探索的データ解析
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     5.4.1.
-     <font color="#9271C3">
-      前処理
-     </font>
+    <a class="reference internal nav-link" href="#label-num-to-disease-map-json">
+     5.3.1. label_num_to_disease_map.json
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     5.4.2.
-     <font color="#9271C3">
-      トレーニング
-     </font>
+    <a class="reference internal nav-link" href="#train-csv">
+     5.3.2. train.csv
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   5.4. モデリング
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     5.4.1. 前処理
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
-     5.4.3.
-     <font color="#9271C3">
-      Kaggleへのアップロード
-     </font>
+    <a class="reference internal nav-link" href="#id13">
+     5.4.2. トレーニング
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kaggle">
+     5.4.3. Kaggleへのアップロード
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       5.4.3.1. 学習済みモデルのアップロード
+      <a class="reference internal nav-link" href="#id14">
+       5.4.3.1. ステップ1
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id12">
-       5.4.3.2. 競技用ノートブックの作成
+      <a class="reference internal nav-link" href="#id15">
+       5.4.3.2. ステップ2
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id13">
-       5.4.3.3. コンペノートの更新
+      <a class="reference internal nav-link" href="#id16">
+       5.4.3.3. ステップ4
       </a>
      </li>
     </ul>
@@ -390,14 +334,36 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id14">
-   5.5.
-   <font color="#3E1485">
-    <strong>
-     提案
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id17">
+   5.5. 性能向上のための提案
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     5.5.1. 他のモデル
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     5.5.2. 学習率
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     5.5.3. エポック
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     5.5.4. 自動的に学習を停止する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id22">
+     5.5.5. データ補強
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -409,7 +375,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>問題4</h1>
+                <h1>問題4：疾病画像分類</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -420,160 +386,104 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-cassava-leaf-disease-classification-font">
-   5.1.
-   <font color="#3E1485">
-    <strong>
-     Cassava Leaf Disease Classification
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id2">
+   5.1. 取り組む問題
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-font">
-     5.1.1.
-     <font color="#9271C3">
-      背景
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     5.1.2.
-     <font color="#9271C3">
-      課題
-     </font>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id3">
-     5.1.3.
-     <font color="#9271C3">
-      データ
-     </font>
+     5.1.1. 背景
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id4">
-     5.1.4.
-     <font color="#9271C3">
-      お役立ちリンク集
-     </font>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#font-color-3e1485-font">
-   5.2.
-   <font color="#3E1485">
-    <strong>
-     セットアップ
-    </strong>
-   </font>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-gpu-font">
-     5.2.1.
-     <font color="#9271C3">
-      GPUランタイムを有効にする
-     </font>
+     5.1.2. 課題
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id5">
-     5.2.2.
-     <font color="#9271C3">
-      データセットをダウンロードする
-     </font>
+     5.1.3. データ
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id6">
-     5.2.3.
-     <font color="#9271C3">
-      環境
-     </font>
+     5.1.4. リンク集
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
-   5.3.
-   <font color="#3E1485">
-    <strong>
-     視覚化
-    </strong>
-   </font>
+   5.2. セットアップ
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-label-num-to-disease-map-json-font">
-     5.3.1.
-     <font color="#9271C3">
-      label_num_to_disease_map.json
-     </font>
+    <a class="reference internal nav-link" href="#gpu">
+     5.2.1. GPUランタイム
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-train-csv-font">
-     5.3.2.
-     <font color="#9271C3">
-      train.csv
-     </font>
+    <a class="reference internal nav-link" href="#id8">
+     5.2.2. データセット
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     5.2.3. 環境
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   5.4.
-   <font color="#3E1485">
-    <strong>
-     モデリング
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id10">
+   5.3. 探索的データ解析
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     5.4.1.
-     <font color="#9271C3">
-      前処理
-     </font>
+    <a class="reference internal nav-link" href="#label-num-to-disease-map-json">
+     5.3.1. label_num_to_disease_map.json
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id10">
-     5.4.2.
-     <font color="#9271C3">
-      トレーニング
-     </font>
+    <a class="reference internal nav-link" href="#train-csv">
+     5.3.2. train.csv
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id11">
+   5.4. モデリング
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     5.4.1. 前処理
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#font-color-9271c3-kaggle-font">
-     5.4.3.
-     <font color="#9271C3">
-      Kaggleへのアップロード
-     </font>
+    <a class="reference internal nav-link" href="#id13">
+     5.4.2. トレーニング
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kaggle">
+     5.4.3. Kaggleへのアップロード
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       5.4.3.1. 学習済みモデルのアップロード
+      <a class="reference internal nav-link" href="#id14">
+       5.4.3.1. ステップ1
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id12">
-       5.4.3.2. 競技用ノートブックの作成
+      <a class="reference internal nav-link" href="#id15">
+       5.4.3.2. ステップ2
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id13">
-       5.4.3.3. コンペノートの更新
+      <a class="reference internal nav-link" href="#id16">
+       5.4.3.3. ステップ4
       </a>
      </li>
     </ul>
@@ -581,14 +491,36 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id14">
-   5.5.
-   <font color="#3E1485">
-    <strong>
-     提案
-    </strong>
-   </font>
+  <a class="reference internal nav-link" href="#id17">
+   5.5. 性能向上のための提案
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     5.5.1. 他のモデル
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     5.5.2. 学習率
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     5.5.3. エポック
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     5.5.4. 自動的に学習を停止する
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id22">
+     5.5.5. データ補強
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -600,19 +532,20 @@ const thebe_selector_output = ".output, .cell_output"
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1><span class="section-number">5. </span>問題4<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="font-color-3e1485-cassava-leaf-disease-classification-font">
-<h2><span class="section-number">5.1. </span><font color='#3E1485'><strong>Cassava Leaf Disease Classification</strong></font><a class="headerlink" href="#font-color-3e1485-cassava-leaf-disease-classification-font" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="font-color-9271c3-font">
-<h3><span class="section-number">5.1.1. </span><font color='#9271C3'>背景</font><a class="headerlink" href="#font-color-9271c3-font" title="Permalink to this headline">¶</a></h3>
+<h1><span class="section-number">5. </span>問題4：疾病画像分類<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">5.1. </span>取り組む問題<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification">Cassava Leaf Disease Classification</a></p>
+<div class="section" id="id3">
+<h3><span class="section-number">5.1.1. </span>背景<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>キャッサバは世界の多くの地域で主要な主食作物の一つである。その人気の主な理由の一つは、干ばつなどの過酷な条件に対する耐性である。しかし、キャッサバは依然として病気にかかりやすく、作物の収量に大きな影響を与える可能性がある。病気を正しく特定することが治療を成功させる第一歩だが、多くの農家はそのための専門知識が不足している。病害の迅速な特定を可能にするツールは、健全な植物への被害を抑える上で特に有用であろう。</p>
 </div>
-<div class="section" id="id2">
-<h3><span class="section-number">5.1.2. </span><font color='#9271C3'>課題</font><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3><span class="section-number">5.1.2. </span>課題<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>あなたはキャッサバの植物の画像を与えられ、植物が健康かどうかを判断し、4種類の病気を見分けるという課題を与えられています。</p>
 </div>
-<div class="section" id="id3">
-<h3><span class="section-number">5.1.3. </span><font color='#9271C3'>データ</font><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3><span class="section-number">5.1.3. </span>データ<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">train.csv</span></code> - コメントとそのラベルを含むファイル。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">test.csv</span></code> - テストデータを含むファイル。</p></li>
@@ -620,22 +553,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">test_labels.csv</span></code> - コンペティション終了後に公開されたテストデータのラベル。</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3><span class="section-number">5.1.4. </span><font color='#9271C3'>お役立ちリンク集</font><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification">コンペHP</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/data">データ解説</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/discussion/221957">1位解答</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/discussion/220898">2位解答</a></p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/discussion/221150">3位解答</a></p>
+<div class="section" id="id6">
+<h3><span class="section-number">5.1.4. </span>リンク集<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/data">データ解説</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/discussion/221957">1位の解答</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/discussion/220898">2位の解答</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/discussion/221150">3位の解答</a></p></li>
+</ul>
 </div>
 </div>
-<div class="section" id="font-color-3e1485-font">
-<h2><span class="section-number">5.2. </span><font color='#3E1485'><strong>セットアップ</strong></font><a class="headerlink" href="#font-color-3e1485-font" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h2><span class="section-number">5.2. </span>セットアップ<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
 <p>以下のセルは必要なデータをダウンロードし、ノートブックで使用する環境を設定します。</p>
-<div class="section" id="font-color-9271c3-gpu-font">
-<h3><span class="section-number">5.2.1. </span><font color='#9271C3'>GPUランタイムを有効にする</font><a class="headerlink" href="#font-color-9271c3-gpu-font" title="Permalink to this headline">¶</a></h3>
-<p>このノートブックはGPUを搭載したシステムで実行するように設計されています。ランタイムのタイプをGPUを含むものに切り替えていることを確認してください（例：A100、V100）。</p>
-<p>GPUランタイムを使用しているかどうかを確認するには、次のセルを実行してください。フォーマットされたテキストが複数行出力されるはずです。</p>
+<div class="section" id="gpu">
+<h3><span class="section-number">5.2.1. </span>GPUランタイム<a class="headerlink" href="#gpu" title="Permalink to this headline">¶</a></h3>
+<p>このノートブックはGPUを搭載したシステムで実行するように設計されています．ランタイムのタイプをGPUを含むものに切り替えていることを確認してください（例：A100，V100）．</p>
+<p>GPUランタイムを使用しているかどうかを確認するには，次のセルを実行してください．フォーマットされたテキストが複数行出力されるはずです．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!nvidia-smi
@@ -644,12 +578,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3><span class="section-number">5.2.2. </span><font color='#9271C3'>データセットをダウンロードする</font><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
-<p>Kaggleはコンペティションと簡単にやり取りできるAPIを提供しています。私たちはこのAPIを使って自動的にデータをダウンロードし、予測をアップロードします。</p>
-<p>このAPIを使用する最初のステップは、自分のユーザーとして認証することです。APIトークンはユーザー名とKaggleが生成したキーを含むファイルです。トークンはアカウントページからダウンロードすることができ、通常 <code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code> と呼ばれます。APIトークンは、あなたのユーザーとしてAPIにアクセスするために必要なものなので、個人のGoogle Driveフォルダに安全に保管してください。</p>
-<p>このノートブックはGoogle Driveフォルダ内の<code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code>というKaggle APIトークンを検索します。トークンをGoogle Driveに置いたことを確認し、プロンプトが表示されたらこのノートブックがトークンにアクセスすることを許可してください。</p>
-<p>認証後、参加したすべてのコンペティションにアクセスできます。データのダウンロードにエラーが発生した場合は、Kaggle API トークンが有効であること、コンペティションのルールに同意していることを確認してください。</p>
+<div class="section" id="id8">
+<h3><span class="section-number">5.2.2. </span>データセット<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>Kaggleはコンペティションと簡単にやり取りできるAPIを提供しています．このAPIを使ってデータをダウンロードし，予測結果をアップロードします．</p>
+<p>このAPIを使用する最初のステップは，ユーザー認証です．APIトークンはユーザー名とKaggleが生成したキーを含むファイルです．トークンはアカウントページからダウンロードすることができ，通常 <code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code> という名前のファイルです．APIトークンは，ユーザーとしてAPIにアクセスするために必要なものなので，個人のGoogle Driveフォルダに安全に保管してください．</p>
+<p>このノートブックはGoogle Driveフォルダ内の<code class="docutils literal notranslate"><span class="pre">kaggle.json</span></code>というKaggle APIトークンを検索します．トークンをGoogle Driveに置いたことを確認し，プロンプトが表示されたらこのノートブックがトークンにアクセスすることを許可してください．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
@@ -666,7 +599,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>データが大きいため、ダウンロードと解凍に数分かかる場合があります。</p>
+<p>データが大きいため、ダウンロードと解凍に数分かかる場合があります。認証後，参加したすべてのコンペティションにアクセスできます．データのダウンロードにエラーが発生した場合は，Kaggle API トークンが有効であること，コンペティションのルールに同意していることを確認してください．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%bash
@@ -685,8 +618,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3><span class="section-number">5.2.3. </span><font color='#9271C3'>環境</font><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id9">
+<h3><span class="section-number">5.2.3. </span>環境<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <p>デフォルトではインストールされていないライブラリを使用するので、ここでインストールします。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -726,11 +659,11 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2><span class="section-number">5.3. </span><font color='#3E1485'><strong>視覚化</strong></font><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<p>この競技では、植物の画像と病気の存在を示すラベルが与えられる。</p>
-<div class="section" id="font-color-9271c3-label-num-to-disease-map-json-font">
-<h3><span class="section-number">5.3.1. </span><font color='#9271C3'>label_num_to_disease_map.json</font><a class="headerlink" href="#font-color-9271c3-label-num-to-disease-map-json-font" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h2><span class="section-number">5.3. </span>探索的データ解析<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>このコンペティションでは、植物の画像と病気の存在を示すラベルが与えられます。</p>
+<div class="section" id="label-num-to-disease-map-json">
+<h3><span class="section-number">5.3.1. </span>label_num_to_disease_map.json<a class="headerlink" href="#label-num-to-disease-map-json" title="Permalink to this headline">¶</a></h3>
 <p>トレーニングデータで提供されるラベルは数値です。このファイルはラベルから病名へのマッピングを提供します。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,8 +675,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="font-color-9271c3-train-csv-font">
-<h3><span class="section-number">5.3.2. </span><font color='#9271C3'>train.csv</font><a class="headerlink" href="#font-color-9271c3-train-csv-font" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="train-csv">
+<h3><span class="section-number">5.3.2. </span>train.csv<a class="headerlink" href="#train-csv" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/kaggle/train.csv&#39;</span><span class="p">)</span>
@@ -785,11 +718,11 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <p>分類タスクの多くの場合とは異なり、「健康な」クラスが最も一般的なクラスではないことがわかる。実際、<code class="docutils literal notranslate"><span class="pre">カッサバ・モザイク病</span></code>は、他のすべてのクラスを合わせたのと同じくらい頻度が高いように見える。</p>
 </div>
 </div>
-<div class="section" id="id8">
-<h2><span class="section-number">5.4. </span><font color='#3E1485'><strong>モデリング</strong></font><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id11">
+<h2><span class="section-number">5.4. </span>モデリング<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <p>このノートでは、画像分類タスクでよく使われる画像モデルEfficientNetを使います。モデルと事前学習された重みは <code class="docutils literal notranslate"><span class="pre">timm</span></code> ライブラリから読み込みます。PyTorchとPyTorch Lightningも使います。PyTorchはディープラーニングでよく使われるライブラリで、モデルの作成と学習ができます。</p>
-<div class="section" id="id9">
-<h3><span class="section-number">5.4.1. </span><font color='#9271C3'>前処理</font><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3><span class="section-number">5.4.1. </span>前処理<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <p>トレーニング用のデータセットを準備するために必要な前処理はあまりありません。単純に画像をファイルから読み込み、サイズを小さくするだけです。</p>
 <p>データセットは約7GBとそれほど大きくはありませんが、一度にメモリにロードするには時間がかかるかもしれません。さらに、ディスク上の画像は圧縮されており、一度読み込まれたデータのサイズは7GBより大きくなる可能性が高い。長時間の前処理を避け、メモリエラーのリスクを減らすために、PyTorch の <code class="docutils literal notranslate"><span class="pre">DataSet</span></code> オブジェクトを介してアクセスされた画像を読み込みます。</p>
 <p>High-RAM オプションを有効にした A100 ランタイムタイプを選択していることを確認してください。この組み合わせにより、多くのプロセッサを持つシステムを利用できるようになり、多くの画像を並列処理することでオンザフライ処理のコストを相殺することができます。</p>
@@ -823,8 +756,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="id10">
-<h3><span class="section-number">5.4.2. </span><font color='#9271C3'>トレーニング</font><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id13">
+<h3><span class="section-number">5.4.2. </span>トレーニング<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
 <p>今回使用するモデルは、別のタスクのためにすでに学習済みです。単にモデルを初期化し、データセットのクラスの値を出力するように変更します。その後、モデルを微調整し、タスクのためにモデルを再トレーニングします。</p>
 <p>標準的なPyTorchでは、モデルやタスクに関係なく同じテンプレートコードを書きます。これは非常に面倒であり、また細かい部分を忘れやすいためエラーが起こりやすい。PyTorch Lightningを使えば、学習コードの最も関連性の高い部分を1つのクラスにまとめ、細かい部分はライブラリに任せることができます。さらに、PyTorch Lightningはロギング、チェックポイント、その他のタスクのための多くの便利なユーティリティを提供します。</p>
 <p>以下のセルでは、以下のメソッドを含む PyTorch Lightning の <code class="docutils literal notranslate"><span class="pre">LightningModule</span></code> を定義します：</p>
@@ -909,8 +842,8 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<div class="section" id="font-color-9271c3-kaggle-font">
-<h3><span class="section-number">5.4.3. </span><font color='#9271C3'>Kaggleへのアップロード</font><a class="headerlink" href="#font-color-9271c3-kaggle-font" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="kaggle">
+<h3><span class="section-number">5.4.3. </span>Kaggleへのアップロード<a class="headerlink" href="#kaggle" title="Permalink to this headline">¶</a></h3>
 <p>このコンペティションは「カーネルコンペティション」であり、テストデータに直接アクセスすることはできません。代わりに、競技者は完全なテストデータを含む環境でKaggleによって実行されるコードを提出することが期待されています。これはコンペティションをより公平にするために行われていることですが、システムに慣れていない参加者にとっては混乱や複雑さを引き起こす可能性があります。</p>
 <p>この種のコンペティションでよく行われるのは</p>
 <ol class="simple">
@@ -919,9 +852,9 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <li><p>Kaggle上でデータセットから学習済みモデルをロードするノートブックを作成する。</p></li>
 <li><p>データセットを更新する</p></li>
 </ol>
-<div class="section" id="id11">
-<h4><span class="section-number">5.4.3.1. </span>学習済みモデルのアップロード<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
-<p>前のセルでモデルをトレーニングしたので、モデルのアップロードに移ります。次のセルでは、Kaggle APIを使ってプライベートデータセットを自動的に作成し、アップロードします。このセルを続けて実行すると、データセットが更新されます。</p>
+<div class="section" id="id14">
+<h4><span class="section-number">5.4.3.1. </span>ステップ1<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
+<p>学習済みモデルのアップロードをします．前のセルでモデルをトレーニングしたので、モデルのアップロードに移ります。次のセルでは、Kaggle APIを使ってプライベートデータセットを自動的に作成し、アップロードします。このセルを続けて実行すると、データセットが更新されます。</p>
 <p>Kaggle APIはあなたのデータセットへのリンクを出力します。それをクリックしてデータセットにアクセスし、正常に作成されたことを確認してください。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,9 +882,9 @@ fi
 </div>
 </div>
 </div>
-<div class="section" id="id12">
-<h4><span class="section-number">5.4.3.2. </span>競技用ノートブックの作成<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h4>
-<p>学習済みモデルを含むデータセットを作成した後、競技会用のノートブックを作成します。</p>
+<div class="section" id="id15">
+<h4><span class="section-number">5.4.3.2. </span>ステップ2<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
+<p>競技用ノートブックを作成します．学習済みモデルを含むデータセットを作成した後、競技会用のノートブックを作成します。</p>
 <p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification">このリンク</a>をクリックすると、競技会場に移動します。</p>
 <p>以下の画像を参考にノートブックを作成してください。</p>
 <p>「Late Submission」をクリックして。</p>
@@ -1057,8 +990,8 @@ fi
 <p>送信をクリックした後、ノートブックが正常に実行されることを確認するために、ノートブックが一度実行されます。正常に実行された場合は、全テストデータにアクセスできるコンペティション環境で再実行されます。</p>
 <p>競技会の <a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/submissions">提出ページ</a> をチェックして、あなたの提出物がどのように得点されたかを確認してください。投稿がページに表示され、実行が完了するまで数分かかる場合があります。</p>
 </div>
-<div class="section" id="id13">
-<h4><span class="section-number">5.4.3.3. </span>コンペノートの更新<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="id16">
+<h4><span class="section-number">5.4.3.3. </span>ステップ4<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
 <p>より高いスコアを得るために、あなたはおそらくモデルをさらに微調整してコンペティションに再提出するでしょう。そのためには、プライベートデータセットを新しい重みで更新し、新しいモデルを使うように競技用ノートブックを設定しなければなりません。</p>
 <p>ノートブックを更新する際には、以下の画像を参考にしてください。</p>
 <p>まず、「学習済みモデルのアップロード」セクションの最初に戻り、モデルのチェックポイントをKaggleにアップロードするコードを実行します。これにより、最新のモデル重みでデータセットが自動的に更新されます。</p>
@@ -1081,13 +1014,28 @@ fi
 </div>
 </div>
 </div>
-<div class="section" id="id14">
-<h2><span class="section-number">5.5. </span><font color='#3E1485'><strong>提案</strong></font><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
-<p><strong>他のモデル</strong> - EfficientNetはかなり古いモデルで、私たちが使っているバージョンは一番小さいものです。より大きなEfficientNetsや全く別のモデルに変更することで、精度が向上するかもしれませんが、単純なモデルでもまだ許容できる精度を達成することができます。モデルのサイズとトレーニングに必要なリソースの量を考慮しながら、様々なモデルを試し、パフォーマンスを比較することは興味深いかもしれません。</p>
-<p><strong>学習率</strong> - 我々の学習率は比較的小さい。これはスコアが悪くなるオーバーフィッティングを避けるのに役立つかもしれませんが、トレーニング時間が長くなります。学習結果を観察し、学習率を上げてみてください。</p>
-<p><strong>エポック</strong> - 我々のモデルは数エポックしか学習しません。TensorBoardでトレーニングの進捗を確認すると、検証損失やメトリクスが着実に向上しているように見えますが、これはもっとトレーニングすべき指標です。エポック数を増やしてみてください。</p>
-<p><strong>自動的に学習を停止する</strong> - 多くのエポック数を学習すると、モデルの改善が止まってしまう可能性があります。PyTorch Lightning には、学習を早期に終了させる早期停止コールバックがあります。<a class="reference external" href="https://lightning.ai/docs/pytorch/stable/common/early_stopping.html">ドキュメント</a>を確認して、学習プロセスに追加できるか確認してください。</p>
-<p><strong>データ補強</strong> - データ補強と変換は、既存の画像から “新しい “画像を作成することで、オーバーフィッティングを減らし、画像データのパフォーマンスを向上させる方法の1つです。例えば、画像を軸に沿って反転させたり、ランダムなノイズを加えたり、トリミングすることで画像を変更することができます。データ補強により、より複雑なモデルを使用しやすくなる場合もありますし、単純に現在のモデルのスコアが向上する場合もあります。</p>
+<div class="section" id="id17">
+<h2><span class="section-number">5.5. </span>性能向上のための提案<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3><span class="section-number">5.5.1. </span>他のモデル<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<p>EfficientNetはかなり古いモデルで、私たちが使っているバージョンは一番小さいものです。より大きなEfficientNetsや全く別のモデルに変更することで、精度が向上するかもしれませんが、単純なモデルでもまだ許容できる精度を達成することができます。モデルのサイズとトレーニングに必要なリソースの量を考慮しながら、様々なモデルを試し、パフォーマンスを比較することは興味深いかもしれません。</p>
+</div>
+<div class="section" id="id19">
+<h3><span class="section-number">5.5.2. </span>学習率<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<p>我々の学習率は比較的小さい。これはスコアが悪くなるオーバーフィッティングを避けるのに役立つかもしれませんが、トレーニング時間が長くなります。学習結果を観察し、学習率を上げてみてください。</p>
+</div>
+<div class="section" id="id20">
+<h3><span class="section-number">5.5.3. </span>エポック<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<p>我々のモデルは数エポックしか学習しません。TensorBoardでトレーニングの進捗を確認すると、検証損失やメトリクスが着実に向上しているように見えますが、これはもっとトレーニングすべき指標です。エポック数を増やしてみてください。</p>
+</div>
+<div class="section" id="id21">
+<h3><span class="section-number">5.5.4. </span>自動的に学習を停止する<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>多くのエポック数を学習すると、モデルの改善が止まってしまう可能性があります。PyTorch Lightning には、学習を早期に終了させる早期停止コールバックがあります。<a class="reference external" href="https://lightning.ai/docs/pytorch/stable/common/early_stopping.html">ドキュメント</a>を確認して、学習プロセスに追加できるか確認してください。</p>
+</div>
+<div class="section" id="id22">
+<h3><span class="section-number">5.5.5. </span>データ補強<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<p>データ補強と変換は、既存の画像から “新しい “画像を作成することで、オーバーフィッティングを減らし、画像データのパフォーマンスを向上させる方法の1つです。例えば、画像を軸に沿って反転させたり、ランダムなノイズを加えたり、トリミングすることで画像を変更することができます。データ補強により、より複雑なモデルを使用しやすくなる場合もありますし、単純に現在のモデルのスコアが向上する場合もあります。</p>
+</div>
 </div>
 </div>
 
