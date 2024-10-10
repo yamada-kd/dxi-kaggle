@@ -355,7 +355,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id21">
-     5.5.4. 自動的に学習を停止する
+     5.5.4. 学習の早期停止
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -512,7 +512,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id21">
-     5.5.4. 自動的に学習を停止する
+     5.5.4. 学習の早期停止
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -538,19 +538,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification">Cassava Leaf Disease Classification</a></p>
 <div class="section" id="id3">
 <h3><span class="section-number">5.1.1. </span>背景<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-<p>キャッサバは世界の多くの地域で主要な主食作物の一つである。その人気の主な理由の一つは、干ばつなどの過酷な条件に対する耐性である。しかし、キャッサバは依然として病気にかかりやすく、作物の収量に大きな影響を与える可能性がある。病気を正しく特定することが治療を成功させる第一歩だが、多くの農家はそのための専門知識が不足している。病害の迅速な特定を可能にするツールは、健全な植物への被害を抑える上で特に有用であろう。</p>
+<p>キャッサバは世界の多くの地域で食べられる主食のひとつです．その人気の主な理由のひとつは，干ばつなどの過酷な条件に対する耐性です．しかし，キャッサバは病気にかかりやすく，作物の収量に大きな影響を与える可能性があります．病気を正しく特定することが治療を成功させる第一歩ですが，多くの農家にはそのための専門知識が不足しています．病害の迅速な特定を可能にするツールは，健全な植物への被害を抑える上で特に有用です．</p>
 </div>
 <div class="section" id="id4">
 <h3><span class="section-number">5.1.2. </span>課題<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
-<p>あなたはキャッサバの植物の画像を与えられ、植物が健康かどうかを判断し、4種類の病気を見分けるという課題を与えられています。</p>
+<p>キャッサバの画像を与えられます．植物が健康かどうかを判断し，4種類の病気を見分けてください．</p>
 </div>
 <div class="section" id="id5">
 <h3><span class="section-number">5.1.3. </span>データ<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">train.csv</span></code> - コメントとそのラベルを含むファイル。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">test.csv</span></code> - テストデータを含むファイル。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sample_submission.csv</span></code> - サンプル提出ファイルを含むファイルであり、提出ファイルで期待されるカラムを示すために使用される。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">test_labels.csv</span></code> - コンペティション終了後に公開されたテストデータのラベル。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">train.csv</span></code> - コメントとそのラベルを含むファイル．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test.csv</span></code> - テストデータを含むファイル．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_submission.csv</span></code> - サンプル提出ファイルを含むファイル．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_labels.csv</span></code> - コンペティション終了後に公開されたテストデータのラベル．</p></li>
 </ul>
 </div>
 <div class="section" id="id6">
@@ -565,7 +565,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="id7">
 <h2><span class="section-number">5.2. </span>セットアップ<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
-<p>以下のセルは必要なデータをダウンロードし、ノートブックで使用する環境を設定します。</p>
+<p>以下のセルは必要なデータをダウンロードし，ノートブックで使用する環境を設定するためのものです．</p>
 <div class="section" id="gpu">
 <h3><span class="section-number">5.2.1. </span>GPUランタイム<a class="headerlink" href="#gpu" title="Permalink to this headline">¶</a></h3>
 <p>このノートブックはGPUを搭載したシステムで実行するように設計されています．ランタイムのタイプをGPUを含むものに切り替えていることを確認してください（例：A100，V100）．</p>
@@ -599,14 +599,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<p>データが大きいため、ダウンロードと解凍に数分かかる場合があります。認証後，参加したすべてのコンペティションにアクセスできます．データのダウンロードにエラーが発生した場合は，Kaggle API トークンが有効であること，コンペティションのルールに同意していることを確認してください．</p>
+<p>データが大きいため，ダウンロードと解凍に数分かかる場合があります．認証後，参加したすべてのコンペティションにアクセスできます．データのダウンロードにエラーが発生した場合は，Kaggle API トークンが有効であること，コンペティションのルールに同意していることを確認してください．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%bash
 kaggle competitions download -c cassava-leaf-disease-classification
 if [ $? -ne 0 ]; then
-    echo &quot;データのダウンロードに問題があったようです。&quot;
-    echo &quot;競技規則に同意し、APIキーが有効であることを確認してください。&quot;
+    echo &quot;データのダウンロードに問題があったようです．&quot;
+    echo &quot;競技規則に同意し，APIキーが有効であることを確認してください．&quot;
 else
     mkdir -p /content/kaggle
     unzip -q -o /content/cassava-leaf-disease-classification.zip -d /content/kaggle
@@ -620,7 +620,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 <div class="section" id="id9">
 <h3><span class="section-number">5.2.3. </span>環境<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
-<p>デフォルトではインストールされていないライブラリを使用するので、ここでインストールします。</p>
+<p>デフォルトではインストールされていないライブラリを使用するので，ここでインストールします．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install pytorch-lightning timm
@@ -661,10 +661,10 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 <div class="section" id="id10">
 <h2><span class="section-number">5.3. </span>探索的データ解析<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
-<p>このコンペティションでは、植物の画像と病気の存在を示すラベルが与えられます。</p>
+<p>このコンペティションでは，植物の画像と病気の存在を示すラベルが与えられます．</p>
 <div class="section" id="label-num-to-disease-map-json">
 <h3><span class="section-number">5.3.1. </span>label_num_to_disease_map.json<a class="headerlink" href="#label-num-to-disease-map-json" title="Permalink to this headline">¶</a></h3>
-<p>トレーニングデータで提供されるラベルは数値です。このファイルはラベルから病名へのマッピングを提供します。</p>
+<p>トレーニングデータで提供されるラベルは数値です．このファイルはラベルから病名へのマッピングを提供します．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;label_num_to_disease_map.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
@@ -685,8 +685,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<p>このファイルは単にファイル名とそれに対応するラベルのリストである。</p>
-<p>まず、それぞれの病気の例を健康な植物とともに見てみよう。</p>
+<p>このファイルは単にファイル名とそれに対応するラベルのリストです．まず，それぞれの病気の例を健康な植物とともに見てみましょう．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">disease</span> <span class="ow">in</span> <span class="n">diseases</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -699,7 +698,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<p>次にラベルの分布を見てみよう。</p>
+<p>次にラベルの分布を見てみましょう．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data_bar</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -715,17 +714,17 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<p>分類タスクの多くの場合とは異なり、「健康な」クラスが最も一般的なクラスではないことがわかる。実際、<code class="docutils literal notranslate"><span class="pre">カッサバ・モザイク病</span></code>は、他のすべてのクラスを合わせたのと同じくらい頻度が高いように見える。</p>
+<p>分類タスクの多くの場合とは異なり，「健康な」クラスが最も一般的なクラスではないことがわかります．実際，<code class="docutils literal notranslate"><span class="pre">カッサバ・モザイク病</span></code>は，他のすべてのクラスを合わせたのと同じくらい頻度が高いように見えます．</p>
 </div>
 </div>
 <div class="section" id="id11">
 <h2><span class="section-number">5.4. </span>モデリング<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
-<p>このノートでは、画像分類タスクでよく使われる画像モデルEfficientNetを使います。モデルと事前学習された重みは <code class="docutils literal notranslate"><span class="pre">timm</span></code> ライブラリから読み込みます。PyTorchとPyTorch Lightningも使います。PyTorchはディープラーニングでよく使われるライブラリで、モデルの作成と学習ができます。</p>
+<p>このノートでは，画像分類タスクでよく使われる画像モデルEfficientNetを使います．モデルと事前学習された重みは <code class="docutils literal notranslate"><span class="pre">timm</span></code> ライブラリから読み込みます．PyTorchとPyTorch Lightningも使います．PyTorchはディープラーニングでよく使われるライブラリで，モデルの作成と学習ができます．</p>
 <div class="section" id="id12">
 <h3><span class="section-number">5.4.1. </span>前処理<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
-<p>トレーニング用のデータセットを準備するために必要な前処理はあまりありません。単純に画像をファイルから読み込み、サイズを小さくするだけです。</p>
-<p>データセットは約7GBとそれほど大きくはありませんが、一度にメモリにロードするには時間がかかるかもしれません。さらに、ディスク上の画像は圧縮されており、一度読み込まれたデータのサイズは7GBより大きくなる可能性が高い。長時間の前処理を避け、メモリエラーのリスクを減らすために、PyTorch の <code class="docutils literal notranslate"><span class="pre">DataSet</span></code> オブジェクトを介してアクセスされた画像を読み込みます。</p>
-<p>High-RAM オプションを有効にした A100 ランタイムタイプを選択していることを確認してください。この組み合わせにより、多くのプロセッサを持つシステムを利用できるようになり、多くの画像を並列処理することでオンザフライ処理のコストを相殺することができます。</p>
+<p>トレーニング用のデータセットを準備するために必要な前処理はあまりありません．単純に画像をファイルから読み込み，サイズを小さくするだけです．</p>
+<p>データセットは約7GBとそれほど大きくはありませんが，一度にメモリにロードするには時間がかかるかもしれません．さらに，ディスク上の画像は圧縮されており，一度読み込まれたデータのサイズは7GBより大きくなる可能性があります．長時間の前処理を避け，メモリエラーのリスクを減らすために，PyTorch の <code class="docutils literal notranslate"><span class="pre">DataSet</span></code> オブジェクトを介してアクセスされた画像を読み込みます．</p>
+<p>High-RAM オプションを有効にした A100 ランタイムタイプを使用可能な場合はそれを選択すると良いです．多くのプロセッサを持つシステムを利用できるようになり，多くの画像を並列処理することでオンザフライ処理のコストを相殺することができます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomDataset</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">):</span>
@@ -758,14 +757,14 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 <div class="section" id="id13">
 <h3><span class="section-number">5.4.2. </span>トレーニング<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
-<p>今回使用するモデルは、別のタスクのためにすでに学習済みです。単にモデルを初期化し、データセットのクラスの値を出力するように変更します。その後、モデルを微調整し、タスクのためにモデルを再トレーニングします。</p>
-<p>標準的なPyTorchでは、モデルやタスクに関係なく同じテンプレートコードを書きます。これは非常に面倒であり、また細かい部分を忘れやすいためエラーが起こりやすい。PyTorch Lightningを使えば、学習コードの最も関連性の高い部分を1つのクラスにまとめ、細かい部分はライブラリに任せることができます。さらに、PyTorch Lightningはロギング、チェックポイント、その他のタスクのための多くの便利なユーティリティを提供します。</p>
-<p>以下のセルでは、以下のメソッドを含む PyTorch Lightning の <code class="docutils literal notranslate"><span class="pre">LightningModule</span></code> を定義します：</p>
+<p>今回使用するモデルは，別のタスクのためにすでに学習済みです．単にモデルを初期化し，データセットのクラスの値を出力するように変更します．その後，モデルを微調整し，タスクのためにモデルを再トレーニングします．</p>
+<p>標準的なPyTorchでは，モデルやタスクに関係なく同じテンプレートコードを書きます．これは非常に面倒で，また細かい部分を忘れやすいためエラーが起こりやすいです．PyTorch Lightningを使えば，学習コードの関連性の高い部分を1つのクラスにまとめ，細かい部分はライブラリに任せることができます．また，PyTorch Lightningはロギング，チェックポイント，その他のタスクのための多くの便利なユーティリティを提供します．</p>
+<p>以下のセルでは，以下のメソッドを含む PyTorch Lightning <code class="docutils literal notranslate"><span class="pre">LightningModule</span></code> を定義します．</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> - 学習中に使用する変数を初期化します。これにはモデルとトレーニングの進捗を監視するためのメトリクスが含まれます。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">forward</span></code> - 与えられた入力をどのようにモデルに渡すかを定義する。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(training|validation)_step</span></code> - 各ステップで実行するアクションを定義します。最も単純なケースでは <code class="docutils literal notranslate"><span class="pre">forward</span></code> を呼び出して損失を計算するが、追加の後処理やロギングを含めることもできる。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">configure_optimizers</span></code> - トレーニング中に使用するオプティマイザを返す。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__init__</span></code> - 学習中に使用する変数を初期化します．これにはモデルとトレーニングの進捗を監視するためのメトリクスが含まれます．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">forward</span></code> - 与えられた入力をどのようにモデルに渡すかを定義します．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(training|validation|predict)_step</span></code> - 各ステップで実行するアクションを定義します．最も単純なケースでは <code class="docutils literal notranslate"><span class="pre">forward</span></code> を呼び出して損失を計算しますが，追加の後処理やロギングを含めることもできます．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure_optimizers</span></code> - トレーニング中に使用するオプティマイザを返します．</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -805,9 +804,9 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<p>モデルが学習しているかどうかを確認するには、トレーニング中のパフォーマンスをモニターする必要がある。具体的には、時間の経過とともに損失が減少していること、追跡しているメトリクスに改善が見られることを確認したい。</p>
-<p>ここでは、TensorBoardを使用してトレーニングを監視します。TensorBoardは、時間の経過とともにモデルのパフォーマンスを可視化する便利なツールです。</p>
-<p>TensorBoardサーバーを起動するには、以下のセルを実行します。数秒後、インターフェースが表示されます。トレーニングやロギング値を開始していないため、最初は何も出力されません。トレーニングが開始されると、セルの出力は定期的に更新されます。</p>
+<p>モデルが学習しているかどうかを確認するには，トレーニングをモニタリングする必要があります．具体的には，時間の経過とともに損失が減少していること，また，観察しているメトリクスが改善しているかどうかを確認します．</p>
+<p>ここでは，TensorBoardを使用してトレーニングを監視します．TensorBoardは，時間の経過とともにモデルのパフォーマンスを可視化する便利なツールです．</p>
+<p>TensorBoardサーバーを起動するには，以下のセルを実行します．数秒後，インターフェースが表示されます．トレーニングやロギング値を開始していないため，最初は何も出力されません．トレーニングが開始されると，セルの出力は定期的に更新されます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">tensorboard</span>
@@ -816,7 +815,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 </div>
 </div>
-<p>トレーニングの準備はほぼ整いました。次のセルでは、まずデータを学習セットと検証セットに分割し、データをバッチ処理するPyTorchの <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> を準備します。次に、モデルとロガーを初期化し、モデルの最適な反復を保存するコールバックを作成します。最後に、学習を開始します。</p>
+<p>トレーニングの準備はほぼ整いました．次のセルでは，まずデータを学習セットと検証セットに分割し，データをバッチ処理するPyTorchの <code class="docutils literal notranslate"><span class="pre">DataLoaders</span></code> を準備します．次に，モデルとロガーを初期化し，モデルの最適な反復を保存するコールバックを作成します．最後に，学習を開始します．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds</span><span class="p">,</span> <span class="n">val_ds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">random_split</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
@@ -844,18 +843,17 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 <div class="section" id="kaggle">
 <h3><span class="section-number">5.4.3. </span>Kaggleへのアップロード<a class="headerlink" href="#kaggle" title="Permalink to this headline">¶</a></h3>
-<p>このコンペティションは「カーネルコンペティション」であり、テストデータに直接アクセスすることはできません。代わりに、競技者は完全なテストデータを含む環境でKaggleによって実行されるコードを提出することが期待されています。これはコンペティションをより公平にするために行われていることですが、システムに慣れていない参加者にとっては混乱や複雑さを引き起こす可能性があります。</p>
-<p>この種のコンペティションでよく行われるのは</p>
+<p>このコンペティションは「カーネルコンペティション」であり，テストデータに直接アクセスすることはできません．代わりに，競技者は完全なテストデータを含む環境でKaggleによって実行されるコードを提出することを求められます．これはコンペティションをより公平にするために行われていることですが，システムに慣れていない参加者にとっては混乱や複雑さを感じさせることでしょう．この種のコンペティションでよく行われるのは以下のことです．</p>
 <ol class="simple">
-<li><p>競技データでモデルをトレーニングする。</p></li>
-<li><p>トレーニングしたモデルをデータセットとしてKaggleにアップロードする。</p></li>
-<li><p>Kaggle上でデータセットから学習済みモデルをロードするノートブックを作成する。</p></li>
-<li><p>データセットを更新する</p></li>
+<li><p>競技データでモデルをトレーニング．</p></li>
+<li><p>トレーニングしたモデルをデータセットとしてKaggleにアップロード．</p></li>
+<li><p>Kaggle上でデータセットから学習済みモデルをロードするノートブックを作成．</p></li>
+<li><p>データセットを更新．</p></li>
 </ol>
 <div class="section" id="id14">
 <h4><span class="section-number">5.4.3.1. </span>ステップ1<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
-<p>学習済みモデルのアップロードをします．前のセルでモデルをトレーニングしたので、モデルのアップロードに移ります。次のセルでは、Kaggle APIを使ってプライベートデータセットを自動的に作成し、アップロードします。このセルを続けて実行すると、データセットが更新されます。</p>
-<p>Kaggle APIはあなたのデータセットへのリンクを出力します。それをクリックしてデータセットにアクセスし、正常に作成されたことを確認してください。</p>
+<p>学習済みモデルのアップロードをします．前のセルでモデルをトレーニングしたので，モデルのアップロードに移ります．次のセルでは，Kaggle APIを使ってプライベートデータセットを自動的に作成し，アップロードします．このセルを続けて実行すると，データセットが更新されます．</p>
+<p>Kaggle APIはデータセットへのリンクを出力します．それをクリックしてデータセットにアクセスし，正常に作成されたことを確認してください．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%bash
@@ -884,27 +882,20 @@ fi
 </div>
 <div class="section" id="id15">
 <h4><span class="section-number">5.4.3.2. </span>ステップ2<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
-<p>競技用ノートブックを作成します．学習済みモデルを含むデータセットを作成した後、競技会用のノートブックを作成します。</p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification">このリンク</a>をクリックすると、競技会場に移動します。</p>
-<p>以下の画像を参考にノートブックを作成してください。</p>
-<p>「Late Submission」をクリックして。</p>
+<p>競技用ノートブックを作成します．学習済みモデルを含むデータセットを作成した後，競技会用のノートブックを作成します．<a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification">このリンク</a>をクリックすると，競技会場に移動します．以下の画像を参考にノートブックを作成してください．最初に，「Late Submission」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-01.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-01.png?raw=1" />
-<p>「New Notebook」をクリックします。</p>
-<p>新しいノートブックが別のタブで開きます。</p>
+<p>次に，「New Notebook」をクリックします．新しいノートブックが別のタブで開きます．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-02.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-02.png?raw=1" />
-<p>ノートブックにはKaggleによって生成された名前とテンプレートコードがあります。ノートブックの名前をもっと分かりやすいものに変更することをお勧めしますが、そのままでも問題ありません。</p>
-<p>「Add Data」をクリックして。</p>
+<p>ノートブックにはKaggleによって生成された名前とテンプレートコードがあります．ノートブックの名前をもっと分かりやすいものに変更することをお勧めしますが，そのままでも問題ありません．次に，「Add Data」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-03.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-03.png?raw=1" />
-<p>データセットには、<code class="docutils literal notranslate"><span class="pre">cassava-project-dataset-KAGGLE_USERNAME</span></code> のような名前が付けられているはずです。データセットのリストの一番上にあるはずですが、ない場合は「Your Datasets」をクリックすると表示されます。</p>
-<p>「＋」をクリックしてデータセットを添付する。</p>
-<p>次に、「X」をクリックして、「Add Data」タブを閉じる。</p>
+<p>データセットには，<code class="docutils literal notranslate"><span class="pre">cassava-project-dataset-KAGGLE_USERNAME</span></code> のような名前が付けられているはずです．データセットのリストの一番上にあるはずですが，ない場合は「Your Datasets」をクリックすると表示されます．ここで，「＋」をクリックしてデータセットを添付します．次に，「X」をクリックして，「Add Data」タブを閉じます．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-04.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-04.png?raw=1" />
-<p>データセットが正常に追加されたことを確認します。</p>
+<p>データセットが正常に追加されたことを確認します．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-05.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-05.png?raw=1" />
-<p>ノートブックのテンプレート・コードをすべて削除してください。空のコード・セルが残るはずです。</p>
+<p>ノートブックのテンプレート・コードをすべて削除してください．空のコード・セルが残るはずです．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-06.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-06.png?raw=1" />
-<p>下のセルは、このノートブックで以前に作成したデータセットを使うようにカスタマイズされたパイソンコードを出力します。</p>
-<p>このコードは基本的にこのノートブックのコードを凝縮し、少し修正したものです。トレーニングの代わりに、以下のコードはデータセットに含まれるモデルのチェックポイントをロードします。次にテスト画像をロードし、各疾患クラスの予測を生成します。最後に、予測値をファイル <code class="docutils literal notranslate"><span class="pre">submission.csv</span></code> に書き込みます。</p>
+<p>下のセルは，このノートブックで以前に作成したデータセットを使うようにカスタマイズされたPythonコードを出力します．</p>
+<p>このコードは基本的にこのノートブックのコードを凝縮し，少し修正したものです．トレーニングの代わりに，以下のコードはデータセットに含まれるモデルのチェックポイントをロードします．次にテスト画像をロードし，各疾患クラスの予測を生成します．最後に，予測値をファイル <code class="docutils literal notranslate"><span class="pre">submission.csv</span></code> に書き込みます．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">bash</span>
@@ -978,39 +969,32 @@ fi
 </div>
 </div>
 </div>
-<p>上記の出力をKaggleノートブックにコピーします。すべての行をコピーするには、必要に応じてスクロールしてください。</p>
+<p>上記の出力をKaggleノートブックにコピーします．すべての行をコピーするには，必要に応じてスクロールしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-07.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-07.png?raw=1" />
-<p>次に、GPUをノートブックで使えるようにし、インターネットアクセスを無効にする必要がある。これらのオプションはノートブックの右側、データタブの下にあります。</p>
+<p>次に，GPUをノートブックで使えるようにし，インターネットアクセスを無効にする必要があります．これらのオプションはノートブックの右側，データタブの下にあります．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-08.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-08.png?raw=1" />
-<p>これでノートブックはセットアップされ、コンペティションに提出する準備が整いました。コンペティションに提出」セクションに移動し、「Submit」をクリックします。</p>
+<p>これでノートブックはセットアップされ，コンペティションに提出する準備が整いました．コンペティションに提出」セクションに移動し，「Submit」をクリックします．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-09.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-09.png?raw=1" />
-<p>必要であれば、バージョン名と投稿の説明を入力してください。</p>
-<p>「Submit」をクリックしてください。</p>
+<p>必要であれば，バージョン名と投稿の説明を入力してください．次に，「Submit」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-10.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-10.png?raw=1" />
-<p>送信をクリックした後、ノートブックが正常に実行されることを確認するために、ノートブックが一度実行されます。正常に実行された場合は、全テストデータにアクセスできるコンペティション環境で再実行されます。</p>
-<p>競技会の <a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/submissions">提出ページ</a> をチェックして、あなたの提出物がどのように得点されたかを確認してください。投稿がページに表示され、実行が完了するまで数分かかる場合があります。</p>
+<p>送信をクリックした後，ノートブックが正常に実行されることを確認するために，ノートブックが一度実行されます．正常に実行された場合は，全テストデータにアクセスできるコンペティション環境で再実行されます．</p>
+<p>競技会の <a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/submissions">提出ページ</a> をチェックして，提出物がどのように得点されたかを確認してください．投稿がページに表示され，実行が完了するまで数分かかる場合があります．</p>
 </div>
 <div class="section" id="id16">
 <h4><span class="section-number">5.4.3.3. </span>ステップ4<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h4>
-<p>より高いスコアを得るために、あなたはおそらくモデルをさらに微調整してコンペティションに再提出するでしょう。そのためには、プライベートデータセットを新しい重みで更新し、新しいモデルを使うように競技用ノートブックを設定しなければなりません。</p>
-<p>ノートブックを更新する際には、以下の画像を参考にしてください。</p>
-<p>まず、「学習済みモデルのアップロード」セクションの最初に戻り、モデルのチェックポイントをKaggleにアップロードするコードを実行します。これにより、最新のモデル重みでデータセットが自動的に更新されます。</p>
-<p>次に、コンペノートブックを最新モデルにアップデートする必要があります。</p>
-<p><a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/submissions">コンペティションの投稿ページ</a>を開いてください。</p>
-<p>あなたのノートブックの最新の投稿を見つけ、それをクリックして投稿されたバージョンのノートブックに移動します。</p>
+<p>より高いスコアを得るために，モデルをさらに微調整してコンペティションに再提出すると良いでしょう．そのためには，プライベートデータセットを新しい重みで更新し，新しいモデルを使うように競技用ノートブックを設定しなければなりません．ノートブックを更新する際には，以下の画像を参考にしてください．</p>
+<p>まず，「学習済みモデルのアップロード」セクションの最初に戻り，モデルのチェックポイントをKaggleにアップロードするコードを実行します．これにより，最新のモデル重みでデータセットが自動的に更新されます．</p>
+<p>次に，コンペノートブックを最新モデルにアップデートする必要があります．<a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification/submissions">コンペティションの投稿ページ</a>を開いてください．ノートブックの最新の投稿を見つけ，それをクリックして投稿されたバージョンのノートブックに移動します．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-11.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-11.png?raw=1" />
-<p>「Edit」をクリックして。</p>
+<p>「Edit」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-12.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-12.png?raw=1" />
-<p>ノートブックが編集モードになります。</p>
-<p>画面の右側の「Data」タブで、データセットを探してください。データセット名の上にカーソルを置き、縦に3つの点が表示されたら、それをクリックしてください。</p>
+<p>ノートブックが編集モードになります．画面の右側の「Data」タブで，データセットを探してください．データセット名の上にカーソルを置き，縦に3つの点が表示されたら，それをクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-13.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-13.png?raw=1" />
-<p>「Check for updates」をクリックして。</p>
+<p>「Check for updates」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-14.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-14.png?raw=1" />
-<p>「Update」をクリックして。</p>
+<p>「Update」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-15.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-15.png?raw=1" />
-<p>あなたのノートブックでは、最新バージョンのデータセットが使用されます。</p>
-<p>モデルのアーキテクチャやデータの前処理方法を変更した場合は、競技用ノートブックの対応するコードも変更する必要があります。</p>
-<p>最後に、ノートブックを提出するには、「Submit」 ボタンをクリックし、「競技用ノートブックの作成」 の最後にある手順に従ってください。</p>
+<p>ノートブックでは，最新バージョンのデータセットが使用されます．モデルのアーキテクチャやデータの前処理方法を変更した場合は，競技用ノートブックの対応するコードも変更する必要があります．最後に，ノートブックを提出するには，「Submit」 ボタンをクリックし，「競技用ノートブックの作成」 の最後にある手順に従ってください．</p>
 </div>
 </div>
 </div>
@@ -1018,23 +1002,23 @@ fi
 <h2><span class="section-number">5.5. </span>性能向上のための提案<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id18">
 <h3><span class="section-number">5.5.1. </span>他のモデル<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
-<p>EfficientNetはかなり古いモデルで、私たちが使っているバージョンは一番小さいものです。より大きなEfficientNetsや全く別のモデルに変更することで、精度が向上するかもしれませんが、単純なモデルでもまだ許容できる精度を達成することができます。モデルのサイズとトレーニングに必要なリソースの量を考慮しながら、様々なモデルを試し、パフォーマンスを比較することは興味深いかもしれません。</p>
+<p>EfficientNetはかなり古いモデルで，使用したバージョンは一番小さいものです．より大きなEfficientNetsや全く別のモデルに変更することで，予測性能が向上するかもしれませんが，単純なモデルでもまだ許容できる予測性能を達成することができます．モデルのサイズとトレーニングに必要なリソースの量を考慮しながら，様々なモデルを試し，パフォーマンスを比較することは興味深いかもしれません．</p>
 </div>
 <div class="section" id="id19">
 <h3><span class="section-number">5.5.2. </span>学習率<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
-<p>我々の学習率は比較的小さい。これはスコアが悪くなるオーバーフィッティングを避けるのに役立つかもしれませんが、トレーニング時間が長くなります。学習結果を観察し、学習率を上げてみてください。</p>
+<p>ここで用いた学習率は比較的小さいです．これはスコアが悪くなるオーバーフィッティングを避けるのに役立つかもしれませんが，トレーニング時間が長くなります．学習結果を観察し，学習率を上げてみてください．</p>
 </div>
 <div class="section" id="id20">
 <h3><span class="section-number">5.5.3. </span>エポック<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
-<p>我々のモデルは数エポックしか学習しません。TensorBoardでトレーニングの進捗を確認すると、検証損失やメトリクスが着実に向上しているように見えますが、これはもっとトレーニングすべき指標です。エポック数を増やしてみてください。</p>
+<p>このモデルは数エポックしか学習しませんでした．TensorBoardでトレーニングの進捗を確認すると，検証損失やメトリクスが着実に向上しているように見えますが，これはもっとトレーニングすべき指標です．エポック数を増やしてみてください．</p>
 </div>
 <div class="section" id="id21">
-<h3><span class="section-number">5.5.4. </span>自動的に学習を停止する<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
-<p>多くのエポック数を学習すると、モデルの改善が止まってしまう可能性があります。PyTorch Lightning には、学習を早期に終了させる早期停止コールバックがあります。<a class="reference external" href="https://lightning.ai/docs/pytorch/stable/common/early_stopping.html">ドキュメント</a>を確認して、学習プロセスに追加できるか確認してください。</p>
+<h3><span class="section-number">5.5.4. </span>学習の早期停止<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>多くのエポック数を学習すると，モデルの改善が止まってしまう可能性があります．PyTorch Lightning には，学習を早期に終了させる早期停止コールバックがあります．<a class="reference external" href="https://lightning.ai/docs/pytorch/stable/common/early_stopping.html">ドキュメント</a>を確認して，学習プロセスに追加できるか確認してください．</p>
 </div>
 <div class="section" id="id22">
 <h3><span class="section-number">5.5.5. </span>データ補強<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
-<p>データ補強と変換は、既存の画像から “新しい “画像を作成することで、オーバーフィッティングを減らし、画像データのパフォーマンスを向上させる方法の1つです。例えば、画像を軸に沿って反転させたり、ランダムなノイズを加えたり、トリミングすることで画像を変更することができます。データ補強により、より複雑なモデルを使用しやすくなる場合もありますし、単純に現在のモデルのスコアが向上する場合もあります。</p>
+<p>データ補強と変換は，既存の画像から新しい画像を作成することで，オーバーフィッティングを減らし，画像データのパフォーマンスを向上させる方法の1つです．例えば，画像を軸に沿って反転させたり，ランダムなノイズを加えたり，トリミングすることで画像を変更することができます．データ補強により，より複雑なモデルを使用しやすくなる場合もありますし，単純に現在のモデルのスコアが向上する場合もあります．</p>
 </div>
 </div>
 </div>

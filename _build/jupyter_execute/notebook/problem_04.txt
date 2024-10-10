@@ -14,8 +14,8 @@ os.environ["KAGGLE_KEY"] = json_data["key"]
 %%bash
 kaggle competitions download -c cassava-leaf-disease-classification
 if [ $? -ne 0 ]; then
-    echo "データのダウンロードに問題があったようです。"
-    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+    echo "データのダウンロードに問題があったようです．"
+    echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
     mkdir -p /content/kaggle
     unzip -q -o /content/cassava-leaf-disease-classification.zip -d /content/kaggle
