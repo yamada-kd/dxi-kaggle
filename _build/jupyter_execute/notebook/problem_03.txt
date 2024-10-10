@@ -14,8 +14,8 @@ os.environ["KAGGLE_KEY"] = json_data["key"]
 %%bash
 kaggle competitions download -c jigsaw-toxic-comment-classification-challenge
 if [ $? -ne 0 ]; then
-    echo "データのダウンロードに問題があったようです。"
-    echo "競技規則に同意し、APIキーが有効であることを確認してください。"
+    echo "データのダウンロードに問題があったようです．"
+    echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
     mkdir -p /content/kaggle
     unzip -o /content/jigsaw-toxic-comment-classification-challenge.zip -d /content/kaggle
@@ -190,6 +190,6 @@ submission[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_ha
 submission.to_csv('submission.csv', index=False)
 submission
 
-!kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m "これはアップロードに添付されたメッセージである。"
+!kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m "Upload"
 
 
