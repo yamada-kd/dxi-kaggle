@@ -5,7 +5,7 @@ import os
 import json
 
 drive.mount("/content/drive", force_remount=True)
-fin = open("/content/drive/MyDrive/kaggle.json", "r")
+fin = open("/content/drive/MyDrive/kaggle/token/kaggle.json", "r")
 json_data = json.load(fin)
 fin.close()
 os.environ["KAGGLE_USERNAME"] = json_data["username"]

@@ -590,7 +590,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/kaggle.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/kaggle/token/kaggle.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
 <span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_USERNAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
@@ -884,11 +884,11 @@ fi
 <h4><span class="section-number">5.4.3.2. </span>ステップ2<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
 <p>競技用ノートブックを作成します．学習済みモデルを含むデータセットを作成した後，競技会用のノートブックを作成します．<a class="reference external" href="https://www.kaggle.com/competitions/cassava-leaf-disease-classification">このリンク</a>をクリックすると，競技会場に移動します．以下の画像を参考にノートブックを作成してください．最初に，「Late Submission」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-01.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-01.png?raw=1" />
-<p>次に，「New Notebook」をクリックします．新しいノートブックが別のタブで開きます．</p>
+<p>次に，「Create Notebook」をクリックします．新しいノートブックが別のタブで開きます．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-02.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-02.png?raw=1" />
-<p>ノートブックにはKaggleによって生成された名前とテンプレートコードがあります．ノートブックの名前をもっと分かりやすいものに変更することをお勧めしますが，そのままでも問題ありません．次に，「Add Data」をクリックしてください．</p>
+<p>ノートブックにはKaggleによって生成された名前とテンプレートコードがあります．ノートブックの名前をもっと分かりやすいものに変更することをお勧めしますが，そのままでも問題ありません．次に，「Add Input」をクリックしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-03.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-03.png?raw=1" />
-<p>データセットには，<code class="docutils literal notranslate"><span class="pre">cassava-project-dataset-KAGGLE_USERNAME</span></code> のような名前が付けられているはずです．データセットのリストの一番上にあるはずですが，ない場合は「Your Datasets」をクリックすると表示されます．ここで，「＋」をクリックしてデータセットを添付します．次に，「X」をクリックして，「Add Data」タブを閉じます．</p>
+<p>データセットには，<code class="docutils literal notranslate"><span class="pre">cassava-project-dataset-KAGGLE_USERNAME</span></code> のような名前が付けられているはずです．データセットのリストの一番上にあるはずですが，ない場合は「Your Work」をクリックすると表示されます．ここで，「＋」をクリックしてデータセットを添付します．次に，「X」をクリックして，「Add Input」タブを閉じます．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-04.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-04.png?raw=1" />
 <p>データセットが正常に追加されたことを確認します．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-05.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-05.png?raw=1" />
@@ -968,6 +968,10 @@ fi
 </pre></div>
 </div>
 </div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>パスの設定によってはサブミットが成功しない場合があります．パスが正確かどうかをご確認ください．</p>
 </div>
 <p>上記の出力をKaggleノートブックにコピーします．すべての行をコピーするには，必要に応じてスクロールしてください．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-07.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-4-07.png?raw=1" />
