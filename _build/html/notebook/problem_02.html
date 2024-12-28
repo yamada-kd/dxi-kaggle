@@ -538,7 +538,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/content/drive&quot;</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/kaggle.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fin</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/kaggle/token/kaggle.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fin</span><span class="p">)</span>
 <span class="n">fin</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;KAGGLE_USERNAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_data</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
@@ -686,7 +686,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 </div>
 <p>ほとんどの機械学習モデルはテキストの特徴を直接使用することができないため，以下のカラムを変換するか破棄する必要があります： <code class="docutils literal notranslate"><span class="pre">name</span></code>，<code class="docutils literal notranslate"><span class="pre">category_name</span></code>，また，上で作成した階層的なカテゴリーカラムである <code class="docutils literal notranslate"><span class="pre">brand_name</span></code>，<code class="docutils literal notranslate"><span class="pre">item_description</span></code> です．</p>
 <p>ここで，<code class="docutils literal notranslate"><span class="pre">name</span></code>と<code class="docutils literal notranslate"><span class="pre">item_description</span></code>は非常に重要な情報を含んでいる可能性が高いですが，処理が簡単ではないかもしれません．手始めに，これらのフィールドに価格が元々含まれているかどうかをチェックし，各フィールドの長さを決定します．価格に関連する他のキーワードがあるかもしれないので，手作業で探してみても良いでしょう．これに関してはより複雑で有効な方法があるので，このノートの最後に紹介します．</p>
-<p>上記の可視化のセクションで，<code class="docutils literal notranslate"><span class="pre">brand_name</span></code>を使用することで，価格の傾向が異なるブランドの種類を識別できることを観察しました．以前と同様のアプローチで，一定回数出現するブランド名を抽出します．<code class="docutils literal notranslate"><span class="pre">category_name</span></code>については，3つのカテゴリーレベルを抽出するが，第1レベルと第3レベルのみを使用する．</p>
+<p>上記の可視化のセクションで，<code class="docutils literal notranslate"><span class="pre">brand_name</span></code>を使用することで，価格の傾向が異なるブランドの種類を識別できることを観察しました．以前と同様のアプローチで，一定回数出現するブランド名を抽出します．<code class="docutils literal notranslate"><span class="pre">category_name</span></code>については，3つのカテゴリーレベルを抽出するが，第1レベルと第3レベルのみを使用します．</p>
 <p>カテゴリー特徴は数値でエンコードする必要があります．これは基本的に各カテゴリーに1つの列を作成し，1または0を使ってカテゴリーの有無を示します．この方法の欠点は，作成される列の数によるメモリ使用量です．データセットによっては，この方法は効果的でもスケーラブルでもありません．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -847,16 +847,16 @@ fi
 <h4><span class="section-number">3.4.3.1. </span>ステップ1<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
 <p>予測データを投稿するためのカーネルを作成します．最初に，<a class="reference external" href="https://www.kaggle.com/competitions/mercari-price-suggestion-challenge/submissions">競技会提出ページ</a>にアクセスする．次に，「Late Submission」をクリックします．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-01.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-01.png?raw=1" />
-<p>「New Notebook」をクリックします．</p>
+<p>「Create New Notebook」をクリックします．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-02.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-02.png?raw=1" />
 <p>新しいタブが開き，新しく作成されたノートブックが表示されます．ノートブックにはKaggleによって生成された名前とテンプレートコードが表示されます．ノートブックの名前をもっと分かりやすいものに変更することをお勧めしますが，そのままでも問題ありません．</p>
 </div>
 <div class="section" id="id15">
 <h4><span class="section-number">3.4.3.2. </span>ステップ 2<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h4>
-<p>データセットをリンクします．「Add Data」をクリックします．</p>
+<p>データセットをリンクします．「Add Input」をクリックします．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-03.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-03.png?raw=1" />
 <p>データセットのタイトルは <code class="docutils literal notranslate"><span class="pre">mercari-project-dataset-KAGGLE_USERNAME</span></code> のようになります．データセットの名前がわからない場合は，データセットがKaggleにアップロードされたこのセクションの最初に行き，データセットへのリンクをクリックしてください．</p>
-<p>データセットが検索結果の一番上にあるかもしれませんが，そうでない場合は「Your Datasets」をクリックして探してください．</p>
+<p>データセットが検索結果の一番上にあるかもしれませんが，そうでない場合は「Your Work」をクリックして探してください．</p>
 <p>まず，データセットの横にある 「+」をクリックしてノートブックに追加します．
 それから，「X」をクリックして，「Add Data」タブを閉じます．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-04.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-04.png?raw=1" />
@@ -882,6 +882,10 @@ fi
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-07.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-07.png?raw=1" />
 <p>これで予測結果は提出され，Kaggleによって採点されます．スコアは<a class="reference external" href="https://www.kaggle.com/competitions/mercari-price-suggestion-challenge/submissions">コンペティションの提出ページ</a>で見ることができます．</p>
 <p>注意: この方法でノートブックを提出すると，Kaggleはまずエラーが発生しないことを確認するためにノートブックを実行します．正常に実行されると，Kaggleはノートブックを再実行し，出力を採点します．このため，スコアが表示されるまでに1分ほど時間がかかる場合があります．</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>提出の部分でやらなければならないことがひと手間分増えています．NotebookのInputで自作のデータを追加する必要があります．</p>
+</div>
 </div>
 <div class="section" id="id17">
 <h4><span class="section-number">3.4.3.4. </span>ステップ 4<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h4>
