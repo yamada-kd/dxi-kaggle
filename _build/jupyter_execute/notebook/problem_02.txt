@@ -15,16 +15,15 @@ if [ $? -ne 0 ]; then
     echo "データのダウンロードに問題があったようです．"
     echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
-    mkdir -p /content/kaggle
-    unzip -o /content/mercari-price-suggestion-challenge.zip -d /content/kaggle
-    unzip -p /content/kaggle/test_stg2.tsv.zip > /content/kaggle/test.tsv
-    unzip -p /content/kaggle/sample_submission_stg2.csv.zip > /content/kaggle/sample_submission.csv
-    7z e -so /content/kaggle/train.tsv.7z > /content/kaggle/train.tsv
-    rm /content/kaggle/*.zip /content/kaggle/*.7z
+    mkdir -p /content/drive/MyDrive/kaggle/project/mercari
+    unzip -o /content/mercari-price-suggestion-challenge.zip -d /content/drive/MyDrive/kaggle/project/mercari
+    unzip -p /content/drive/MyDrive/kaggle/project/mercari/test_stg2.tsv.zip > /content/drive/MyDrive/kaggle/project/mercari/test.tsv
+    unzip -p /content/drive/MyDrive/kaggle/project/mercari/sample_submission_stg2.csv.zip > /content/drive/MyDrive/kaggle/project/mercari/sample_submission.csv
+    7z e -so /content/drive/MyDrive/kaggle/project/mercari/train.tsv.7z > /content/drive/MyDrive/kaggle/project/mercari/train.tsv
+    rm /content/drive/MyDrive/kaggle/project/mercari/*.zip /content/drive/MyDrive/kaggle/project/mercari/*.7z
 fi
 wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
 unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
-
 
 import os
 import pandas as pd
@@ -44,9 +43,9 @@ matplotlib.font_manager.fontManager.addfont(font_path)
 prop = matplotlib.font_manager.FontProperties(fname=font_path)
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
-os.chdir('/content/kaggle')
+os.chdir('/content/drive/MyDrive/kaggle/project/mercari/')
 
-data = pd.read_csv('/content/kaggle/train.tsv', index_col='train_id', sep='\t')
+data = pd.read_csv('./train.tsv', index_col='train_id', sep='\t')
 data
 
 sns.barplot(data, x='item_condition_id', y='price');
@@ -123,7 +122,7 @@ print(f"平均rmsle：{np.min(cvbooster['valid rmsle-mean']):.3f}")
 chunksize = 100_000
 test_ids = []
 preds = []
-for test_data in tqdm(pd.read_csv('/content/kaggle/test.tsv', index_col='test_id', sep='\t', chunksize=chunksize), total=int(np.ceil(3460725/chunksize))):
+for test_data in tqdm(pd.read_csv('./test.tsv', index_col='test_id', sep='\t', chunksize=chunksize), total=int(np.ceil(3460725/chunksize))):
     test_ids.append(test_data.index.values)
     test_data = test_data.reset_index(drop=True)
     test_data[['level1_category_name', 'level2_category_name', 'level3_category_name']] = test_data['category_name'].str.split('/', n=2, expand=True)
@@ -155,7 +154,7 @@ submission.to_csv('submission.csv', index=False)
 
 %%bash
 dataset_name="mercari-project-dataset-$KAGGLE_USERNAME"
-dataset_dir="/content/kaggle/$dataset_name"
+dataset_dir="./$dataset_name"
 dataset_meta_path="$dataset_dir/dataset-metadata.json"
 mkdir -p "$dataset_dir"
 cp submission.csv "$dataset_dir"
