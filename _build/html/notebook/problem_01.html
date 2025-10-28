@@ -547,8 +547,8 @@ if [ $? -ne 0 ]; then
     echo &quot;データのダウンロードに問題があったようです．&quot;
     echo &quot;競技規則に同意し，APIキーが有効であることを確認してください．&quot;
 else
-    mkdir -p /content/kaggle
-    unzip -o /content/m5-forecasting-accuracy.zip -d /content/kaggle
+    mkdir -p /content/drive/MyDrive/kaggle/project/m5
+    unzip -o /content/m5-forecasting-accuracy.zip -d /content/drive/MyDrive/kaggle/project/m5
 fi
 wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
 unzip -u /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
@@ -575,7 +575,7 @@ unzip -u /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <span class="n">prop</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">font_path</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/kaggle&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/kaggle/project/m5&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

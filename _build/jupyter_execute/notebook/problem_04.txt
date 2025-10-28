@@ -1,4 +1,4 @@
-!nvidia-smi
+! nvidia-smi
 
 from google.colab import drive
 import os
@@ -17,13 +17,13 @@ if [ $? -ne 0 ]; then
     echo "データのダウンロードに問題があったようです．"
     echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
-    mkdir -p /content/kaggle
-    unzip -q -o /content/cassava-leaf-disease-classification.zip -d /content/kaggle
+    mkdir -p /content/drive/MyDrive/kaggle/project/cassava
+    unzip -q -o /content/cassava-leaf-disease-classification.zip -d /content/drive/MyDrive/kaggle/project/cassava
 fi
 wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
 unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 
-!pip install pytorch-lightning timm
+! pip install pytorch-lightning timm
 
 import os
 import pandas as pd
@@ -47,13 +47,13 @@ matplotlib.font_manager.fontManager.addfont(font_path)
 prop = matplotlib.font_manager.FontProperties(fname=font_path)
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
-os.chdir('/content/kaggle')
+os.chdir('/content/drive/MyDrive/kaggle/project/cassava')
 
 with open('label_num_to_disease_map.json', 'r') as fh:
     diseases = json.loads(fh.read())
 diseases
 
-data = pd.read_csv('/content/kaggle/train.csv')
+data = pd.read_csv('./train.csv')
 data
 
 for label, disease in diseases.items():
@@ -154,7 +154,7 @@ trainer.fit(model, train_dl, val_dl)
 
 %%bash
 dataset_name="cassava-project-dataset-$KAGGLE_USERNAME"
-dataset_dir="/content/kaggle/$dataset_name"
+dataset_dir="./$dataset_name"
 dataset_meta_path="$dataset_dir/dataset-metadata.json"
 mkdir -p "$dataset_dir"
 cp lightning_logs/custom_model/checkpoints/*.ckpt "$dataset_dir/checkpoint.ckpt"

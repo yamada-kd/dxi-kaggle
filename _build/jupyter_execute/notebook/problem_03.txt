@@ -1,4 +1,4 @@
-!nvidia-smi
+! nvidia-smi
 
 from google.colab import drive
 import os
@@ -17,15 +17,15 @@ if [ $? -ne 0 ]; then
     echo "データのダウンロードに問題があったようです．"
     echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
-    mkdir -p /content/kaggle
-    unzip -o /content/jigsaw-toxic-comment-classification-challenge.zip -d /content/kaggle
-    unzip -o "/content/kaggle/*.zip" -d /content/kaggle
-    rm /content/kaggle/*.zip
+    mkdir -p /content/drive/MyDrive/kaggle/project/toxic
+    unzip -o /content/jigsaw-toxic-comment-classification-challenge.zip -d /content/drive/MyDrive/kaggle/project/toxic
+    unzip -o "/content/drive/MyDrive/kaggle/project/toxic/*.zip" -d /content/drive/MyDrive/kaggle/project/toxic
+    rm /content/drive/MyDrive/kaggle/project/toxic/*.zip
 fi
 wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
 unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 
-!pip install transformers pytorch-lightning
+! pip install transformers pytorch-lightning
 
 import os
 import pandas as pd
@@ -45,9 +45,9 @@ matplotlib.font_manager.fontManager.addfont(font_path)
 prop = matplotlib.font_manager.FontProperties(fname=font_path)
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
-os.chdir('/content/kaggle')
+os.chdir('/content/drive/MyDrive/kaggle/project/toxic')
 
-data = pd.read_csv('/content/kaggle/train.csv')
+data = pd.read_csv('./train.csv')
 data
 
 data_bin = data.copy()
@@ -190,6 +190,6 @@ submission[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_ha
 submission.to_csv('submission.csv', index=False)
 submission
 
-!kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m "Upload"
+! kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m "Upload"
 
 

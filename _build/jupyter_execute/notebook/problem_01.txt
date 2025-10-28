@@ -15,8 +15,8 @@ if [ $? -ne 0 ]; then
     echo "データのダウンロードに問題があったようです．"
     echo "競技規則に同意し，APIキーが有効であることを確認してください．"
 else
-    mkdir -p /content/kaggle
-    unzip -o /content/m5-forecasting-accuracy.zip -d /content/kaggle
+    mkdir -p /content/drive/MyDrive/kaggle/project/m5
+    unzip -o /content/m5-forecasting-accuracy.zip -d /content/drive/MyDrive/kaggle/project/m5
 fi
 wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
 unzip -u /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
@@ -35,7 +35,7 @@ matplotlib.font_manager.fontManager.addfont(font_path)
 prop = matplotlib.font_manager.FontProperties(fname=font_path)
 plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
-os.chdir('/content/kaggle')
+os.chdir('/content/drive/MyDrive/kaggle/project/m5')
 
 sales = pd.read_csv('sales_train_evaluation.csv')
 sales.sample(10)
