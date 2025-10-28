@@ -540,7 +540,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>GPUランタイムを使用しているかどうかを確認するには，次のセルを実行してください．フォーマットされたテキストが複数行出力されるはずです．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!nvidia-smi
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! nvidia-smi
 </pre></div>
 </div>
 </div>
@@ -576,10 +576,10 @@ if [ $? -ne 0 ]; then
     echo &quot;データのダウンロードに問題があったようです．&quot;
     echo &quot;競技規則に同意し，APIキーが有効であることを確認してください．&quot;
 else
-    mkdir -p /content/kaggle
-    unzip -o /content/jigsaw-toxic-comment-classification-challenge.zip -d /content/kaggle
-    unzip -o &quot;/content/kaggle/*.zip&quot; -d /content/kaggle
-    rm /content/kaggle/*.zip
+    mkdir -p /content/drive/MyDrive/kaggle/project/toxic
+    unzip -o /content/jigsaw-toxic-comment-classification-challenge.zip -d /content/drive/MyDrive/kaggle/project/toxic
+    unzip -o &quot;/content/drive/MyDrive/kaggle/project/toxic/*.zip&quot; -d /content/drive/MyDrive/kaggle/project/toxic
+    rm /content/drive/MyDrive/kaggle/project/toxic/*.zip
 fi
 wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
 unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
@@ -593,7 +593,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <p>デフォルトではインストールされていないライブラリを使用するので，ここでインストールします．</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!pip install transformers pytorch-lightning
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! pip install transformers pytorch-lightning
 </pre></div>
 </div>
 </div>
@@ -618,7 +618,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <span class="n">prop</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">font_path</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/kaggle&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/kaggle/project/toxic&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -632,7 +632,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <h3><span class="section-number">4.3.1. </span>train.csv<a class="headerlink" href="#train-csv" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/kaggle/train.csv&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./train.csv&#39;</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
 </div>
@@ -878,7 +878,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <p>予測はKaggleのAPIを通して直接提出できるので，ファイルを手動でダウンロードし，Kaggleのウェブサイトに再アップロードする必要はありません．提出後は<a class="reference external" href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge/submissions">提出ページ</a>でスコアを確認します</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>!kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m &quot;Upload&quot;
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>! kaggle competitions submit -c jigsaw-toxic-comment-classification-challenge -f submission.csv -m &quot;Upload&quot;
 </pre></div>
 </div>
 </div>
