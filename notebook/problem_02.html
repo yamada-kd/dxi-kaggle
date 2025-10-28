@@ -556,12 +556,12 @@ if [ $? -ne 0 ]; then
     echo &quot;データのダウンロードに問題があったようです．&quot;
     echo &quot;競技規則に同意し，APIキーが有効であることを確認してください．&quot;
 else
-    mkdir -p /content/kaggle
-    unzip -o /content/mercari-price-suggestion-challenge.zip -d /content/kaggle
-    unzip -p /content/kaggle/test_stg2.tsv.zip &gt; /content/kaggle/test.tsv
-    unzip -p /content/kaggle/sample_submission_stg2.csv.zip &gt; /content/kaggle/sample_submission.csv
-    7z e -so /content/kaggle/train.tsv.7z &gt; /content/kaggle/train.tsv
-    rm /content/kaggle/*.zip /content/kaggle/*.7z
+    mkdir -p /content/drive/MyDrive/kaggle/project/mercari
+    unzip -o /content/mercari-price-suggestion-challenge.zip -d /content/drive/MyDrive/kaggle/project/mercari
+    unzip -p /content/drive/MyDrive/kaggle/project/mercari/test_stg2.tsv.zip &gt; /content/drive/MyDrive/kaggle/project/mercari/test.tsv
+    unzip -p /content/drive/MyDrive/kaggle/project/mercari/sample_submission_stg2.csv.zip &gt; /content/drive/MyDrive/kaggle/project/mercari/sample_submission.csv
+    7z e -so /content/drive/MyDrive/kaggle/project/mercari/train.tsv.7z &gt; /content/drive/MyDrive/kaggle/project/mercari/train.tsv
+    rm /content/drive/MyDrive/kaggle/project/mercari/*.zip /content/drive/MyDrive/kaggle/project/mercari/*.7z
 fi
 wget -q -P /tmp https://noto-website-2.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip
 unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
@@ -592,7 +592,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <span class="n">prop</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">font_manager</span><span class="o">.</span><span class="n">FontProperties</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="n">font_path</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">prop</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/kaggle&#39;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/kaggle/project/mercari/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -606,7 +606,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <h3><span class="section-number">3.3.1. </span>train.tsv<a class="headerlink" href="#train-tsv" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/kaggle/train.tsv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;train_id&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./train.tsv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;train_id&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
 </div>
@@ -765,7 +765,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chunksize</span> <span class="o">=</span> <span class="mi">100_000</span>
 <span class="n">test_ids</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">preds</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">test_data</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/kaggle/test.tsv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;test_id&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">3460725</span><span class="o">/</span><span class="n">chunksize</span><span class="p">))):</span>
+<span class="k">for</span> <span class="n">test_data</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./test.tsv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;test_id&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">3460725</span><span class="o">/</span><span class="n">chunksize</span><span class="p">))):</span>
     <span class="n">test_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_data</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     <span class="n">test_data</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">test_data</span><span class="p">[[</span><span class="s1">&#39;level1_category_name&#39;</span><span class="p">,</span> <span class="s1">&#39;level2_category_name&#39;</span><span class="p">,</span> <span class="s1">&#39;level3_category_name&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;category_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -814,7 +814,7 @@ unzip -o /tmp/NotoSansCJKjp-hinted.zip -d /usr/share/fonts/NotoSansCJKjp
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>%%bash
 dataset_name=&quot;mercari-project-dataset-$KAGGLE_USERNAME&quot;
-dataset_dir=&quot;/content/kaggle/$dataset_name&quot;
+dataset_dir=&quot;./$dataset_name&quot;
 dataset_meta_path=&quot;$dataset_dir/dataset-metadata.json&quot;
 mkdir -p &quot;$dataset_dir&quot;
 cp submission.csv &quot;$dataset_dir&quot;
@@ -847,7 +847,7 @@ fi
 <h4><span class="section-number">3.4.3.1. </span>ステップ1<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h4>
 <p>予測データを投稿するためのカーネルを作成します．最初に，<a class="reference external" href="https://www.kaggle.com/competitions/mercari-price-suggestion-challenge/submissions">競技会提出ページ</a>にアクセスする．次に，「Late Submission」をクリックします．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-01.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-01.png?raw=1" />
-<p>「Create New Notebook」をクリックします．</p>
+<p>「Create Notebook」をクリックします．</p>
 <img alt="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-02.png?raw=1" src="https://github.com/yamada-kd/dxi-kaggle/blob/main/image/kaggle-problem-2-02.png?raw=1" />
 <p>新しいタブが開き，新しく作成されたノートブックが表示されます．ノートブックにはKaggleによって生成された名前とテンプレートコードが表示されます．ノートブックの名前をもっと分かりやすいものに変更することをお勧めしますが，そのままでも問題ありません．</p>
 </div>
